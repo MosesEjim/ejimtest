@@ -19,7 +19,12 @@ class PageController extends Controller
   }
 
   public function createRole(){
-    return view('roles.create');
+    return view('role.create');
   }
+
+  public function roles(){
+    return view('role.index');
+  }
+
 }
 

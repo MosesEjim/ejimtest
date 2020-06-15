@@ -9,46 +9,27 @@
        <div class="card-body">
         <div class="card-content p-2">
             <div class="text-center">
-                <img src="assets/images/logo-icon.png" alt="logo icon">
+                <img src="{{URL::asset('assets/images/logo-icon.png')}}" alt="logo icon" width = "50px" height ="50px">
             </div>
-         <div class="card-title text-uppercase text-center py-3">Sign In</div>
+         <div class="card-title text-uppercase text-center py-3">Create A Role</div>
            <form>
              <div class="form-group">
-             <label for="exampleInputUsername" class="sr-only">Username</label>
+             <label for="exampleInputUsername" class="sr-only">Role Name</label>
               <div class="position-relative has-icon-right">
-                 <input type="text" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Username">
-                 <div class="form-control-position">
-                     <i class="icon-user"></i>
-                 </div>
+                 <input type="text" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Role Name">
               </div>
              </div>
              <div class="form-group">
-             <label for="exampleInputPassword" class="sr-only">Password</label>
+             <label for="exampleInputPassword" class="sr-only">Role Description</label>
               <div class="position-relative has-icon-right">
-                 <input type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Enter Password">
-                 <div class="form-control-position">
-                     <i class="icon-lock"></i>
-                 </div>
+                  <textarea name="roledescription" id="" cols="30" rows="10" class ="form-control" placeholder = "Describe Role"></textarea>
               </div>
              </div>
-           <div class="form-row">
-            <div class="form-group col-6">
-              <div class="icheck-material-primary">
-               <input type="checkbox" id="user-checkbox" checked="" />
-               <label for="user-checkbox">Remember me</label>
-             </div>
-            </div>
-            <div class="form-group col-6 text-right">
-             <a href="authentication-reset-password.html">Reset Password</a>
-            </div>
-           </div>
-            <button type="button" class="btn btn-primary btn-block">Sign In</button>
+           
+                <button type="button" class="btn btn-primary btn-block">Create Role</button>
             
             </form>
           </div>
-         </div>
-         <div class="card-footer text-center py-3">
-           <p class="text-dark mb-0">Do not have an account? <a href="{{route('auth.signup.get')}}"> Sign Up here</a></p>
          </div>
         </div>
    

@@ -56,7 +56,8 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
-          <li><a href="components-range-slider.html"><i class="zmdi zmdi-dot-circle-alt"></i> Create Role </a></li>
+          <li><a href="{{route('createroles')}}"><i class="zmdi zmdi-dot-circle-alt"></i> Create Role </a></li>
+          <li><a href="{{route('roles')}}"><i class="zmdi zmdi-dot-circle-alt"></i> View Roles </a></li>
         </ul>
       </li>
       

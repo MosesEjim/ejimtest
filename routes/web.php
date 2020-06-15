@@ -20,7 +20,8 @@ Route::get('/', function () {
 
 Route::get('/signup', 'PageController@signUp');
 Route::get('/dashboard','PageController@index');
-Route::get('/role', 'PageController@createRole');
+Route::get('/roles', 'RoleController@index')->name('roles');
+Route::get('/createrole', 'RoleController@create')->name('createroles');
 
 Route::group(['prefix' => 'account'], function() {
     Route::group(['prefix' => 'login'], function() {
