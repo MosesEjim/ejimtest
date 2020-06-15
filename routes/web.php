@@ -18,9 +18,16 @@ Route::get('/', function () {
 });
 
 
+Route::get('/signup', 'PageController@signUp');
+
 Route::group(['prefix' => 'auth'], function() {
     Route::group(['prefix' => 'login'], function() {
-        Route::get('/', 'UserController@getLogin')->name('auth.login.get');
+        Route::get('/login', 'PageController@login')->name('auth.login.get');
         Route::post('/', 'UserController@postLogin')->name('auth.login.post');
+    });
+
+    Route::group(['prefix' => 'sign-up'], function() {
+        Route::get('/', 'PageController@signUp')->name('auth.signup.get');
+        Route::post('/', 'PageController@store')->name('auth.signup.post');
     });
 });
