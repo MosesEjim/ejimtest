@@ -21,10 +21,11 @@ Route::get('/', function () {
 Route::get('/signup', 'PageController@signUp');
 Route::get('/dashboard','PageController@index');
 Route::get('/role', 'PageController@createRole');
-Route::group(['prefix' => 'auth'], function() {
+
+Route::group(['prefix' => 'account'], function() {
     Route::group(['prefix' => 'login'], function() {
         Route::get('/', 'PageController@login')->name('auth.login.get');
-        Route::post('/', 'UserController@postLogin')->name('auth.login.post');
+        Route::post('/', 'LoginController@login')->name('auth.login.post');
     });
 
     Route::group(['prefix' => 'sign-up'], function() {

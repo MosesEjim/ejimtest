@@ -20,5 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group(['prefix' => 'auth'], function() {
-
+    Route::group(['prefix' => 'login'], function() {
+        Route::post('/', 'api\LoginController@authenticate');
+    });
 });

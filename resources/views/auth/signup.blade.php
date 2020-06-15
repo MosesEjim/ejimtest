@@ -8,15 +8,15 @@
   <meta name="author" content=""/>
   <title>TrackIt</title>
   <!--favicon-->
-  <link rel="icon" href="{{('assets/images/favicon.ico')}}" type="image/x-icon">
+  <link rel="icon" href="{{ URL::asset('assets/images/favicon.ico')}}" type="image/x-icon">
   <!-- Bootstrap core CSS-->
-  <link href="{{('assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
+  <link href="{{ URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
   <!-- animate CSS-->
-  <link href="{{('assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
+  <link href="{{ URL::asset('assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
-  <link href="{{('assets/css/icons.css')}}" rel="stylesheet" type="text/css"/>
+  <link href="{{ URL::asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css"/>
   <!-- Custom Style-->
-  <link href="{{('assets/css/app-style.css')}}" rel="stylesheet"/>
+  <link href="{{ URL::asset('assets/css/app-style.css')}}" rel="stylesheet"/>
   
 </head>
 
@@ -33,7 +33,7 @@
 		<div class="card-body">
 		 <div class="card-content p-2">
 		 	<div class="text-center">
-		 		<img src="assets/images/logo-icon.png" alt="logo icon">
+		 		<img src="{{ URL::asset('assets/images/logo-icon.png') }}" alt="logo icon">
 		 	</div>
 		  <div class="card-title text-uppercase text-center py-3">Sign Up</div>
 		    <form>
@@ -101,15 +101,15 @@
 	</div><!--wrapper-->
 	
   <!-- Bootstrap core JavaScript-->
-  <script src="{{('assets/js/jquery.min.js')}}"></script>
-  <script src="{{('assets/js/popper.min.js')}}"></script>
-  <script src="{{('assets/js/bootstrap.min.js')}}"></script>
+  <script src="{{ URL::asset('assets/js/jquery.min.js')}}"></script>
+  <script src="{{ URL::asset('assets/js/popper.min.js')}}"></script>
+  <script src="{{ URL::asset('assets/js/bootstrap.min.js')}}"></script>
 	
   <!-- sidebar-menu js -->
-  <script src="{{('assets/js/sidebar-menu.js')}}"></script>
+  <script src="{{ URL::asset('assets/js/sidebar-menu.js')}}"></script>
   
   <!-- Custom scripts -->
-  <script src="{{('assets/js/app-script.js')}}"></script>
+  <script src="{{ URL::asset('assets/js/app-script.js')}}"></script>
   
 </body>
 </html>
