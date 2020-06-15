@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('auth.login.get');
+});
+
+
+Route::group(['prefix' => 'auth'], function() {
+    Route::group(['prefix' => 'login'], function() {
+        Route::get('/', 'UserController@getLogin')->name('auth.login.get');
+        Route::post('/', 'UserController@postLogin')->name('auth.login.post');
+    });
 });

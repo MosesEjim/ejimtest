@@ -68,6 +68,7 @@ class MigrationCartalystSentinel extends Migration
             $table->string('slug');
             $table->string('name');
             $table->text('permissions')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
 
             $table->engine = 'InnoDB';
@@ -102,6 +103,12 @@ class MigrationCartalystSentinel extends Migration
             $table->timestamp('last_login')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('username')->nullable();
+            $table->string('sex')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('staff_id')->nullable();
+            $table->string('slug');
             $table->timestamps();
 
             $table->engine = 'InnoDB';
