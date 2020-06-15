@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/signup', 'PageController@signUp');
+Route::get('/login', 'PageController@login');

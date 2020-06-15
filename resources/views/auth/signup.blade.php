@@ -49,7 +49,7 @@
 			  <div class="form-group">
 			  <label for="exampleInputName" class="sr-only">Last Name</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="lastname" name = "" class="form-control input-shadow" placeholder="Enter Your Last Name">
+				  <input type="text" id="lastname" name = "lastname" class="form-control input-shadow" placeholder="Enter Your Last Name">
 				  <div class="form-control-position">
 					  <i class="icon-user"></i>
 				  </div>
@@ -82,22 +82,13 @@
 			    </div>
 			  
 			 <button type="button" class="btn btn-primary btn-block waves-effect waves-light">Sign Up</button>
-			  <div class="text-center mt-3">Sign Up With</div>
 			  
-			 <div class="form-row mt-4">
-			  <div class="form-group mb-0 col-6">
-			   <button type="button" class="btn bg-facebook text-white btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
-			 </div>
-			 <div class="form-group mb-0 col-6 text-right">
-			  <button type="button" class="btn bg-twitter text-white btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
-			 </div>
-			</div>
 			
 			 </form>
 		   </div>
 		  </div>
 		  <div class="card-footer text-center py-3">
-		    <p class="text-dark mb-0">Already have an account? <a href="authentication-signin.html"> Sign In here</a></p>
+		    <p class="text-dark mb-0">Already have an account? <a href="{{route('auth.login.get')}}"> Sign In here</a></p>
 		  </div>
 	     </div>
     

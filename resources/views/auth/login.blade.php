@@ -73,7 +73,7 @@
 		   </div>
 		  </div>
 		  <div class="card-footer text-center py-3">
-		    <p class="text-dark mb-0">Do not have an account? <a href="authentication-signup.html"> Sign Up here</a></p>
+		    <p class="text-dark mb-0">Do not have an account? <a href="{{route('auth.signup.get')}}"> Sign Up here</a></p>
 		  </div>
 	     </div>
     
