@@ -28,12 +28,12 @@ class EloquentLoginRepository implements LoginContract {
 
       // Update a Login
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+        $user = $this->findBySlug($slug);
     }
 
       // Remove a Login
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+        $user = $this->findBySlug($slug);
+        return $user->delete();
     }
 }

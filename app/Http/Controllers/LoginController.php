@@ -35,26 +35,18 @@ class LoginController extends Controller
 		try {
 		  if(Sentinel::authenticate($credentials)) {
 				$authUser = Sentinel::getUser();
-				$card = $this->cardRepo->findByUserId($authUser->id);
-				// dd($card);
-
+				
 				try {
 				  if(Sentinel::getUser()->roles()->first()->slug === 'super') {
 						// return redirect()->route('admin.index');
 						return 'superadmin';
 				  } elseif (Sentinel::getUser()->roles()->first()->slug === 'admin') {
-						return redirect()->route('dash.admin.index');
+                      return 'admin';
+						return redirect()->route('dashboard.admin.index');
 				  } elseif (Sentinel::getUser()->roles()->first()->slug === 'user') {
-				  	if (!$authUser->account_details_status) {
-				  		$user = $authUser;
-				  		return redirect()->route('user.profile.bank')->with('user', $user);
-				  	}
-
-				  	if ($authUser->first_charge != true) {
-				  		return redirect()->route('user.profile.first_charge');
-				  	}
+				  	
 					
-					return redirect()->route('dash.user.index');
+					return redirect()->route('dashboard.user.index');
 				  }
 				} catch (\BadMethodCallException $e) {
 				  return redirect()->route('auth.login.get')->with('error', 'Your Session has expired. Please login again!');
