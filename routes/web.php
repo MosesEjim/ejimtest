@@ -18,12 +18,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/signup', 'PageController@signUp');
-
-Route::group(['prefix' => 'auth'], function() {
+Route::group(['prefix' => 'account'], function() {
     Route::group(['prefix' => 'login'], function() {
-        Route::get('/login', 'PageController@login')->name('auth.login.get');
-        Route::post('/', 'UserController@postLogin')->name('auth.login.post');
+        Route::get('/', 'PageController@login')->name('auth.login.get');
+        Route::post('/', 'LoginController@login')->name('auth.login.post');
     });
 
     Route::group(['prefix' => 'sign-up'], function() {
