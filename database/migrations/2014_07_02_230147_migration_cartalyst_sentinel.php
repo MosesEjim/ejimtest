@@ -107,6 +107,7 @@ class MigrationCartalystSentinel extends Migration
             $table->string('username')->nullable();
             $table->string('sex')->nullable();
             $table->string('dob')->nullable();
+            $table->string('user_role')->nullable();
             $table->string('staff_id')->nullable();
             $table->string('slug');
             $table->timestamps();

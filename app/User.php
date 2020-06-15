@@ -5,8 +5,9 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Cartalyst\Sentinel\Users\EloquentUser;
 
-class User extends Authenticatable
+class User extends EloquentUser
 {
     use Notifiable;
 
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $loginNames = ['email', 'phone'];
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::group(['prefix' => 'auth'], function() {
+Route::group(['prefix' => 'account'], function() {
     Route::group(['prefix' => 'login'], function() {
         Route::get('/', 'UserController@getLogin')->name('auth.login.get');
         Route::post('/', 'UserController@postLogin')->name('auth.login.post');
