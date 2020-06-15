@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Dashtreme - Multipurpose Bootstrap4 Admin Template</title>
+  <title>Unicef - TrackIt</title>
   <!--favicon-->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
   <!-- Vector CSS -->
@@ -31,7 +31,9 @@
 
 @yield('header')
 
+@yield('footer')
 <!-- Bootstrap core JavaScript-->
+
 @yield('scripts')
 <script src="{{('assets/js/jquery.min.js')}}"></script>
   <script src="{{('assets/js/popper.min.js')}}"></script>
@@ -57,7 +59,7 @@
   <script src="{{('assets/plugins/sparkline-charts/jquery.sparkline.min.js')}}"></script>
   <script src="{{('assets/plugins/jquery-knob/excanvas.js')}}"></script>
   <script src="{{('assets/plugins/jquery-knob/jquery.knob.js')}}"></script>
-    
+  
     <script>
         $(function() {
             $(".knob").knob();

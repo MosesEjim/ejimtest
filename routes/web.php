@@ -19,10 +19,11 @@ Route::get('/', function () {
 
 
 Route::get('/signup', 'PageController@signUp');
-
+Route::get('/dashboard','PageController@index');
+Route::get('/role', 'PageController@createRole');
 Route::group(['prefix' => 'auth'], function() {
     Route::group(['prefix' => 'login'], function() {
-        Route::get('/login', 'PageController@login')->name('auth.login.get');
+        Route::get('/', 'PageController@login')->name('auth.login.get');
         Route::post('/', 'UserController@postLogin')->name('auth.login.post');
     });
 
