@@ -16,7 +16,11 @@ class EloquentCategoryRepository implements CategoryContract {
 
       // return all Category
     public function findAll() {
-        return Category::all();
+        return Category::where('active_status', true)->get();
+    }
+   
+    public function findAllDisabled() {
+        return Category::where('active_status', false)->get();
     }
 
     public function getAll() {
@@ -36,6 +40,20 @@ class EloquentCategoryRepository implements CategoryContract {
       // Update a Category
     public function update($request, $slug) {
         $cat = $this->findBySlug($slug);
+    }
+    
+    public function enabledStatus($id) {
+        $cat = $this->findById($id);
+        $cat->active_status = true;
+        $cat->save();
+        return $cat;
+    }
+    
+    public function disableStatus($id) {
+        $cat = $this->findById($id);
+        $cat->active_status = false;
+        $cat->save();
+        return $cat;
     }
 
       // Remove a Category

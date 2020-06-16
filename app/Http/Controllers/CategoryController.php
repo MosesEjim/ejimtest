@@ -21,6 +21,16 @@ class CategoryController extends Controller
         return view('category.index')->with('categories', $categories);
     }
     
+    
+    public function disabled()
+    {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        $categories = $this->repo->findAllDisabled();
+        return view('category.index')->with('categories', $categories);
+    }
+    
     public function create()
     {
         return view('category.create');
@@ -74,6 +84,44 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+    }
+    
+    public function enabledStatus($id)
+    {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        else{
+            // dd($request->all());
+
+            $cat = $this->repo->enabledStatus($id);
+            // dd($employee);
+
+            if($cat->id) {
+                return redirect()->route('dashboard.category.index')->with('success', "Category: $cat->title enabled successfully.");
+            } else {
+                return back()->withInput()->with('error', 'Could not update record. Try again!');
+            }
+        }
+    }
+    
+    public function disableStatus($id)
+    {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        else{
+            // dd($request->all());
+
+            $cat = $this->repo->disableStatus($id);
+            // dd($employee);
+
+            if($cat->id) {
+                return redirect()->route('dashboard.category.index')->with('success', "Category: $cat->title disabled successfully.");
+            } else {
+                return back()->withInput()->with('error', 'Could not update record. Try again!');
+            }
+        }
     }
     
     public function update(Request $request, $id)

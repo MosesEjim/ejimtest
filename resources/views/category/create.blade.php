@@ -93,7 +93,7 @@
            <div class="form-group">
             <label for="description">Description (optional)</label>
   
-            <textarea name="description" id="description" cols="5" class="form-control  ">
+            <textarea name="description" id="description" cols="5" class="form-control">
             {{ old('description') }}
             </textarea>
            </div>
@@ -117,3 +117,4 @@
    </div>
 
 @endsection
+

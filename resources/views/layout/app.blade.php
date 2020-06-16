@@ -51,7 +51,7 @@
     <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
       <div class="avatar"><img class="mr-3 side-user-img" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
        <div class="media-body">
-       <h6 class="side-user-name">Mark Johnson</h6>
+       <h6 class="side-user-name">{{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }}</h6>
       </div>
        </div>
      <div id="user-dropdown" class="collapse">
@@ -76,7 +76,7 @@
     @yield('content')   
 	
 	<!--Start footer-->
-        @includes('layout.footer')
+        
 	<!--End footer-->
    
   </div><!--End wrapper-->

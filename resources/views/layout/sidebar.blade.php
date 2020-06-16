@@ -35,6 +35,7 @@
       <ul class="sidebar-submenu">
         <li><a href="{{ route('dashboard.category.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Categories</a></li>
         <li><a href="{{ route('dashboard.category.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create a Category</a></li>
+        <li><a href="{{ route('dashboard.category.disabled') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Disabled Categories</a></li>
       </ul>
     </li>
     
