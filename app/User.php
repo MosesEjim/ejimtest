@@ -6,8 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Cartalyst\Sentinel\Users\EloquentUser;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends EloquentUser
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -17,10 +18,17 @@ class User extends EloquentUser
      * @var array
      */
     protected $fillable = [
-        'name', 
+        'first_name', 
+        'last_name', 
         'email', 
         'phone',
+        'username',
         'password',
+        'user_role',
+        'sex',
+        'dob',
+        'staff_id',
+        'slug',
     ];
 
     protected $loginNames = ['email', 'phone'];
@@ -41,4 +49,14 @@ class User extends EloquentUser
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }

@@ -24,3 +24,9 @@ Route::group(['prefix' => 'auth'], function() {
         Route::post('/', 'api\LoginController@authenticate');
     });
 });
+
+Route::group(['prefix' => 'user', 'middleware' => ['jwt.verify']], function() {
+    Route::group(['prefix' => 'all'], function() {
+        Route::get('/', 'api\ApiUserController@index');
+    });
+});

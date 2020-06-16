@@ -16,6 +16,10 @@ class UserController extends Controller
         return view('user.index');
     }
     
+    public function adminDashboard() {
+        return view('dashboard.index');
+    }
+
     public function create()
     {
         return view('user.create');
