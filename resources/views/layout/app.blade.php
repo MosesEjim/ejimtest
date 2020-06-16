@@ -42,14 +42,14 @@
    <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
-      <a href="index.html">
+      <a href="">
        <img src="{{ URL::asset('assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
        <h5 class="logo-text">Unicef Admin</h5>
      </a>
    </div>
    <div class="user-details">
     <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
-      <div class="avatar"><img class="mr-3 side-user-img" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+      <div class="avatar"><img class="mr-3 side-user-img" src="{{ URL::asset('assets/images/logo-icon.png') }}" alt="user avatar"></div>
        <div class="media-body">
        <h6 class="side-user-name">{{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }}</h6>
       </div>
