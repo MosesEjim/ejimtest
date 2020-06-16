@@ -33,11 +33,18 @@ Route::group(['prefix' => 'account'], function() {
         Route::post('/', 'PageController@store')->name('auth.signup.post');
     });
 
-
     Route::group(['prefix'=>'dashboard'], function(){
         Route::get('/', 'UserController@adminDashboard')->name('dashboard.admin.index');
         Route::get('/roles', 'RoleController@index')->name('roles');
         Route::get('/createrole', 'RoleController@create')->name('createroles');
+
+
+        // Categories Route Group
+        Route::group(['prefix' => 'category'], function() {
+            Route::get('/', 'CategoryController@index')->name('dashboard.category.index');
+            Route::get('/create', 'CategoryController@create')->name('dashboard.category.create');
+            Route::post('/create', 'CategoryController@store')->name('dashboard.category.store');
+        });
     });
 });
 

@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject
+class User extends EloquentUser implements JWTSubject
 {
     use Notifiable;
 
@@ -31,7 +31,7 @@ class User extends Authenticatable implements JWTSubject
         'slug',
     ];
 
-    protected $loginNames = ['email', 'phone'];
+    // protected $loginNames = ['email', 'phone'];
     /**
      * The attributes that should be hidden for arrays.
      *
