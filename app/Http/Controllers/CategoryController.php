@@ -17,7 +17,8 @@ class CategoryController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-        return view('category.index');
+        $categories = $this->repo->findAll();
+        return view('category.index')->with('categories', $categories);
     }
     
     public function create()
