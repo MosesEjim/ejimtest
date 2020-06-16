@@ -178,7 +178,7 @@ return [
  		App\Providers\UserServiceProvider::class,
  		App\Providers\RoleServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
-
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*
