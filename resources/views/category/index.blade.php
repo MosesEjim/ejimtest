@@ -85,7 +85,14 @@
                         <td>{{ $cat->title }}</td>
                         <td>{{ $cat->description }}</td>
                         <td>{{ $cat->created_at }}</td>
-                        <td>#</td>
+                        <td>
+                        <div class="btn-group m-1">
+                        <a herf="" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                            <i class="fa fa-edit"></i> 
+                          </a>
+                          <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button>
+                        </div>
+                        </td>
                     </tr>
                   @endforeach
                 </tbody>
