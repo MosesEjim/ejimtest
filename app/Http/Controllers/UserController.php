@@ -16,6 +16,13 @@ class UserController extends Controller
         return view('user.index');
     }
     
+    public function adminDashboard() {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        return view('dashboard.index');
+    }
+
     public function create()
     {
         return view('user.create');

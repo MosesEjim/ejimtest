@@ -174,12 +174,14 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+ 		App\Providers\PartnerServiceProvider::class,
  		App\Providers\ProductServiceProvider::class,
+ 		App\Providers\CategoryServiceProvider::class,
  		App\Providers\LoginServiceProvider::class,
  		App\Providers\UserServiceProvider::class,
  		App\Providers\RoleServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
-
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*

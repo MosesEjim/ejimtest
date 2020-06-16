@@ -16,10 +16,10 @@
       <!-- Breadcrumb-->
      <div class="row pt-2 pb-2">
         <div class="col-sm-9">
-		    <h4 class="page-title">All Products</h4>
+		    <h4 class="page-title">All Categories</h4>
 		    <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javaScript:void();">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="javaScript:void();">Products</a></li>
+            <li class="breadcrumb-item"><a href="javaScript:void();">Categories</a></li>
             <li class="breadcrumb-item active" aria-current="page">Listing All</li>
          </ol>
 	   </div>
@@ -44,7 +44,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="card">
-            <div class="card-header"><i class="fa fa-table"></i>All Products</div>
+            <div class="card-header"><i class="fa fa-table"></i>All Categories</div>
             <div class="card-body">
             @if(session('error'))
             <div class="alert alert-danger alert-dismissible" role="alert">
@@ -73,29 +73,24 @@
               <table id="example" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Date Created</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach($products as $product)
+                  @foreach($categories as $cat)
                     <tr>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->brand }}</td>
-                        <td>{{ $product->material_no }}</td>
-                        <td>{{ $product->batch_no }}</td>
-                        <td>{{ $product->category->title }}</td>
-                        
+                        <td>{{ $cat->title }}</td>
+                        <td>{{ $cat->description }}</td>
+                        <td>{{ $cat->created_at }}</td>
                         <td>
                         <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.product.edit', $product->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                        <a herf="" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
                             <i class="fa fa-edit"></i> 
                           </a>
-                          {{-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> --}}
+                          <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button>
                         </div>
                         </td>
                     </tr>
@@ -103,11 +98,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                    <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
+                    <th>Title</th>
+                        <th>Description</th>
+                        <th>Date Created</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

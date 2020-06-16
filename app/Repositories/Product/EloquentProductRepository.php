@@ -36,13 +36,14 @@ class EloquentProductRepository implements ProductContract {
     }
 
       // Update a Product
-    public function update($request, $slug) {
-        $updateProduct = $this->findBySlug($slug);
+    public function update($request, $id) {
+        $updateProduct = $this->findById($id);
         $updateProduct->material_no = $request->material_no;
         $updateProduct->batch_no = $request->batch_no;
         $updateProduct->product_name = $request->product_name;
         $updateProduct->brand = $request->brand;
         $updateProduct->category_id = $request->category_id;
+        $updateProduct->save();
         return $updateProduct;
         // ${repoName,,} = $this->findBySlug($slug);
     }

@@ -73,26 +73,30 @@
               <table id="example" class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Product ID</th>
                         <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
+                        <th>email</th>
+                        <th>payment email</th>
+                        <th>partner type</th>
+                        <th>description</th>
+                        <th>city</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach($products as $product)
+                  @foreach($partners as $partner)
                     <tr>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->brand }}</td>
-                        <td>{{ $product->material_no }}</td>
-                        <td>{{ $product->batch_no }}</td>
-                        <td>{{ $product->category->title }}</td>
+                        <td>{{ $partner->partner_id }}</td>
+                        <td>{{ $partner->partner_name }}</td>
+                        <td>{{ $partner->email }}</td>
+                        <td>{{ $partner->payment_email }}</td>
+                        <td>{{ $partner->partner_type }}</td>
+                        <td>{{ $partner->type_description }}</td>
+                        <td>{{ $partner->city }}</td>
                         
                         <td>
                         <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.product.edit', $product->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                        <a href="{{ route('dashboard.partner.edit', $partner->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
                             <i class="fa fa-edit"></i> 
                           </a>
                           {{-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> --}}
@@ -103,11 +107,13 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                    <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>email</th>
+                        <th>payment email</th>
+                        <th>partner type</th>
+                        <th>description</th>
+                        <th>city</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

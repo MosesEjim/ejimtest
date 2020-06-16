@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-  <meta name="description" content=""/>
-  <meta name="author" content=""/>
-  <title>Unicef - TrackIt</title>
+
   <!--favicon-->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
   <!-- Vector CSS -->
@@ -28,11 +20,6 @@
   @yield('styles')
 </head>
 <body>
-
-@yield('header')
-
-@yield('footer')
-<!-- Bootstrap core JavaScript-->
 
 @yield('scripts')
 <script src="{{ URL::asset('assets/js/jquery.min.js')}}"></script>
@@ -56,9 +43,9 @@
   <!-- Easy Pie Chart JS -->
   <script src="{{ URL::asset('assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
   <!-- Sparkline JS -->
-  <script src="{{('assets/plugins/sparkline-charts/jquery.sparkline.min.js')}}"></script>
-  <script src="{{('assets/plugins/jquery-knob/excanvas.js')}}"></script>
-  <script src="{{('assets/plugins/jquery-knob/jquery.knob.js')}}"></script>
+  <script src="{{ URL::asset('assets/plugins/sparkline-charts/jquery.sparkline.min.js')}}"></script>
+  <script src="{{ URL::asset('assets/plugins/jquery-knob/excanvas.js')}}"></script>
+  <script src="{{ URL::asset('assets/plugins/jquery-knob/jquery.knob.js')}}"></script>
   
   <script src="{{ URL::asset('assets/plugins/sparkline-charts/jquery.sparkline.min.js')}}"></script>
   <script src="{{ URL::asset('assets/plugins/jquery-knob/excanvas.js')}}"></script>
@@ -72,6 +59,3 @@
   <!-- Index js -->
   <script src="{{ URL::asset('assets/js/index.js')}}"></script>
 
-  
-</body>
-</html>
