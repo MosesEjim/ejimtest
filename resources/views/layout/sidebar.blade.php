@@ -38,5 +38,25 @@
         <li><a href="{{ route('dashboard.category.disabled') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Disabled Categories</a></li>
       </ul>
     </li>
+    <li>
+      <a href="javaScript:void();" class="waves-effect">
+        <i class="zmdi zmdi-chart"></i> <span>Products</span>
+        <i class="fa fa-angle-left float-right"></i>
+      </a>
+      <ul class="sidebar-submenu">
+        <li><a href="{{ route('dashboard.product.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Products</a></li>
+        <li><a href="{{ route('dashboard.product.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create a Product</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javaScript:void();" class="waves-effect">
+        <i class="zmdi zmdi-chart"></i> <span>Partners</span>
+        <i class="fa fa-angle-left float-right"></i>
+      </a>
+      <ul class="sidebar-submenu">
+        <li><a href="{{ route('dashboard.partner.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Partners</a></li>
+        <li><a href="{{ route('dashboard.partner.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add a Partner</a></li>
+      </ul>
+    </li>
     
   </ul>
