@@ -38,7 +38,6 @@ class CategoryController extends Controller
 
         try {
             $cat = $this->repo->create($request);
-            // dd($cat);
             if($cat) {
                 $notification = array(
                     'message' => "Category Created successfully!",
