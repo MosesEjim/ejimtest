@@ -36,5 +36,6 @@ Route::group(['prefix' => 'account'], function() {
 
 Route::group(['prefix'=>'dashboard'], function(){
     Route::get('/roles', 'RoleController@index')->name('roles');
-    Route::get('/createrole', 'RoleController@create')->name('createroles');
+    Route::get('/create_role', 'RoleController@create')->name('createroles');
+    Route::get('/create_product', 'ProductController@create')->name('createproduct');
 });
