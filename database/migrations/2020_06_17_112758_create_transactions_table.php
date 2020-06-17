@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->string('transaction_ref')->unique();
             $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedInteger('user_id');
             $table->Integer('quantity');
             $table->unsignedBigInteger('partner_id');
             $table->foreign('product_id')->references('id')->on('products');

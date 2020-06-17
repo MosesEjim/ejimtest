@@ -96,7 +96,7 @@ class MigrationCartalystSentinel extends Migration
         });
 
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('email');
             $table->string('password');
             $table->text('permissions')->nullable();
