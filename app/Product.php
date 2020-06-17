@@ -9,4 +9,8 @@ class Product extends Model
     public function category() {
         return $this->belongsTo('App\Category');
     }
+
+    public function transactions(){
+        return $this->hasMany('App\Transaction');
+    }
 }

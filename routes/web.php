@@ -63,6 +63,15 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/edit/{id}', 'PartnerController@edit')->name('dashboard.partner.edit');
             Route::put('/edit/{id}', 'PartnerController@update')->name('dashboard.partner.update');
         });
+
+        //Transaction Route Group
+        Route::group(['prefix'=>'transaction'], function(){
+            Route::get('/', 'TransactionController@index')->name('dashboard.transaction.index');
+            Route::get('/create', 'TransactionController@create')->name('dashboard.transaction.create');
+            Route::post('/create', 'TransactionController@store')->name('dashboard.transaction.store');
+            Route::get('/edit/{id}', 'TransactionController@edit')->name('dashboard.transaction.edit');
+            Route::put('/edit/{id}', 'TransactionController@update')->name('dashboard.transaction.update');
+        });
     });
 });
 

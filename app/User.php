@@ -59,4 +59,8 @@ class User extends EloquentUser implements JWTSubject
     {
         return [];
     }
+
+    public function transactions(){
+        return $this->hasMany('App\Transaction');
+    }
 }
