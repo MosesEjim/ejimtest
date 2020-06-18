@@ -67,5 +67,25 @@
         <li><a href="{{ route('dashboard.transaction.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add a Transaction</a></li>
       </ul>
     </li>
+    <li>
+      <a href="javaScript:void();" class="waves-effect">
+        <i class="zmdi zmdi-chart"></i> <span>States</span>
+        <i class="fa fa-angle-left float-right"></i>
+      </a>
+      <ul class="sidebar-submenu">
+        <li><a href="{{ route('dashboard.state.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All States</a></li>
+        <li><a href="{{ route('dashboard.state.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add a State</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javaScript:void();" class="waves-effect">
+        <i class="zmdi zmdi-chart"></i> <span>LGAs</span>
+        <i class="fa fa-angle-left float-right"></i>
+      </a>
+      <ul class="sidebar-submenu">
+        <li><a href="{{ route('dashboard.lga.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All LGAs</a></li>
+        <li><a href="{{ route('dashboard.lga.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add An LGA</a></li>
+      </ul>
+    </li>
     
   </ul>

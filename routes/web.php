@@ -72,6 +72,24 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/edit/{id}', 'TransactionController@edit')->name('dashboard.transaction.edit');
             Route::put('/edit/{id}', 'TransactionController@update')->name('dashboard.transaction.update');
         });
+
+        //State Transaction Group
+        Route::group(['prefix'=>'state'], function(){
+            Route::get('/', 'StateController@index')->name('dashboard.state.index');
+            Route::get('/create', 'StateController@create')->name('dashboard.state.create');
+            Route::post('/create', 'StateController@store')->name('dashboard.state.store');
+            Route::get('/edit/{id}', 'StateController@edit')->name('dashboard.state.edit');
+            Route::put('/edit/{id}', 'StateController@update')->name('dashboard.state.update');
+        });
+
+        //LGA Transaction Group
+        Route::group(['prefix'=>'lga'], function(){
+            Route::get('/', 'LGAController@index')->name('dashboard.lga.index');
+            Route::get('/create', 'LGAController@create')->name('dashboard.lga.create');
+            Route::post('/create', 'LGAController@store')->name('dashboard.lga.store');
+            Route::get('/edit/{id}', 'LGAController@edit')->name('dashboard.lga.edit');
+            Route::put('/edit/{id}', 'LGAController@update')->name('dashboard.lga.update');
+        });
     });
 });
 
