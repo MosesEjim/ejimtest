@@ -34,7 +34,7 @@ class EloquentLGARepository implements LGAContract {
 
       // Update a LGSA
     public function update($request, $id) {
-      $lga = $this->findById($request, $id);
+      $lga = $this->findById($id);
       $lga->name = $request->name;
       $lga->state_id = $request->state;
       $slug = preg_replace('/\s+/', '-', $request->name);

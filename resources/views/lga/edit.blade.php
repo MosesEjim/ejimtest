@@ -52,7 +52,7 @@
 
            <form method = "post" action = "{{ route('dashboard.lga.update', $lga->id) }}">
               @csrf
-             
+              @method('PUT')
              
              <div class="form-group">
              <label for="state" class="sr-only">State</label>
@@ -69,7 +69,7 @@
              <div class="form-group">
              <label for="state" class="sr-only">State</label>
               <div class="position-relative has-icon-right">
-              <input type="text" id="name" name = "name" value="{{$lga->name}}" class="form-control input-shadow" placeholder="Enter LGA Name">
+              <input type="text" id="name" name="name" value="{{$lga->name}}" class="form-control input-shadow" placeholder="Enter LGA Name">
               </div>
              </div>
              
