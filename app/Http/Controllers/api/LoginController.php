@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Sentinel;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -17,20 +18,47 @@ class LoginController extends Controller
     // }
 
     public function authenticate(Request $request){
-        $credentials = $request->only('email', 'password');
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string'
+        ]);
+        
+        $credentials = [
+            'email'    => $request->email,
+            'password' => $request->password,
+        ];
+        
         try {
-            // if (!$token = JWTAuth::attempt($credentials)) {
-            //     return response()->json(['error' => 'invalid_credentials'], 400);
-            // }
+            if(Sentinel::authenticate($credentials)) {
+                // Authentication passed...
+                $authUser = Sentinel::getUser();
+                // dd($authUser);
+                $tokenResult = $authUser->createToken('71H4FfzAIliHzmrWxSvPhL8V3JKkcZouHRcoewJQ');
+                $token = $tokenResult->token;
+                $token->save();
 
-            if (!Sentinel::authenticate($credentials))
-                return response()->json(['error' => 'Unauthorized'], 401);
-
-            $token = auth()->attempt($credentials);
-            return $this->respondWithToken($token);
-        } catch (JWTException $e) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
+                return response()->json([
+                    'access_token' => $tokenResult->accessToken,
+                    'token_type' => 'Bearer',
+                    'user' => $authUser,
+                    'success' => true,
+                    'expires_at' => Carbon::parse(
+                        $tokenResult->token->expires_at
+                    )->toDateTimeString()
+                    ], 200);
+            } else {   
+                // Authentication failed...
+                return response()->json([
+                    'message' => 'Ops... Your Login Credentials did not match'
+                ], 401);
+            }
+        } catch(ThrottlingException $e) {
+            $delay = $e->getDelay();
+            return response()->json([
+                'message' => "Ops.. You have been banned for $delay seconds."
+            ], 401);
+        } catch(NotActivatedException $e){
+            return response()->json(['error' => 'Ops... Your account is not yet activated, please check your email for activation code or link']);
         }
-        return response()->json(compact('token'), 200);
     }
 }
