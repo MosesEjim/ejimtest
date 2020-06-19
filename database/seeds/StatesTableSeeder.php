@@ -124,3 +124,5 @@ class StatesTableSeeder extends Seeder
         ]);
     }
 }
+
+

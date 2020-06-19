@@ -102,6 +102,15 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/edit/{id}', 'LGAController@edit')->name('dashboard.lga.edit');
             Route::put('/edit/{id}', 'LGAController@update')->name('dashboard.lga.update');
         });
+
+        //Stock Transaction Group
+        Route::group(['prefix'=>'stock'], function(){
+            Route::get('/', 'StockController@index')->name('dashboard.stock.index');
+            Route::get('/create', 'StockController@create')->name('dashboard.stock.create');
+            Route::post('/create', 'StockController@store')->name('dashboard.stock.store');
+            Route::get('/edit/{id}', 'StockController@edit')->name('dashboard.stock.edit');
+            Route::put('/edit/{id}', 'StockController@update')->name('dashboard.stock.update');
+        });
     });
 });
 

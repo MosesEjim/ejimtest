@@ -4,7 +4,11 @@ use App\Repositories\Stock\StockContract;
 use App\Stock;
 class EloquentStockRepository implements StockContract {
     public function create($request) {
-        // 
+        $stock = new Stock();
+        $stock->quantity = $request->quantity;
+        $stock->product_id = $request->product_id;
+        $stock->save();
+        return $stock;
     }
 
       // return all Stock
@@ -27,8 +31,12 @@ class EloquentStockRepository implements StockContract {
     }
 
       // Update a Stock
-    public function update($request, $slug) {
-        $stock = $this->findBySlug($slug);
+    public function update($request, $id) {
+        $stock = $this->findById($id);
+        $stock->quantity = $request->quantity;
+        $stock->product_id = $request->product_id;
+        $stock->save();
+        return $stock;
     }
 
       // Remove a Stock
