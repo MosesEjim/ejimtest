@@ -12,9 +12,7 @@ class ProductController extends Controller
         $this->repo = $productContract;
     }
     
-    public function index()
-    {
-
+    public function index() {
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
@@ -113,22 +111,23 @@ class ProductController extends Controller
         try{
 
             $updateProduct = $this->repo->update($request, $id);
-           if($updateProduct){
-            $notification = array(
-                'message' => "Product Created successfully!",
-                'alert-type' => 'success'
-            );
-            return redirect()->route('dashboard.product.index')->with('success', 'Product Created successfully!')->with($notification);
-           }else {
+            if($updateProduct){
+                $notification = array(
+                    'message' => "Product Created successfully!",
+                    'alert-type' => 'success'
+                );
+                return redirect()->route('dashboard.product.index')->with('success', 'Product Created successfully!')->with($notification);
+            } else {
 
-            $notificationErr = array(
-              'message' => "Could not create Product. Try again!",
-              'alert-type' => 'error'
-            );
-            return back()
-                ->withInput()
-                ->with('error', 'Could not create Product. Try again!')->with($notificationErr);
-        }
+                $notificationErr = array(
+                    'message' => "Could not create Product. Try again!",
+                    'alert-type' => 'error'
+                );
+
+                return back()
+                    ->withInput()
+                    ->with('error', 'Could not create Product. Try again!')->with($notificationErr);
+            }
 
         }catch(Exception $e){
 
@@ -140,7 +139,6 @@ class ProductController extends Controller
                 );
                 return back()->withInput()->with('error', 'OPS... A Product with title '.$request->product_name.' already exists!')->with($notification);
             }
-
         }
         
     }

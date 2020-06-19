@@ -1,15 +1,8 @@
 @extends('layout.app')
 
-@section('title', 'UNICEF > Categories')
+@section('title', 'Transaction')
 
-@section('styles')
-  <link href="{{ asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
-  <link href="{{ asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
-@endsection
-  
 @section('content')
-
-
 	
   <div class="content-wrapper">
     <div class="container-fluid">

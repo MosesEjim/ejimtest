@@ -9,11 +9,11 @@ class EloquentDeliveryRepository implements DeliveryContract {
 
       // return all Delivery
     public function findAll() {
-        return Delivery::all();
+      return Delivery::all();
     }
 
     public function getAll() {
-        return Delivery::latest()->paginate(3);
+      return Delivery::latest()->paginate(3);
     }
 
       // return a Delivery by ID
@@ -23,17 +23,17 @@ class EloquentDeliveryRepository implements DeliveryContract {
 
       // return a Delivery by slug
     public function findBySlug($slug){
-        return Delivery::where('slug', $slug)->first();
+      return Delivery::where('slug', $slug)->first();
     }
 
       // Update a Delivery
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+      $del = $this->findBySlug($slug);
     }
 
       // Remove a Delivery
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+      $del = $this->findBySlug($slug);
+      return $del->delete();
     }
 }
