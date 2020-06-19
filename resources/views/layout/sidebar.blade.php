@@ -49,6 +49,16 @@
     </li>
     <li>
       <a href="javaScript:void();" class="waves-effect">
+        <i class="zmdi zmdi-chart"></i> <span>Stocks</span>
+        <i class="fa fa-angle-left float-right"></i>
+      </a>
+      <ul class="sidebar-submenu">
+        <li><a href="{{ route('dashboard.stock.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Stocks</a></li>
+        <li><a href="{{ route('dashboard.stock.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create a Stock</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javaScript:void();" class="waves-effect">
         <i class="zmdi zmdi-chart"></i> <span>Partners</span>
         <i class="fa fa-angle-left float-right"></i>
       </a>
@@ -67,25 +77,33 @@
         <li><a href="{{ route('dashboard.transaction.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add a Transaction</a></li>
       </ul>
     </li>
+
     <li>
-      <a href="javaScript:void();" class="waves-effect">
-        <i class="zmdi zmdi-chart"></i> <span>States</span>
-        <i class="fa fa-angle-left float-right"></i>
-      </a>
-      <ul class="sidebar-submenu">
-        <li><a href="{{ route('dashboard.state.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All States</a></li>
-        <li><a href="{{ route('dashboard.state.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add a State</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="javaScript:void();" class="waves-effect">
-        <i class="zmdi zmdi-chart"></i> <span>LGAs</span>
-        <i class="fa fa-angle-left float-right"></i>
-      </a>
-      <ul class="sidebar-submenu">
-        <li><a href="{{ route('dashboard.lga.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All LGAs</a></li>
-        <li><a href="{{ route('dashboard.lga.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add An LGA</a></li>
-      </ul>
+        <a href="javaScript:void();" class="waves-effect">
+          <i class="fa fa-gear"></i> <span>Settings</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="sidebar-submenu">
+          
+          <li>
+            <a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> States <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="sidebar-submenu">
+              <li><a href="{{ route('dashboard.state.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create a State</a></li>
+              <li><a href="{{ route('dashboard.state.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All States</a></li>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> LGAs <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="sidebar-submenu">
+              <li><a href="{{ route('dashboard.lga.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create an LGA</a></li>
+              <li><a href="{{ route('dashboard.lga.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All LGAs</a></li>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
     </li>
     
   </ul>

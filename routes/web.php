@@ -54,6 +54,15 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/edit/{id}', 'ProductController@edit')->name('dashboard.product.edit');
             Route::put('/edit/{id}', 'ProductController@update')->name('dashboard.product.update');
         });
+        
+        //Stock Route Group
+        Route::group(['prefix'=>'stock'], function(){
+            Route::get('/', 'StockController@index')->name('dashboard.stock.index');
+            Route::get('/create', 'StockController@create')->name('dashboard.stock.create');
+            Route::post('/create', 'StockController@store')->name('dashboard.stock.store');
+            Route::get('/edit/{id}', 'StockController@edit')->name('dashboard.stock.edit');
+            Route::put('/edit/{id}', 'StockController@update')->name('dashboard.stock.update');
+        });
 
         //Partner Route Group
         Route::group(['prefix'=>'partner'], function(){

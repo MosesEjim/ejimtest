@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends EloquentUser implements JWTSubject
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
