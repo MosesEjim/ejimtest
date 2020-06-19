@@ -57,6 +57,15 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/edit/{id}', 'ProductController@edit')->name('dashboard.product.edit');
             Route::put('/edit/{id}', 'ProductController@update')->name('dashboard.product.update');
         });
+        
+        //Stock Route Group
+        Route::group(['prefix'=>'stock'], function(){
+            Route::get('/', 'StockController@index')->name('dashboard.stock.index');
+            Route::get('/create', 'StockController@create')->name('dashboard.stock.create');
+            Route::post('/create', 'StockController@store')->name('dashboard.stock.store');
+            Route::get('/edit/{id}', 'StockController@edit')->name('dashboard.stock.edit');
+            Route::put('/edit/{id}', 'StockController@update')->name('dashboard.stock.update');
+        });
 
         //Partner Route Group
         Route::group(['prefix'=>'partner'], function(){
@@ -65,6 +74,33 @@ Route::group(['prefix' => 'account'], function() {
             Route::post('/create', 'PartnerController@store')->name('dashboard.partner.store');
             Route::get('/edit/{id}', 'PartnerController@edit')->name('dashboard.partner.edit');
             Route::put('/edit/{id}', 'PartnerController@update')->name('dashboard.partner.update');
+        });
+
+        //Transaction Route Group
+        Route::group(['prefix'=>'transaction'], function(){
+            Route::get('/', 'TransactionController@index')->name('dashboard.transaction.index');
+            Route::get('/create', 'TransactionController@create')->name('dashboard.transaction.create');
+            Route::post('/create', 'TransactionController@store')->name('dashboard.transaction.store');
+            Route::get('/edit/{id}', 'TransactionController@edit')->name('dashboard.transaction.edit');
+            Route::put('/edit/{id}', 'TransactionController@update')->name('dashboard.transaction.update');
+        });
+
+        //State Transaction Group
+        Route::group(['prefix'=>'state'], function(){
+            Route::get('/', 'StateController@index')->name('dashboard.state.index');
+            Route::get('/create', 'StateController@create')->name('dashboard.state.create');
+            Route::post('/create', 'StateController@store')->name('dashboard.state.store');
+            Route::get('/edit/{id}', 'StateController@edit')->name('dashboard.state.edit');
+            Route::put('/edit/{id}', 'StateController@update')->name('dashboard.state.update');
+        });
+
+        //LGA Transaction Group
+        Route::group(['prefix'=>'lga'], function(){
+            Route::get('/', 'LGAController@index')->name('dashboard.lga.index');
+            Route::get('/create', 'LGAController@create')->name('dashboard.lga.create');
+            Route::post('/create', 'LGAController@store')->name('dashboard.lga.store');
+            Route::get('/edit/{id}', 'LGAController@edit')->name('dashboard.lga.edit');
+            Route::put('/edit/{id}', 'LGAController@update')->name('dashboard.lga.update');
         });
     });
 });

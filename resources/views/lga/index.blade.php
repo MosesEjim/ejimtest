@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Product')
+@section('title', 'LGA')
 
 @section('content')
 
@@ -11,10 +11,10 @@
       <!-- Breadcrumb-->
      <div class="row pt-2 pb-2">
         <div class="col-sm-9">
-		    <h4 class="page-title">All Products</h4>
+		    <h4 class="page-title">All LGAs</h4>
 		    <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javaScript:void();">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="javaScript:void();">Products</a></li>
+            <li class="breadcrumb-item"><a href="javaScript:void();">LGAs</a></li>
             <li class="breadcrumb-item active" aria-current="page">Listing All</li>
          </ol>
 	   </div>
@@ -68,26 +68,20 @@
               <table id="example" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
+                        <th>State</th>
+                        <th>LGA</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach($products as $product)
+                  @foreach($lgas as $lga)
                     <tr>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->brand }}</td>
-                        <td>{{ $product->material_no }}</td>
-                        <td>{{ $product->batch_no }}</td>
-                        <td>{{ $product->category->title }}</td>
                         
+                        <td>{{ $lga->state->name}}</td>
+                        <td>{{ $lga->name}}</td>
                         <td>
                         <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.product.edit', $product->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                        <a href="{{ route('dashboard.lga.edit', $lga->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
                             <i class="fa fa-edit"></i> 
                           </a>
                           {{-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> --}}
@@ -98,12 +92,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                    <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
-                        <th>Action</th>
+                    <th>State</th>
+                    <th>LGA</th>
+                    <th>Action</th>
                     </tr>
                 </tfoot>
             </table>

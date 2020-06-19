@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>UNICEF - @yield('title')</title>
+  <title>UNICEF > @yield('title')</title>
   <!--favicon-->
   <link rel="icon" href="{{ URL::asset('assets/images/favicon.ico') }}" type="image/x-icon">
   <!-- simplebar CSS-->

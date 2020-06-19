@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Product')
+@section('title', 'State')
 
 @section('content')
 
@@ -68,26 +68,18 @@
               <table id="example" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
+                        <th>State Name</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach($products as $product)
+                  @foreach($states as $state)
                     <tr>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->brand }}</td>
-                        <td>{{ $product->material_no }}</td>
-                        <td>{{ $product->batch_no }}</td>
-                        <td>{{ $product->category->title }}</td>
+                        <td>{{ $state->name}}</td>
                         
                         <td>
                         <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.product.edit', $product->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                        <a href="{{ route('dashboard.state.edit', $state->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
                             <i class="fa fa-edit"></i> 
                           </a>
                           {{-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> --}}
@@ -98,11 +90,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                    <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
+                    <th>State Name</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

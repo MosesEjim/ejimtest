@@ -3,7 +3,7 @@
 
 @section('content')
 
-<!-- Start wrapper-->
+<!-- wrapper -->
 <div id="wrapper">
 
 <div class="loader-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>

@@ -1,10 +1,8 @@
 @extends('layout.app')
 
-@section('title', 'Product')
+@section('title', 'Transaction')
 
 @section('content')
-
-
 	
   <div class="content-wrapper">
     <div class="container-fluid">
@@ -68,26 +66,26 @@
               <table id="example" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
+                        <th>Transaction Ref</th>
+                        <th>User</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Partner</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach($products as $product)
+                  @foreach($transactions as $transaction)
                     <tr>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->brand }}</td>
-                        <td>{{ $product->material_no }}</td>
-                        <td>{{ $product->batch_no }}</td>
-                        <td>{{ $product->category->title }}</td>
+                        <td>{{ $transaction->transaction_ref }}</td>
+                        <td>{{ $transaction->user->email }}</td>
+                        <td>{{ $transaction->product->product_name }}</td>
+                        <td>{{ $transaction->quantity }}</td>
+                        <td>{{ $transaction->partner->partner_name }}</td>
                         
                         <td>
                         <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.product.edit', $product->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                        <a href="{{ route('dashboard.transaction.edit', $transaction->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
                             <i class="fa fa-edit"></i> 
                           </a>
                           {{-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> --}}
