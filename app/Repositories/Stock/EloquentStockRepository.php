@@ -6,6 +6,7 @@ class EloquentStockRepository implements StockContract {
     public function create($request) {
         $stock = new Stock();
         $stock->quantity = $request->quantity;
+        $stock->in_stock = $request->quantity;
         $stock->product_id = $request->product_id;
         $stock->save();
         return $stock;

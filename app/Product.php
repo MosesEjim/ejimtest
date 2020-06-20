@@ -13,4 +13,8 @@ class Product extends Model
     public function transactions(){
         return $this->hasMany('App\Transaction');
     }
+
+    public function stock() {
+        return $this->hasOne('App\Stock');
+    }
 }

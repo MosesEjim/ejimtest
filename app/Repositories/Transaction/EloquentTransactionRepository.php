@@ -6,6 +6,7 @@ use Sentinel;
 class EloquentTransactionRepository implements TransactionContract {
 
     public function create($request) {
+      dd($request->all());
        $transaction = new Transaction();
        $transaction->transaction_ref = 'trf'.str_pad(mt_rand(1,99999999),8,'0',STR_PAD_LEFT);
        $transaction->product_id = $request->product_id;

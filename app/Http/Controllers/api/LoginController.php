@@ -50,7 +50,7 @@ class LoginController extends Controller
                 // Authentication failed...
                 return response()->json([
                     'message' => 'Ops... Your Login Credentials did not match'
-                ], 401);
+                ], 404);
             }
         } catch(ThrottlingException $e) {
             $delay = $e->getDelay();

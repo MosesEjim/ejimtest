@@ -14,24 +14,28 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->insert([
             'slug' => 'nutrition',
             'title' => 'Nutrition',
+            'active_status' => true,
             'description' => 'Nutrition',
         ]);
           
         DB::table('categories')->insert([
             'slug' => 'wash',
             'title' => 'Wash',
+            'active_status' => true,
             'description' => 'Wash',
         ]);
           
         DB::table('categories')->insert([
             'slug' => 'education',
             'title' => 'Education',
+            'active_status' => true,
             'description' => 'Education',
         ]);
         
         DB::table('categories')->insert([
             'slug' => 'health',
             'title' => 'Health',
+            'active_status' => true,
             'description' => 'Health',
         ]);
     }

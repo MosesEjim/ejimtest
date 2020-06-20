@@ -2,14 +2,29 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Product\ProductContract;
+use App\Repositories\Partner\PartnerContract;
+use App\Repositories\State\StateContract;
+use App\Repositories\Transaction\TransactionContract;
 use App\Category;
 use Sentinel;
 
 class ProductController extends Controller
 {
     protected $repo;
-    public function __construct(ProductContract $productContract) {
+    protected $partnerRepo;
+    protected $stateRepo;
+    protected $transRepo;
+
+    public function __construct(
+        ProductContract $productContract, 
+        PartnerContract $partnerContract,
+        StateContract $stateContract,
+        TransactionContract $transactionContract
+    ) {
         $this->repo = $productContract;
+        $this->partnerRepo = $partnerContract;
+        $this->stateRepo = $stateContract;
+        $this->transRepo = $transactionContract;
     }
     
     public function index() {
@@ -28,6 +43,41 @@ class ProductController extends Controller
         }
         $categories = Category::all();
         return view('product.create')->with('categories', $categories);
+    }
+    
+    public function dispatchProduct()
+    {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        $products = $this->repo->findAll();
+        $partners = $this->partnerRepo->findAll();
+        $states = $this->stateRepo->findAll();
+
+        return view('product.dispatch')
+            ->with('products', $products)
+            ->with('partners', $partners)
+            ->with('states', $states);
+    }
+
+    public function dispatchProductPost(Request $request) {
+        // dd($request->all());
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
+        $this->validate($request, [
+            "product_id"=>"required",
+            "quantity"=>"required",
+            "state"=>"required"
+        ]);
+
+        try {
+            $dispatch = $this->transRepo->create($request);
+            dd($dispatch);
+        } catch (QueryException $e) {
+            //throw $th;
+        }
     }
     
     public function store(Request $request)

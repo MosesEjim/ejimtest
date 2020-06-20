@@ -53,6 +53,8 @@ Route::group(['prefix' => 'account'], function() {
         Route::group(['prefix'=>'product'], function(){
             Route::get('/', 'ProductController@index')->name('dashboard.product.index');
             Route::get('/create', 'ProductController@create')->name('dashboard.product.create');
+            Route::get('/dispatch', 'ProductController@dispatchProduct')->name('dashboard.product.dispatch');
+            Route::post('/dispatch', 'ProductController@dispatchProductPost')->name('dashboard.product.dispatch.store');
             Route::post('/create', 'ProductController@store')->name('dashboard.product.store');
             Route::get('/edit/{id}', 'ProductController@edit')->name('dashboard.product.edit');
             Route::put('/edit/{id}', 'ProductController@update')->name('dashboard.product.update');
