@@ -97,10 +97,9 @@ class VendorController extends Controller
         }
 
         $request->validate([
-            'vendor_id'=>'required',
             'name'=>'required',
             'phone'=>'required',
-            'plate_no'=>'required',
+            'plate_number'=>'required',
         ]);
 
         try{
@@ -142,6 +141,6 @@ class VendorController extends Controller
     {
        
         $this->repo->remove($id);
-        return redirect()->route('vendor.index')->with('message', 'successfully deleted');
+        return redirect()->route('dashboard.vendor.index')->with('message', 'successfully deleted');
     }
 }
