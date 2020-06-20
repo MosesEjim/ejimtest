@@ -53,29 +53,22 @@
            <form method = "post" action = "{{ route('dashboard.vendor.update', $vendor->id) }}">
               @method('PUT')
               @csrf
-             
-             <div class="form-group">
-             <label for="product_name" class="sr-only">Vendor Id</label>
-              <div class="position-relative has-icon-right">
-                 <input type="text" id="vendor_id" name ="vendor_id" class="form-control input-shadow" placeholder="Enter vendor Id">
-              </div>
-             </div>
              <div class="form-group">
              <label for="product_name" class="sr-only">name</label>
               <div class="position-relative has-icon-right">
-                 <input type="text" id="name" name ="name" class="form-control input-shadow" placeholder="Enter vendor name">
+                 <input type="text" id="name" name ="name" value="{{$vendor->name}}" class="form-control input-shadow" placeholder="Enter vendor name">
               </div>
              </div>
              <div class="form-group">
              <label for="product_name" class="sr-only">Phone</label>
               <div class="position-relative has-icon-right">
-                 <input type="tel" id="phone" name ="phone" class="form-control input-shadow" placeholder="Enter Tel no">
+                 <input type="tel" id="phone" name ="phone" value="{{$vendor->phone}}" class="form-control input-shadow" placeholder="Enter Tel no">
               </div>
              </div>
              <div class="form-group">
              <label for="product_name" class="sr-only">Plate Number</label>
               <div class="position-relative has-icon-right">
-                 <input type="text" id="plate_number" name ="plate_number" class="form-control input-shadow" placeholder="Enter Plate number">
+                 <input type="text" id="plate_number" name ="plate_number" value="{{$vendor->plate_number}}" class="form-control input-shadow" placeholder="Enter Plate number">
               </div>
              </div>
             <button type="submit" class="btn btn-primary btn-block" >Update Vendor</button>

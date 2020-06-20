@@ -45,9 +45,7 @@ class EloquentVendorRepository implements VendorContract {
 
       // Remove a Vendor
     public function remove($id) {
-
      $vendor = $this->findById($id);
-     dd($vendor);
      return $vendor->delete();
     }
 }
