@@ -2,13 +2,18 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Partner\PartnerContract;
+use App\Repositories\State\StateContract;
+use Illuminate\Database\QueryException;
 use Sentinel;
 
 class PartnerController extends Controller
 {
     protected $repo;
-    public function __construct(PartnerContract $partnerContract) {
+    protected $stateRepo;
+
+    public function __construct(PartnerContract $partnerContract, StateContract $stateContract) {
         $this->repo = $partnerContract;
+        $this->stateRepo = $stateContract;
     }
     
     public function index()
@@ -22,7 +27,9 @@ class PartnerController extends Controller
     
     public function create()
     {
-        return view('partner.create');
+        $states = $this->stateRepo->findAll();
+        // dd($states);
+        return view('partner.create')->with('states', $states);
     }
     
     public function store(Request $request)
@@ -32,8 +39,9 @@ class PartnerController extends Controller
             return redirect()->route('auth.login.get');
         }
 
+        // dd($request->all());
+
         $this->validate($request, [
-            "partner_id"=>"required",
             "partner_name"=>"required",
             "email"=>"required",
             "payment_email"=>"required",
@@ -69,16 +77,16 @@ class PartnerController extends Controller
          
      }catch(QueryException $e){
  
-         $errorCode = $e->errorInfo[1];
-             if($errorCode == 1062){
-                 $notification = array(
-                     'message' => "OPS... A Partner with ID $request->partner_id already exists!",
-                     'alert-type' => 'error'
-                 );
-                 return back()->withInput()->with('error', 'OPS... A Partner with ID '.$request->partner_id.' already exists!')->with($notification);
-             }
- 
-         }
+        $errorCode = $e->errorInfo[1];
+            if($errorCode == 1062){
+                $notification = array(
+                    'message' => "OPS... A Partner with ID $request->email already exists!",
+                    'alert-type' => 'error'
+                );
+                return back()->withInput()->with('error', 'OPS... A Partner with ID '.$request->email.' already exists!')->with($notification);
+            }
+
+        }
     }
     
     public function show($id)

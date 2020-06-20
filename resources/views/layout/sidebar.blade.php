@@ -46,6 +46,7 @@
       <ul class="sidebar-submenu">
         <li><a href="{{ route('dashboard.product.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Products</a></li>
         <li><a href="{{ route('dashboard.product.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create a Product</a></li>
+        <li><a href="{{ route('dashboard.product.dispatch') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Dispatch Product</a></li>
       </ul>
     </li>
     <li>
@@ -66,6 +67,16 @@
       <ul class="sidebar-submenu">
         <li><a href="{{ route('dashboard.partner.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Partners</a></li>
         <li><a href="{{ route('dashboard.partner.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add a Partner</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javaScript:void();" class="waves-effect">
+        <i class="zmdi zmdi-chart"></i> <span>Vendors</span>
+        <i class="fa fa-angle-left float-right"></i>
+      </a>
+      <ul class="sidebar-submenu">
+        <li><a href="{{ route('dashboard.vendor.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Vendors</a></li>
+        <li><a href="{{ route('dashboard.vendor.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add a Vendor</a></li>
       </ul>
     </li>
     <li>

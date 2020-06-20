@@ -53,6 +53,8 @@ Route::group(['prefix' => 'account'], function() {
         Route::group(['prefix'=>'product'], function(){
             Route::get('/', 'ProductController@index')->name('dashboard.product.index');
             Route::get('/create', 'ProductController@create')->name('dashboard.product.create');
+            Route::get('/dispatch', 'ProductController@dispatchProduct')->name('dashboard.product.dispatch');
+            Route::post('/dispatch', 'ProductController@dispatchProductPost')->name('dashboard.product.dispatch.store');
             Route::post('/create', 'ProductController@store')->name('dashboard.product.store');
             Route::get('/edit/{id}', 'ProductController@edit')->name('dashboard.product.edit');
             Route::put('/edit/{id}', 'ProductController@update')->name('dashboard.product.update');
@@ -85,7 +87,7 @@ Route::group(['prefix' => 'account'], function() {
             Route::put('/edit/{id}', 'TransactionController@update')->name('dashboard.transaction.update');
         });
 
-        //State Transaction Group
+        //State Route Group
         Route::group(['prefix'=>'state'], function(){
             Route::get('/', 'StateController@index')->name('dashboard.state.index');
             Route::get('/create', 'StateController@create')->name('dashboard.state.create');
@@ -94,7 +96,7 @@ Route::group(['prefix' => 'account'], function() {
             Route::put('/edit/{id}', 'StateController@update')->name('dashboard.state.update');
         });
 
-        //LGA Transaction Group
+        //LGA Route Group
         Route::group(['prefix'=>'lga'], function(){
             Route::get('/', 'LGAController@index')->name('dashboard.lga.index');
             Route::get('/create', 'LGAController@create')->name('dashboard.lga.create');
@@ -103,7 +105,7 @@ Route::group(['prefix' => 'account'], function() {
             Route::put('/edit/{id}', 'LGAController@update')->name('dashboard.lga.update');
         });
 
-        //Stock Transaction Group
+        //Stock Route Group
         Route::group(['prefix'=>'stock'], function(){
             Route::get('/', 'StockController@index')->name('dashboard.stock.index');
             Route::get('/create', 'StockController@create')->name('dashboard.stock.create');
@@ -111,21 +113,31 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/edit/{id}', 'StockController@edit')->name('dashboard.stock.edit');
             Route::put('/edit/{id}', 'StockController@update')->name('dashboard.stock.update');
         });
-
+        //Stock user Group
         Route::group(['prefix'=>'user'], function(){
             Route::get('/', 'UserController@index')->name('dashboard.user.index');
             Route::get('/create', 'UserController@create')->name('dashboard.user.create');
             Route::post('/create', 'UserController@store')->name('dashboard.user.store');
             Route::get('/edit/{id}', 'UserController@edit')->name('dashboard.user.edit');
             Route::put('/edit/{id}', 'UserController@update')->name('dashboard.user.update');
+            Route::get('/{slug}', 'UserController@delete')->name('dashboard.user.delete');
         });
+        //Stock role Group
         Route::group(['prefix'=>'role'], function(){
             Route::get('/', 'UserController@index')->name('dashboard.role.index');
             Route::get('/create', 'UserController@create')->name('dashboard.role.create');
             Route::post('/create', 'UserController@store')->name('dashboard.role.store');
             Route::get('/edit/{id}', 'UserController@edit')->name('dashboard.role.edit');
             Route::put('/edit/{id}', 'UserController@update')->name('dashboard.role.update');
-            Route::get('/{slug}', 'UserController@delete')->name('dashboard.role.delete');
+        });
+        //Stock vendor Group
+        Route::group(['prefix'=>'vendor'], function(){
+            Route::get('/', 'VendorController@index')->name('dashboard.vendor.index');
+            Route::get('/create', 'VendorController@create')->name('dashboard.vendor.create');
+            Route::post('/create', 'VendorController@store')->name('dashboard.vendor.store');
+            Route::get('/edit/{id}', 'VendorController@edit')->name('dashboard.vendor.edit');
+            Route::put('/edit/{id}', 'VendorController@update')->name('dashboard.vendor.update');
+            Route::get('/{slug}', 'VendorController@delete')->name('dashboard.vendor.delete');
         });
     });
 });

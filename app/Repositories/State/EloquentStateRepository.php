@@ -25,6 +25,11 @@ class EloquentStateRepository implements StateContract {
     public function findById($id) {
         return State::where('id', $id)->first();
     }
+    
+    // return a State by Name
+    public function findByName($name) {
+        return State::where('name', $name)->first();
+    }
 
       // return a State by slug
     public function findBySlug($slug){

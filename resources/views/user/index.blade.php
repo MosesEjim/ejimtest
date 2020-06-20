@@ -81,10 +81,10 @@
                         
                         <td>
                         <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.role.edit', $user->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                        <a href="{{ route('dashboard.user.edit', $user->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
                             <i class="fa fa-edit"></i> 
                           </a>
-                        <a href="{{ route('dashboard.role.delete', $user->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Delete" class="btn btn-outline-danger waves-effect waves-light"> 
+                        <a href="{{ route('dashboard.user.delete', $user->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Delete" class="btn btn-outline-danger waves-effect waves-light"> 
                             <i class="fa fa fa-trash-o"></i> 
                           </a>
                            <!-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> -->

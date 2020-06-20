@@ -52,12 +52,7 @@
 
            <form method = "post" action = "{{ route('dashboard.partner.store') }}">
               @csrf
-             <div class="form-group">
-             <label for="partner_id" class="sr-only">Partner ID</label>
-              <div class="position-relative has-icon-right">
-                 <input type="text" id="partner_id" name ="partner_id" class="form-control input-shadow" placeholder="Enter Partner ID">
-              </div>
-             </div>
+             
              <div class="form-group">
              <label for="partner_name" class="sr-only">Partner Name</label>
               <div class="position-relative has-icon-right">
@@ -68,9 +63,9 @@
              <label for="partner_type" class="sr-only">Partner Type</label>
               <div class="position-relative has-icon-right">
                  <select class = "form-control" name = "partner_type">
-                      <option value = "" selected> Select Partner Type</option>
-                      <option value = "GOVT" > GOVT</option>
-                      <option value = "GOVT" > CSO</option>
+                      <option selected> Select Partner Type</option>
+                      <option value="GOVT"> GOVT</option>
+                      <option value="CSO"> CSO</option>
                  </select>
               </div>
              </div>
@@ -84,43 +79,11 @@
              <label for="state" class="sr-only">State</label>
               <div class="position-relative has-icon-right">
                  <select class = "form-control" name = "state" id="state" onchange="toggleLGA(this)">
-                      <option value="" selected="selected" >- Select -</option>
-                            <option value='Abia'>Abia</option>
-                            <option value='Adamawa'>Adamawa</option>
-                            <option value='Akwa Ibom'>Akwa Ibom</option>
-                            <option value='Anambra'>Anambra</option>
-                            <option value='Bauchi'>Bauchi</option>
-                            <option value='Bayelsa'>Bayelsa</option>
-                            <option value='Benue'>Benue</option>
-                            <option value='Borno'>Borno</option>
-                            <option value='Cross River'>Cross River</option>
-                            <option value='Delta'>Delta</option>
-                            <option value='Ebonyi'>Ebonyi</option>
-                            <option value='Edo'>Edo</option>
-                            <option value='Ekiti'>Ekiti</option>
-                            <option value='Enugu'>Enugu</option>
-                            <option value='Gombe'>Gombe</option>
-                            <option value='Imo'>Imo</option>
-                            <option value='Jigawa'>Jigawa</option>
-                            <option value='Kaduna'>Kaduna</option>
-                            <option value='Kano'>Kano</option>
-                            <option value='Katsina'>Katsina</option>
-                            <option value='Kebbi'>Kebbi</option>
-                            <option value='Kogi'>Kogi</option>
-                            <option value='Kwara'>Kwara</option>
-                            <option value='Lagos'>Lagos</option>
-                            <option value='Nasarawa'>Nasarawa</option>
-                            <option value='Niger'>Niger</option>
-                            <option value='Ogun'>Ogun</option>
-                            <option value='Ondo'>Ondo</option>
-                            <option value='Osun'>Osun</option>
-                            <option value='Oyo'>Oyo</option>
-                            <option value='Plateau'>Plateau</option>
-                            <option value='Rivers'>Rivers</option>
-                            <option value='Sokoto'>Sokoto</option>
-                            <option value='Taraba'>Taraba</option>
-                            <option value='Yobe'>Yobe</option>
-                            <option value='Zamfara'>Zamafara</option>
+                      <option value="" selected>- Select -</option>
+                      @foreach($states as $state)
+                        <option value='{{ $state->name }}'>{{ $state->name }}</option>
+                      @endforeach
+                            
 							
                  </select>
               </div>

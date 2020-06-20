@@ -1,10 +1,9 @@
 <?php
-namespace App\Repositories\State;
-interface StateContract {
+namespace App\Repositories\Vendor;
+interface VendorContract {
     public function create($request);
     public function findAll();
     public function findById($id);
-    public function findByName($name);
     public function findBySlug($slug);
     public function update($request, $id);
     public function remove($id);

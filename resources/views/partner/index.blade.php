@@ -68,24 +68,26 @@
               <table id="example" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Product ID</th>
-                        <th>Product Name</th>
-                        <th>email</th>
-                        <th>payment email</th>
-                        <th>partner type</th>
-                        <th>description</th>
-                        <th>city</th>
+                        <!-- <th>Product ID</th> -->
+                        <th>Partner Name</th>
+                        <th>Email</th>
+                        <th>Payment email</th>
+                        <th>Partner type</th>
+                        <th>Partner State</th>
+                        <th>Description</th>
+                        <th>City</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                   @foreach($partners as $partner)
                     <tr>
-                        <td>{{ $partner->partner_id }}</td>
+                        <!-- <td>{{ $partner->partner_id }}</td> -->
                         <td>{{ $partner->partner_name }}</td>
                         <td>{{ $partner->email }}</td>
                         <td>{{ $partner->payment_email }}</td>
                         <td>{{ $partner->partner_type }}</td>
+                        <td>{{ $partner->state }}</td>
                         <td>{{ $partner->type_description }}</td>
                         <td>{{ $partner->city }}</td>
                         
@@ -102,13 +104,13 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Product ID</th>
-                        <th>Product Name</th>
-                        <th>email</th>
-                        <th>payment email</th>
-                        <th>partner type</th>
-                        <th>description</th>
-                        <th>city</th>
+                      <th>Partner Name</th>
+                        <th>Email</th>
+                        <th>Payment email</th>
+                        <th>Partner type</th>
+                        <th>Partner State</th>
+                        <th>Description</th>
+                        <th>City</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
