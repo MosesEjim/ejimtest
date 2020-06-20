@@ -70,6 +70,16 @@
     </li>
     <li>
       <a href="javaScript:void();" class="waves-effect">
+        <i class="zmdi zmdi-chart"></i> <span>Vendors</span>
+        <i class="fa fa-angle-left float-right"></i>
+      </a>
+      <ul class="sidebar-submenu">
+        <li><a href="{{ route('dashboard.vendor.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Vendors</a></li>
+        <li><a href="{{ route('dashboard.vendor.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Add a Vendor</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javaScript:void();" class="waves-effect">
         <i class="zmdi zmdi-chart"></i> <span>Transactions</span>
         <i class="fa fa-angle-left float-right"></i>
       </a>
