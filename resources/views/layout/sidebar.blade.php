@@ -12,8 +12,8 @@
         <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
       </a>
       <ul class="sidebar-submenu">
-        <li><a href="ui-typography.html"><i class="zmdi zmdi-dot-circle-alt"></i> User List</a></li>
-        <li><a href="ui-cards.html"><i class="zmdi zmdi-dot-circle-alt"></i> Create a User</a></li>
+        <li><a href="{{route('dashboard.user.index')}}"><i class="zmdi zmdi-dot-circle-alt"></i> User List</a></li>
+        <li><a href=""><i class="zmdi zmdi-dot-circle-alt"></i> Create a User</a></li>
       </ul>
     </li>
     <li>

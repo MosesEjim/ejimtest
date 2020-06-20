@@ -111,6 +111,22 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/edit/{id}', 'StockController@edit')->name('dashboard.stock.edit');
             Route::put('/edit/{id}', 'StockController@update')->name('dashboard.stock.update');
         });
+
+        Route::group(['prefix'=>'user'], function(){
+            Route::get('/', 'UserController@index')->name('dashboard.user.index');
+            Route::get('/create', 'UserController@create')->name('dashboard.user.create');
+            Route::post('/create', 'UserController@store')->name('dashboard.user.store');
+            Route::get('/edit/{id}', 'UserController@edit')->name('dashboard.user.edit');
+            Route::put('/edit/{id}', 'UserController@update')->name('dashboard.user.update');
+        });
+        Route::group(['prefix'=>'role'], function(){
+            Route::get('/', 'UserController@index')->name('dashboard.role.index');
+            Route::get('/create', 'UserController@create')->name('dashboard.role.create');
+            Route::post('/create', 'UserController@store')->name('dashboard.role.store');
+            Route::get('/edit/{id}', 'UserController@edit')->name('dashboard.role.edit');
+            Route::put('/edit/{id}', 'UserController@update')->name('dashboard.role.update');
+            Route::get('/{slug}', 'UserController@delete')->name('dashboard.role.delete');
+        });
     });
 });
 

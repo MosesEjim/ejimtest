@@ -52,8 +52,8 @@ class EloquentUserRepository implements UserContract {
     }
 
       // Remove a User
-    public function remove($slug) {
-        $user = $this->findBySlug($slug);
+    public function remove($id) {
+        $user = $this->findById($id);
         return $user->delete();
     }
 }

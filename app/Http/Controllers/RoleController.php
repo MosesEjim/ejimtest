@@ -13,7 +13,12 @@ class RoleController extends Controller
     
     public function index()
     {
-        return view('role.index');
+        if(!Sentinel::check()){
+            return redirect()->route('auth.get.login');
+        }
+
+        $roles = $this->repo->findAll();
+        return view('role.index')->with('roles', $roles);
     }
     
     public function create()
