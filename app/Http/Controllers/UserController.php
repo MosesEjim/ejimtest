@@ -13,7 +13,12 @@ class UserController extends Controller
     
     public function index()
     {
-        return view('user.index');
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
+        $users = $this->repo->findAll();
+        return view('user.index')->with('users', $users);
     }
     
     public function adminDashboard() {
@@ -25,6 +30,7 @@ class UserController extends Controller
 
     public function create()
     {
+
         return view('user.create');
     }
     
@@ -48,8 +54,9 @@ class UserController extends Controller
         //
     }
     
-    public function delete($id)
+    public function delete($slug)
     {
-        //
+        $this->repo->remove($slug);
+        return redirect()->route('dashboard.user.index')->with('success','successfully deleted');
     }
 }

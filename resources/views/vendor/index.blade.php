@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Partners')
+@section('title', 'Vendors')
 
 @section('content')
 
@@ -11,10 +11,10 @@
       <!-- Breadcrumb-->
      <div class="row pt-2 pb-2">
         <div class="col-sm-9">
-		    <h4 class="page-title">All Products</h4>
+		    <h4 class="page-title">All Vendors</h4>
 		    <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javaScript:void();">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="javaScript:void();">Products</a></li>
+            <li class="breadcrumb-item"><a href="javaScript:void();">Vendors</a></li>
             <li class="breadcrumb-item active" aria-current="page">Listing All</li>
          </ol>
 	   </div>
@@ -39,7 +39,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="card">
-            <div class="card-header"><i class="fa fa-table"></i>All Products</div>
+            <div class="card-header"><i class="fa fa-table"></i>All Vendors</div>
             <div class="card-body">
             @if(session('error'))
             <div class="alert alert-danger alert-dismissible" role="alert">
@@ -68,23 +68,26 @@
               <table id="example" class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Vendor Id</th>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
+                        <th>Phone</th>
+                        <th>Plate Number</th>
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach($users as $user)
+                  @foreach($vendors as $vendor)
                     <tr>
-                        <td>{{ $user->username }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td>{{ $vendor->vendor_id }}</td>
+                        <td>{{ $vendor->name }}</td>
+                        <td>{{ $vendor->phone }}</td>
+                        <td>{{ $vendor->plate_number }}</td>
                         
                         <td>
                         <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.user.edit', $user->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                        <a href="{{ route('dashboard.vendor.edit', $vendor->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
                             <i class="fa fa-edit"></i> 
                           </a>
-                        <a href="{{ route('dashboard.user.delete', $user->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Delete" class="btn btn-outline-danger waves-effect waves-light"> 
+                        <a href="{{ route('dashboard.vendor.delete', $vendor->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Delete" class="btn btn-outline-danger waves-effect waves-light"> 
                             <i class="fa fa fa-trash-o"></i> 
                           </a>
                            <!-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> -->
@@ -95,9 +98,10 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th>Vendor Id</th>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
+                        <th>Phone</th>
+                        <th>Plate Number</th>
                     </tr>
                 </tfoot>
             </table>

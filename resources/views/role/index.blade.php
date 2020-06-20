@@ -1,48 +1,113 @@
 @extends('layout.app')
 
+@section('title', 'Roles')
+
 @section('content')
-    <div class="table-container">
-    <div class="row">
-        <div class="col-md-12">
+
+
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumb-->
+     <div class="row pt-2 pb-2">
+        <div class="col-sm-9">
+		    <h4 class="page-title">All Roles</h4>
+		    <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javaScript:void();">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="javaScript:void();">Roles</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Listing All</li>
+         </ol>
+	   </div>
+	   <div class="col-sm-3">
+       <div class="btn-group float-sm-right">
+        <button type="button" class="btn btn-light waves-effect waves-light"><i class="fa fa-cog mr-1"></i> Setting</button>
+        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown">
+        <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu">
+          <a href="javaScript:void();" class="dropdown-item">Action</a>
+          <a href="javaScript:void();" class="dropdown-item">Another action</a>
+          <a href="javaScript:void();" class="dropdown-item">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a href="javaScript:void();" class="dropdown-item">Separated link</a>
+        </div>
+      </div>
+     </div>
+     </div>
+    <!-- End Breadcrumb-->
+      
+      <div class="row">
+        <div class="col-lg-12">
           <div class="card">
+            <div class="card-header"><i class="fa fa-table"></i>All Roles</div>
             <div class="card-body">
-              <h5 class="card-title">Roles</h5>
-			  <div class="table-responsive">
-               <table class="table">
-                  <thead>
+            @if(session('error'))
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <div class="alert-icon contrast-alert">
+                <i class="fa fa-times"></i>
+              </div>
+              <div class="alert-message">
+                <span><strong>Danger!</strong> {{ session('error') }}!</span>
+              </div>
+            </div>
+          @endif
+
+          @if(session('success'))
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <div class="alert-icon contrast-alert">
+              <i class="fa fa-check"></i>
+            </div>
+            <div class="alert-message">
+              <span><strong>Success!</strong> {{ session('success') }}</span>
+            </div>
+          </div>
+          @endif
+              <div class="table-responsive">
+              <table id="example" class="table table-bordered">
+                <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Description</th>
-                      <th scope="col">Action</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Action</th>
                     </tr>
-                  </thead>
-                  <tbody>
+                </thead>
+                <tbody>
+                  @foreach($roles as $role)
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td><a href="#"><i class="zmdi zmdi-edit"></i></a></td>
+                        <td>{{ $role->name }}</td>
+                        <td>{{ $role->description }}</td>
+                        
+                        <td>
+                        <div class="btn-group m-1">
+                        <a href="{{ route('dashboard.role.edit', $role->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                            <i class="fa fa-edit"></i> 
+                          </a>
+                          {{-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> --}}
+                        </div>
+                        </td>
                     </tr>
+                  @endforeach
+                </tbody>
+                <tfoot>
                     <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td><a href="#"><i class="zmdi zmdi-edit"></i></a></td>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Action</th>
                     </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td><a href="#"><i class="zmdi zmdi-edit"></i></a></td>
-                    </tr>
-                  </tbody>
-                </table>
+                </tfoot>
+            </table>
             </div>
             </div>
           </div>
         </div>
-
+      </div><!-- End Row-->
+<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
     </div>
+    <!-- End container-fluid-->
     
+    </div>
 @endsection
