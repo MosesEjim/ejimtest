@@ -88,7 +88,7 @@
                       <select class = "form-control" name="product_id" id="product_id">
                         <option value="" selected>- Select -</option>
                         @foreach($products as $product)
-                          <option value='{{ $product->id }}'>{{ $product->product_name }}: - <small>in-stock({{ $product->stock->quantity }})</small></option>
+                          <option value='{{ $product->id }}'>{{ $product->product_name }}: - <small>in-stock({{ $product->stock->in_stock }})</small></option>
                         @endforeach
                       </select>
                     </div>
@@ -104,8 +104,8 @@
 
               <div class="form-group">
                 <div class="position-relative has-icon-right">
-                  <label for="state">Partner</label>
-                  <select class="form-control" name="state" id="state">
+                  <label for="partner_id">Partner</label>
+                  <select class="form-control" name="partner_id" id="partner_id">
                     <option value="" selected>- Select -</option>
                     @foreach($partners as $partner)
                       <option value='{{ $partner->id }}'>{{ $partner->partner_name }}</option>
@@ -118,11 +118,11 @@
                 <div class="col-sm-12 col-md-8">
                   <div class="form-group">
                     <div class="position-relative has-icon-right">
-                    <label for="product_id">Dispatch Agent</label>
-                      <select class = "form-control" name="product_id" id="product_id">
-                        <option value="" selected>- Select -</option>
-                        @foreach($products as $product)
-                          <option value='{{ $product->id }}'>{{ $product->product_name }}: - <small>in-stock({{ $product->stock->quantity }})</small></option>
+                    <label for="vendor_id">Dispatch Agent</label>
+                      <select class = "form-control" name="vendor_id" id="vendor_id">
+                        <option selected>- Select -</option>
+                        @foreach($vendors as $vendor)
+                          <option value='{{ $vendor->id }}'>{{ $vendor->name }}</option>
                         @endforeach
                       </select>
                     </div>
@@ -131,8 +131,8 @@
                 <div class="col-sm-12 col-md-4">
                 <div class="form-group">
                     <div class="position-relative has-icon-right">
-                    <label for="product_id">State</label>
-                      <select class = "form-control" name="product_id" id="product_id">
+                    <label for="state_dispatched_to">State</label>
+                      <select class = "form-control" name="state_dispatched_to" id="state_dispatched_to">
                         <option value="" selected>- Select -</option>
                         @foreach($states as $state)
                           <option value='{{ $state->name }}'>{{ $state->name }}</option>

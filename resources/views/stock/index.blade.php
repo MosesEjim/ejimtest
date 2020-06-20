@@ -70,6 +70,7 @@
                     <tr>
                         <th>Product</th>
                         <th>Quantity</th>
+                        <th>In-Stock</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -78,6 +79,7 @@
                     <tr>
                         <td>{{ $stock->product->product_name}}</td>
                         <td>{{ $stock->quantity}}</td>
+                        <td>{{ $stock->in_stock}}</td>
                         
                         <td>
                         <div class="btn-group m-1">
@@ -94,6 +96,7 @@
                     <tr>
                         <th>Product</th>
                         <th>Quantity</th>
+                        <th>In-Stock</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

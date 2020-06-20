@@ -23,11 +23,13 @@ class CreateTransactionsTable extends Migration
             $table->string('vendor_phone');
             $table->string('vendor_plate_number');
             $table->string('transaction_ref')->unique();
+            $table->text('description')->nullable();
 
             $table->enum('delivery_status',['pending', 'delivered'])->default('pending');
             
             $table->boolean('acknowledged')->default(false);
             $table->string('acknowledged_by')->nullable();
+            $table->string('state_dispatched_to')->nullable();
 
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');

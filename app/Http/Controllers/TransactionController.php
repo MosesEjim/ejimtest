@@ -19,6 +19,7 @@ class TransactionController extends Controller
             return redirect()->route('auth.login.get');
         }
         $transactions = $this->repo->findAll();
+        // dd($transactions);
         return view('transaction.index')->with('transactions', $transactions);
     }
     
