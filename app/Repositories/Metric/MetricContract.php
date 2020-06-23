@@ -1,6 +1,6 @@
 <?php
-namespace App\Repositories\Category;
-interface CategoryContract {
+namespace App\Repositories\Metric;
+interface MetricContract {
     public function create($request);
     public function findAll();
     public function findById($id);

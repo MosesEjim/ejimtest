@@ -1,6 +1,6 @@
 <?php
-namespace App\Repositories\Category;
-interface CategoryContract {
+namespace App\Repositories\Submission;
+interface SubmissionContract {
     public function create($request);
     public function findAll();
     public function findById($id);

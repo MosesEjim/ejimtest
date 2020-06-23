@@ -1,24 +1,24 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Repositories\Category\CategoryContract;
+use App\Repositories\Form\FormContract;
 use Sentinel;
 
-class CategoryController extends Controller
+class FormController extends Controller
 {
     protected $repo;
-    public function __construct(CategoryContract $categoryContract) {
-        $this->repo = $categoryContract;
+    public function __construct(FormContract $formContract) {
+        $this->repo = $formContract;
     }
     
     public function index()
     {
-        return view('category.index');
+        return view('form.index');
     }
     
     public function create()
     {
-        return view('category.create');
+        return view('form.create');
     }
     
     public function store(Request $request)

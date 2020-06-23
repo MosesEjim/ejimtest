@@ -1,24 +1,24 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Repositories\Category\CategoryContract;
+use App\Repositories\Survey\SurveyContract;
 use Sentinel;
 
-class CategoryController extends Controller
+class SurveyController extends Controller
 {
     protected $repo;
-    public function __construct(CategoryContract $categoryContract) {
-        $this->repo = $categoryContract;
+    public function __construct(SurveyContract $surveyContract) {
+        $this->repo = $surveyContract;
     }
     
     public function index()
     {
-        return view('category.index');
+        return view('survey.index');
     }
     
     public function create()
     {
-        return view('category.create');
+        return view('survey.create');
     }
     
     public function store(Request $request)

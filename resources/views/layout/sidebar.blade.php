@@ -91,6 +91,45 @@
 
     <li>
         <a href="javaScript:void();" class="waves-effect">
+          <i class="fa fa-gear"></i> <span>EUM</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="sidebar-submenu">
+          
+          <li>
+            <a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> Programs <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="sidebar-submenu">
+              <li><a href="{{ route('dashboard.eum.program.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create a Program</a></li>
+              <li><a href="{{ route('dashboard.eum.program.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Programs</a></li>
+              </li>
+            </ul>
+          </li>
+          
+          <li>
+            <a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> Sub Programs <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="sidebar-submenu">
+              <li><a href="{{ route('dashboard.eum.subprogram.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create Sub Program</a></li>
+              <li><a href="{{ route('dashboard.eum.subprogram.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Sub Programs</a></li>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> Survey type <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="sidebar-submenu">
+              <li><a href="{{ route('dashboard.eum.surveytype.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create Survey type</a></li>
+              <li><a href="{{ route('dashboard.eum.surveytype.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Survey types</a></li>
+              </li>
+            </ul>
+          </li>
+
+          
+          
+        </ul>
+    </li>
+
+    <li>
+        <a href="javaScript:void();" class="waves-effect">
           <i class="fa fa-gear"></i> <span>Settings</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
