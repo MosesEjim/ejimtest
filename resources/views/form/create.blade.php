@@ -121,8 +121,16 @@
     <!-- button hyperlink below is used for demo purposes  
     <div class="buttonContainer">           </div> -->
     <!-- <a target="_blank" href="DemoForm.html" class="myButton" style="display:none">View form</a>   -->
+    <button type="button" onclick="print()">print</button>
+    <script type="text/javascript">
+   function print(){
+    var fb = new FormBuilder();
+      fb.getFormData();
+      console.log(fb.getFormData());
 
-
+   }
+      
+  </script>
   
 </body>
 </html>
