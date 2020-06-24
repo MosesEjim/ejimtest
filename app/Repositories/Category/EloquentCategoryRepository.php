@@ -4,23 +4,12 @@ use App\Repositories\Category\CategoryContract;
 use App\Category;
 class EloquentCategoryRepository implements CategoryContract {
     public function create($request) {
-      $name_slug = preg_replace('/\s+/', '-', $request->title);
-
-      $cat = new Category;
-      $cat->title = $request->title;
-      $cat->description = $request->description;
-      $cat->slug = strtolower($name_slug);
-      $cat->save();
-      return $cat;
+        // 
     }
 
       // return all Category
     public function findAll() {
-        return Category::where('active_status', true)->get();
-    }
-   
-    public function findAllDisabled() {
-        return Category::where('active_status', false)->get();
+        return Category::all();
     }
 
     public function getAll() {
@@ -39,26 +28,12 @@ class EloquentCategoryRepository implements CategoryContract {
 
       // Update a Category
     public function update($request, $slug) {
-        $cat = $this->findBySlug($slug);
-    }
-    
-    public function enabledStatus($id) {
-        $cat = $this->findById($id);
-        $cat->active_status = true;
-        $cat->save();
-        return $cat;
-    }
-    
-    public function disableStatus($id) {
-        $cat = $this->findById($id);
-        $cat->active_status = false;
-        $cat->save();
-        return $cat;
+        ${repoName,,} = $this->findBySlug($slug);
     }
 
       // Remove a Category
     public function remove($slug) {
-        $cat = $this->findBySlug($slug);
-        return $cat->delete();
+        ${repoName,,} = $this->findBySlug($slug);
+        return ${repoName,,}->delete();
     }
 }

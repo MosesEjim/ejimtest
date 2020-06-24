@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <title>
+          FormBuilder Demo
+    </title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{URL::asset('assets/form/src/js/jquery-ui.js')}}"></script>
+    
+    <script src="{{URL::asset('assets/form/src/js/formBuilder.min.js')}}"></script>
+       
+    <link rel="stylesheet" href="{{URL::asset('assets/form/src/css/jquery-ui.css')}}" />
+
+
+    <!-- optional theme css file below -->
+    <link rel="stylesheet" href="{{URL::asset('assets/form/src/css/jquery-ui.theme.css')}}" type="text/css"/> 
+
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/form/src/css/formBuilder.min.css')}}">
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('.myButton').click(function (event) {
+                event.preventDefault();
+
+                var dataItems = [];
+
+                var fb = new FormBuilder();
+
+                new FieldBase().saveDataItemsToLocalStorage(JSON.stringify(fb.getFormData()));
+
+                var myWindow = window.open("DemoForm.html", "_blank");
+
+            });
+
+            $(document).on("click", '.fieldMenuItem', handler);
+        });
+
+        function handler() {
+
+            setTimeout(checkWhenToSetVisible, 100);
+        }
+
+        function checkWhenToSetVisible() {
+
+
+            if ($('.formBuilder[data-state]').length > 2) {
+
+                var left = $('.formBuilder :first-child').offset().left;
+
+                var newMargin = (left + 640) + "px";
+
+                $('.myButton').css("margin-left", newMargin);
+
+                $('.myButton').css("display", "inline");
+
+                $(document).off("click", '.fieldMenuItem', handler);
+
+            }
+
+        } 
+
+    </script>
+
+       <style type="text/css">
+
+        .myButton {
+          -moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+          -webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+          box-shadow:inset 0px 1px 0px 0px #caefab;
+          background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811));
+          background:-moz-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+          background:-webkit-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+          background:-o-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+          background:-ms-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+          background:linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811',GradientType=0);
+          background-color:#77d42a;
+          -moz-border-radius:6px;
+          -webkit-border-radius:6px;
+          border-radius:6px;
+          border:1px solid #268a16;
+          display:inline-block;
+          cursor:pointer;
+          color:#262b21;
+          font-family:arial;
+          font-size:15px;
+          font-weight:bold;
+          padding:6px 14px;
+          text-decoration:none;
+          text-shadow:0px 1px 0px #aade7c;
+
+          margin-left: 60%;
+        }
+        .myButton:hover {
+          background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a));
+          background:-moz-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+          background:-webkit-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+          background:-o-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+          background:-ms-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+          background:linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+          filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a',GradientType=0);
+          background-color:#5cb811;
+        }
+        .myButton:active {
+          position:relative;
+          top:1px;
+        }
+      </style>
+</head>
+<body>
+    <br> <br> <br>
+    <div class="formBuilder"></div>
+ 
+
+    <br> <br> 
+    <!-- button hyperlink below is used for demo purposes  
+    <div class="buttonContainer">           </div> -->
+    <!-- <a target="_blank" href="DemoForm.html" class="myButton" style="display:none">View form</a>   -->
+
+
+  
+</body>
+</html>
