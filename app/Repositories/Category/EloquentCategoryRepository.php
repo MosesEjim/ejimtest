@@ -28,12 +28,12 @@ class EloquentCategoryRepository implements CategoryContract {
 
       // Update a Category
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+        $cat = $this->findBySlug($slug);
     }
 
       // Remove a Category
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+        $cat = $this->findBySlug($slug);
+        return $cat->delete();
     }
 }

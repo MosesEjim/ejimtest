@@ -18,6 +18,9 @@ class FormController extends Controller
     
     public function create()
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         return view('form.create');
     }
     

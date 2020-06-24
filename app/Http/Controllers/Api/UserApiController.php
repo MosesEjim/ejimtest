@@ -17,18 +17,13 @@ class UserApiController extends Controller
     
     public function index()
     {
-        // if(!Sentinel::check()){
-        //     return response()->json([
-        //         'message' => 'Unauthorized... Please log in'
-        //     ], 401);
-        // }
-        // else{
-            $users = $this->repo->findAll();
-            return response()->json([
-                'data' => $users,
-                'succces' => true,
-            ], 200);
-        // }
+        
+        $users = $this->repo->findAll();
+        return response()->json([
+            'data' => $users,
+            'succces' => true,
+        ], 200);
+        
     }
     
     public function postLogin(Request $request) {
@@ -43,7 +38,7 @@ class UserApiController extends Controller
             'email' => 'required',
             // 'username' => 'required',
             'password' => 'required',
-            'user_role' => 'required',
+            'account_type' => 'required',
         ]);
 
         $user = $this->repo->create($request);

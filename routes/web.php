@@ -143,39 +143,39 @@ Route::group(['prefix' => 'account'], function() {
         Route::group(['prefix'=>'eum'], function(){
 
             Route::group(['prefix'=>'program'], function(){
-            Route::get('/', 'ProgramController@index')->name('dashboard.eum.program.index');
-            Route::get('/create', 'ProgramController@create')->name('dashboard.eum.program.create');
-            Route::post('/create', 'ProgramController@store')->name('dashboard.eum.program.store');
-            Route::get('/edit/{id}', 'ProgramController@edit')->name('dashboard.eum.program.edit');
-            Route::put('/edit/{id}', 'ProgramController@update')->name('dashboard.eum.program.update');
-            Route::get('/{slug}', 'ProgramController@delete')->name('dashboard.eum.program.delete');
+                Route::get('/', 'ProgramController@index')->name('dashboard.eum.program.index');
+                Route::get('/create', 'ProgramController@create')->name('dashboard.eum.program.create');
+                Route::post('/create', 'ProgramController@store')->name('dashboard.eum.program.store');
+                Route::get('/edit/{id}', 'ProgramController@edit')->name('dashboard.eum.program.edit');
+                Route::put('/edit/{id}', 'ProgramController@update')->name('dashboard.eum.program.update');
+                Route::get('/{slug}', 'ProgramController@delete')->name('dashboard.eum.program.delete');
             });
 
             Route::group(['prefix'=>'subprogram'], function(){
-            Route::get('/', 'SubcategoryController@index')->name('dashboard.eum.subprogram.index');
-            Route::get('/create', 'SubcategoryController@create')->name('dashboard.eum.subprogram.create');
-            Route::post('/create', 'SubcategoryController@store')->name('dashboard.eum.subprogram.store');
-            Route::get('/edit/{id}', 'SubcategoryController@edit')->name('dashboard.eum.subprogram.edit');
-            Route::put('/edit/{id}', 'SubcategoryController@update')->name('dashboard.eum.subprogram.update');
-            Route::get('/{slug}', 'SubcategoryController@delete')->name('dashboard.eum.subprogram.delete');
+                Route::get('/', 'SubcategoryController@index')->name('dashboard.eum.subprogram.index');
+                Route::get('/create', 'SubcategoryController@create')->name('dashboard.eum.subprogram.create');
+                Route::post('/create', 'SubcategoryController@store')->name('dashboard.eum.subprogram.store');
+                Route::get('/edit/{id}', 'SubcategoryController@edit')->name('dashboard.eum.subprogram.edit');
+                Route::put('/edit/{id}', 'SubcategoryController@update')->name('dashboard.eum.subprogram.update');
+                Route::get('/{slug}', 'SubcategoryController@delete')->name('dashboard.eum.subprogram.delete');
             });
 
             Route::group(['prefix'=>'surveytype'], function(){
-            Route::get('/', 'SurveyTypeController@index')->name('dashboard.eum.surveytype.index');
-            Route::get('/create', 'SurveyTypeController@create')->name('dashboard.eum.surveytype.create');
-            Route::post('/create', 'SurveyTypeController@store')->name('dashboard.eum.surveytype.store');
-            Route::get('/edit/{id}', 'SurveyTypeController@edit')->name('dashboard.eum.surveytype.edit');
-            Route::put('/edit/{id}', 'SurveyTypeController@update')->name('dashboard.eum.surveytype.update');
-            Route::get('/{slug}', 'SurveyTypeController@delete')->name('dashboard.eum.surveytype.delete');
+                Route::get('/', 'SurveyTypeController@index')->name('dashboard.eum.surveytype.index');
+                Route::get('/create', 'SurveyTypeController@create')->name('dashboard.eum.surveytype.create');
+                Route::post('/create', 'SurveyTypeController@store')->name('dashboard.eum.surveytype.store');
+                Route::get('/edit/{id}', 'SurveyTypeController@edit')->name('dashboard.eum.surveytype.edit');
+                Route::put('/edit/{id}', 'SurveyTypeController@update')->name('dashboard.eum.surveytype.update');
+                Route::get('/{slug}', 'SurveyTypeController@delete')->name('dashboard.eum.surveytype.delete');
             });
             //form group
             Route::group(['prefix'=>'form'], function(){
-            Route::get('/', 'FormController@index')->name('dashboard.eum.form.index');
-            Route::get('/create', 'FormController@create')->name('dashboard.eum.form.create');
-            Route::post('/create', 'FormController@store')->name('dashboard.eum.form.store');
-            Route::get('/edit/{id}', 'FormController@edit')->name('dashboard.eum.form.edit');
-            Route::put('/edit/{id}', 'FormController@update')->name('dashboard.eum.form.update');
-            Route::get('/{slug}', 'FormController@delete')->name('dashboard.eum.form.delete');
+                Route::get('/', 'FormController@index')->name('dashboard.eum.form.index');
+                Route::get('/create', 'FormController@create')->name('dashboard.eum.form.create');
+                Route::post('/create', 'FormController@store')->name('dashboard.eum.form.store');
+                Route::get('/edit/{id}', 'FormController@edit')->name('dashboard.eum.form.edit');
+                Route::put('/edit/{id}', 'FormController@update')->name('dashboard.eum.form.update');
+                Route::get('/{slug}', 'FormController@delete')->name('dashboard.eum.form.delete');
             });
         });
     });

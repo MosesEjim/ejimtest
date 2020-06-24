@@ -2,6 +2,8 @@
 namespace App\Repositories\User;
 use App\Repositories\User\UserContract;
 use App\User;
+use Sentinel;
+
 class EloquentUserRepository implements UserContract {
     public function create($request) {
       $name_slug = preg_replace('/\s+/', '-', $request->first_name. ' '. $request->last_name);
@@ -14,7 +16,7 @@ class EloquentUserRepository implements UserContract {
           'email'    => $request->email,
           'username'    => $request->username,
           'password' => $request->password ?: 'secret',
-          'user_role' => $request->user_role,
+          'account_type' => $request->account_type,
           'sex' => $request->sex,
           'dob' => $request->dob,
           'staff_id' => $request->staff_id,
@@ -29,7 +31,7 @@ class EloquentUserRepository implements UserContract {
           'email'    => $request->email,
           'username'    => $request->username,
           'password' => $request->password ?: 'secret',
-          'user_role' => $request->user_role,
+          'account_type' => $request->account_type,
           'sex' => $request->sex,
           'dob' => $request->dob,
           'staff_id' => $request->staff_id,
@@ -39,7 +41,7 @@ class EloquentUserRepository implements UserContract {
       
 
       $user = Sentinel::registerAndActivate($credentials);
-      $role = Sentinel::findRoleBySlug($request->user_role);
+      $role = Sentinel::findRoleBySlug($request->account_type);
       $role->users()->attach($user);
           
       return $user;

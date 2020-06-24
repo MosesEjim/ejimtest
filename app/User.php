@@ -7,8 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Laravel\Passport\HasApiTokens;
-// use Tymon\JWTAuth\Contracts\JWTSubject;
-
 class User extends EloquentUser
 {
     use Notifiable, HasApiTokens;
@@ -55,13 +53,4 @@ class User extends EloquentUser
         return static::whereEmail($email)->first();
     }
 
-    // public function getJWTIdentifier()
-    // {
-    //     return $this->getKey();
-    // }
-
-    // public function getJWTCustomClaims()
-    // {
-    //     return [];
-    // }
 }

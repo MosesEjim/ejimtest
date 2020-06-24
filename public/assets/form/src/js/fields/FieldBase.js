@@ -28,7 +28,7 @@ function FieldBase() {
     this._select_png_src = "img/select_triangle.png";
     this._select2_png_src = "img/select_triangle4.png";
 
-    this._pencil_png_src = "img/pencil.png";
+    this._pencil_png_src = "../../img/pencil.png";
     this._pencil_src = "SVG/pencil.svg";
 
     this._copy_src = "SVG/copy.svg";
@@ -56,7 +56,7 @@ function FieldBase() {
     this._table_png_src = "img/table.png";
 
     this._table2_src = "SVG/table2.svg";
-    this._table2_png_src = "img/table2.png"
+    this._table2_png_src = "assets/form/img/table2.png"
 
     this._radio_checked_src = "SVG/radio-checked.svg";
     this._radio_checked_png_src = "img/radio-checked.png";

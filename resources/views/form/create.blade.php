@@ -115,22 +115,27 @@
 <body>
     <br><br><br>
     <div class="formBuilder"></div>
- 
-
     <br> <br> 
     <!-- button hyperlink below is used for demo purposes  
     <div class="buttonContainer">           </div> -->
     <!-- <a target="_blank" href="DemoForm.html" class="myButton" style="display:none">View form</a>   -->
-    <button type="button" onclick="print()">print</button>
-    <script type="text/javascript">
-   function print(){
-    var fb = new FormBuilder();
-      fb.getFormData();
-      console.log(fb.getFormData());
+    <button type="button" class="submitForm">Save Form Data</button>
 
-   }
-      
-  </script>
+    <script type="text/javascript">
+        var fb = new FormBuilder();
+        fb.getFormData();
+            
+        
+        const url = '/api/questionnaire/create';
+        const data = fb.getFormData();
+
+        $('.submitForm').click(function() {
+            console.log(fb.getFormData());
+            $.post(url, fb.getFormData(), function(data, status) {
+                console.log(`${data} and response status is ${status}`);
+            });
+        });
+    </script>
   
 </body>
 </html>
