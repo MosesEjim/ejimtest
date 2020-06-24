@@ -28,12 +28,12 @@ class EloquentSurveyRepository implements SurveyContract {
 
       // Update a Survey
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+        // ${repoName,,} = $this->findBySlug($slug);
     }
 
       // Remove a Survey
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+        // ${repoName,,} = $this->findBySlug($slug);
+        // return ${repoName,,}->delete();
     }
 }
