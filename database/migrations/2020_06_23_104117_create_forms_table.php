@@ -17,6 +17,8 @@ class CreateFormsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('content');
+            $table->string('type');
+            $table->longText('content');
             $table->string('slug');
             $table->unsignedBigInteger('survey_type_id');
             $table->foreign('survey_type_id')->references('id')->on('survey_types');

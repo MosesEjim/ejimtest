@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
 
     <title>
-          FormBuilder Demo
+          Create a Survey
     </title>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -42,7 +42,6 @@
         });
 
         function handler() {
-
             setTimeout(checkWhenToSetVisible, 100);
         }
 
@@ -114,7 +113,7 @@
       </style>
 </head>
 <body>
-    <br> <br> <br>
+    <br><br><br>
     <div class="formBuilder"></div>
  
 

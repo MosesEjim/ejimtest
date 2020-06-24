@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Sentinel;
 use Carbon\Carbon;
 
-class LoginController extends Controller
+class LoginApiController extends Controller
 {
     // protected $repo;
 

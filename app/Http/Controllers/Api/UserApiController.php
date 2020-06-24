@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\User\UserContract;
 use Sentinel;
 
-class ApiUserController extends Controller
+class UserApiController extends Controller
 {
     protected $repo;
 

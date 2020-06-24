@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Transaction\TransactionContract;
 use Symfony\Component\HttpFoundation\Response;
 
-class TransactionController extends Controller
+class TransactionApiController extends Controller
 {
     protected $repo;
     public function __construct(TransactionContract $transactionContract) {

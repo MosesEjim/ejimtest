@@ -147,8 +147,6 @@ $(document).ready(function () {
                     $('.formBuilder[data-state="active"]').append(_field.renderDevelopmentView());
 
                 }
-              
-
                 //set previous type
                 _prevType = data.type;
             }

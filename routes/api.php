@@ -20,16 +20,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'auth'], function() {
     Route::group(['prefix' => 'login'], function() {
-        Route::post('/', 'api\LoginController@authenticate');
+        Route::post('/', 'api\LoginApiController@authenticate');
     });
 });
 
 Route::group(['prefix' => 'user', 'middleware' => 'auth:api'], function() {
     Route::group(['prefix' => 'all'], function() {
-        Route::get('/', 'api\ApiUserController@index');
+        Route::get('/', 'api\UserApiController@index');
     });
 });
 
 Route::group(['prefix' => 'transactions'], function() {
-    Route::get('/', 'api\TransactionController@index');
+    Route::get('/', 'api\TransactionApiController@index');
 });
+
+Route::get('/questionnaire', 'FormApiController@index');
