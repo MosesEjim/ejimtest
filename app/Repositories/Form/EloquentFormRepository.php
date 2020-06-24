@@ -28,12 +28,12 @@ class EloquentFormRepository implements FormContract {
 
       // Update a Form
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+        // ${repoName,,} = $this->findBySlug($slug);
     }
 
       // Remove a Form
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+        // ${repoName,,} = $this->findBySlug($slug);
+        // return ${repoName,,}->delete();
     }
 }

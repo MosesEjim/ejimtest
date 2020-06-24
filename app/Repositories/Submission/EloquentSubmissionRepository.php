@@ -2,9 +2,19 @@
 namespace App\Repositories\Submission;
 use App\Repositories\Submission\SubmissionContract;
 use App\Submission;
+use Sentinel;
+use App\Form;
 class EloquentSubmissionRepository implements SubmissionContract {
     public function create($request) {
-        // 
+        $submission = new Submission();
+        $submission->user_id = $request->user_id;
+        $submission->response = $request->response;
+        $submission->longitude = $request->longitude;
+        $submission->latitude = $request->latitude;
+        $form = Form::find($request->form_id);
+        $submission->form()->associate($form);
+        $submission->save();
+        return $submission;
     }
 
       // return all Submission
@@ -28,12 +38,12 @@ class EloquentSubmissionRepository implements SubmissionContract {
 
       // Update a Submission
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+        // ${repoName,,} = $this->findBySlug($slug);
     }
 
       // Remove a Submission
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+        // ${repoName,,} = $this->findBySlug($slug);
+        // return ${repoName,,}->delete();
     }
 }

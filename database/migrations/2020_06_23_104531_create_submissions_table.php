@@ -17,6 +17,8 @@ class CreateSubmissionsTable extends Migration
             $table->id();
             $table->unsignedInteger('user_id');
             $table->string('response');
+            $table->decimal('longitude',11,8);
+            $table->decimal('latitude', 10,8);
             $table->unsignedBigInteger('form_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('form_id')->references('id')->on('forms');
