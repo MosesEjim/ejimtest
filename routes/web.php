@@ -171,7 +171,7 @@ Route::group(['prefix' => 'account'], function() {
             //form group
             Route::group(['prefix'=>'form'], function(){
             Route::get('/', 'FormController@index')->name('dashboard.eum.form.index');
-            Route::get('/create', 'FormController@create')->name('dashboard.eum.from.create');
+            Route::get('/create', 'FormController@create')->name('dashboard.eum.form.create');
             Route::post('/create', 'FormController@store')->name('dashboard.eum.form.store');
             Route::get('/edit/{id}', 'FormController@edit')->name('dashboard.eum.form.edit');
             Route::put('/edit/{id}', 'FormController@update')->name('dashboard.eum.form.update');
