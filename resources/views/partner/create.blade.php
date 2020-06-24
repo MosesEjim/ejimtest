@@ -83,16 +83,13 @@
                       @foreach($states as $state)
                         <option value='{{ $state->name }}'>{{ $state->name }}</option>
                       @endforeach
-                            
-							
                  </select>
               </div>
              </div>
              <div class="form-group">
              <label for="lga" class="sr-only">LGA</label>
               <div class="position-relative has-icon-right">
-                 <select class="form-control select-lga" name="lga" id="lga">
-                      
+                 <select class="form-control select-lga" name="lga" id="lga">                      
                  </select>
               </div>
              </div>
@@ -108,6 +105,7 @@
                  <input type="text" id="payment_email" name = "payment_email" class="form-control input-shadow" placeholder="Enter Payment Advice Email">
               </div>
              </div>
+             <input type="hidden" name="account_type" value="partner">
              <div class="form-group">
              <label for="batch_no" class="sr-only">First Telephone</label>
               <div class="position-relative has-icon-right">

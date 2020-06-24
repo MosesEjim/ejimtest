@@ -58,7 +58,7 @@ class LoginController extends Controller
                 'message' => "Ops.. You have been banned for $delay seconds."
             ], 401);
         } catch(NotActivatedException $e){
-            return response()->json(['error' => 'Ops... Your account is not yet activated, please check your email for activation code or link']);
+            return response()->json(['error' => 'Ops... Your account is not yet activated, please check your email for activation code or link'], 401);
         }
     }
 }

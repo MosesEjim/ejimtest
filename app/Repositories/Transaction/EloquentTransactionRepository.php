@@ -54,6 +54,16 @@ class EloquentTransactionRepository implements TransactionContract {
     public function findById($id) {
         return Transaction::where('id', $id)->first();
     }
+    
+    // return a Transaction by ID
+    public function findByPartner($id) {
+        return Transaction::where('partner_id', $id)->get();
+    }
+    
+    // return a Transaction by ID
+    public function findByPartnerId($id) {
+        return Transaction::where('partner_id', $id)->first();
+    }
 
       // return a Transaction by slug
     public function findBySlug($slug){
@@ -68,8 +78,7 @@ class EloquentTransactionRepository implements TransactionContract {
        $updateTransaction->quantity = $request->quantity;
        $updateTransaction->partner_id = $request->partner_id;
        $updateTransaction->save();
-       return $updateTransaction;
-      
+       return $updateTransaction;      
     }
 
       // Remove a Transaction

@@ -24,4 +24,12 @@ class TransactionController extends Controller
         ], Response::HTTP_OK);
         
     }
+
+    public function partnerTransactions($id) {
+        $transactions = $this->repo->findByPartner($id);
+        return response()->json([
+            'data' => $transactions,
+            'succces' => true,
+        ], Response::HTTP_OK);
+    }
 }

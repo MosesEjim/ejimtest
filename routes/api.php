@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +29,6 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:api'], function() {
         Route::get('/', 'api\ApiUserController@index');
     });
 });
-
 
 Route::group(['prefix' => 'transactions'], function() {
     Route::get('/', 'api\TransactionController@index');

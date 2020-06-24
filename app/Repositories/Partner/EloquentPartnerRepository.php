@@ -2,17 +2,22 @@
 namespace App\Repositories\Partner;
 use App\Repositories\Partner\PartnerContract;
 use App\Repositories\State\StateContract;
+use App\Repositories\User\UserContract;
 use App\Partner;
 class EloquentPartnerRepository implements PartnerContract {
 
     protected $stateRepo;
-    public function __construct(StateContract $stateContract) {
+    protected $userRepo;
+
+    public function __construct(StateContract $stateContract, UserContract $userContract) {
         $this->stateRepo = $stateContract;
+        $this->userRepo = $userContract;
     }
 
     public function create($request) {
       // dd($request->all());
       $state = $this->stateRepo->findByName($request->state);
+      $user = $this->userRepo->create($request);
       // dd($state);
       $partner = new Partner();
       $partner->partner_name = $request->partner_name;
@@ -27,6 +32,7 @@ class EloquentPartnerRepository implements PartnerContract {
       $partner->telephone1 = $request->telephone1;
       $partner->telephone2 = $request->telephone2;
       $partner->state_id = $state->id;
+      $partner->user_id = $user->id;
       $partner->save();
       // dd($partner);
       return $partner;

@@ -28,6 +28,9 @@ class CreatePartnersTable extends Migration
             $table->string('telephone2')->unique();
             $table->string('slug')->nullable();
 
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->unsignedBigInteger('state_id');
             $table->foreign('state_id')->references('id')->on('states');
             $table->timestamps();

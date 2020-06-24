@@ -69,6 +69,7 @@
                 <thead>
                     <tr>
                         <th>Sub Program</th>
+                        <th>Program</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -76,6 +77,7 @@
                   @foreach($subprograms as $subprogram)
                     <tr>
                         <td>{{ $subprogram->name}}</td>
+                        <td>{{ $subprogram->program->name}}</td>
                         
                         <td>
                         <div class="btn-group m-1">
@@ -93,6 +95,7 @@
                 <tfoot>
                     <tr>
                         <th>Sub Program</th>
+                        <th>Program</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

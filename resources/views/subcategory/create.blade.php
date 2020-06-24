@@ -52,25 +52,28 @@
 
            <form method = "post" action = "{{ route('dashboard.eum.subprogram.store') }}">
               @csrf
-             <div class="form-group">
-             <label for="partner_name" class="sr-only">Sub category name</label>
-              <div class="position-relative has-icon-right">
-                 <input type="text" id="name" name = "name" class="form-control input-shadow" placeholder="Enter Sub Category Name">
-              </div>
-             </div>
+             
 
 
              <div class="form-group">
-             <label for="lga" class="sr-only">LGA</label>
-              <div class="position-relative has-icon-right">
-                 <select class="form-control select-lga" name="program_id" id="program_id">
-                 @foreach($programs as $program)
-                      <option value="{{$program->id}}">{{$program->name}}</option>
-                 @endforeach
-                 </select>
-              </div>
+                
+                <div class="position-relative has-icon-right">
+                <label for="program_id">Program</label>
+                  <select class="form-control select-lga" name="program_id" id="program_id">
+                  <option> -- Select a Program --</option>
+                  @foreach($programs as $program)
+                        <option value="{{$program->id}}">{{$program->name}}</option>
+                  @endforeach
+                  </select>
+                </div>
              </div>
 
+             <div class="form-group">
+                <label for="partner_name" class="sr-only">Sub category name</label>
+                <div class="position-relative has-icon-right">
+                  <input type="text" id="name" name = "name" class="form-control input-shadow" placeholder="Enter Sub Category Name">
+                </div>
+             </div>
 
         
 
