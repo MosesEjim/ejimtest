@@ -38,6 +38,6 @@ Route::group(['prefix' => 'transactions'], function() {
 
 Route::group(['prefix' => 'questionnaire'], function() {
     Route::get('/', 'Api\FormApiController@index');
-    Route::post('/create', 'Api\FormApiController@store');
+    Route::post('{id}/create', 'Api\FormApiController@store');
 
 });

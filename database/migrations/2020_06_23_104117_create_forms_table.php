@@ -15,9 +15,6 @@ class CreateFormsTable extends Migration
     {
         Schema::create('forms', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('type')->nullable();
-            $table->longText('title')->nullable();
             $table->longText('content')->nullable();
             $table->string('slug')->nullable();
             $table->unsignedBigInteger('survey_type_id')->nullable();

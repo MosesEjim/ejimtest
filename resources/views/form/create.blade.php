@@ -126,12 +126,12 @@
         fb.getFormData();
             
         
-        const url = '/api/questionnaire/create';
+        const url = '/api/questionnaire/{{$survey->id}}/create';
         const data = fb.getFormData();
 
         $('.submitForm').click(function() {
-            console.log(fb.getFormData());
-            $.post(url, fb.getFormData(), function(data, status) {
+            console.log(fb.getFormData(), url);
+            $.post(url, fb.getFormData().toString(), function(data, status) {
                 console.log(`${data} and response status is ${status}`);
             });
         });
