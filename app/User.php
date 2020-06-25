@@ -6,11 +6,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Cartalyst\Sentinel\Users\EloquentUser;
-use Tymon\JWTAuth\Contracts\JWTSubject;
-
-class User extends EloquentUser implements JWTSubject
+use Laravel\Passport\HasApiTokens;
+class User extends EloquentUser
 {
-    use Notifiable;
+    use Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -50,13 +49,8 @@ class User extends EloquentUser implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
+    public static function byEmail($email) {
+        return static::whereEmail($email)->first();
     }
 
-    public function getJWTCustomClaims()
-    {
-        return [];
-    }
 }

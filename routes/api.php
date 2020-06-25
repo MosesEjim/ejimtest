@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,19 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
 Route::group(['prefix' => 'auth'], function() {
     Route::group(['prefix' => 'login'], function() {
-        Route::post('/', 'api\LoginController@authenticate');
+        Route::post('/', 'Api\LoginApiController@authenticate');
     });
 });
 
-Route::group(['prefix' => 'user', 'middleware' => ['jwt.verify']], function() {
+Route::group(['prefix' => 'user'], function() {
     Route::group(['prefix' => 'all'], function() {
-        Route::get('/', 'api\ApiUserController@index');
+        Route::get('/', 'Api\UserApiController@index');
     });
+});
+
+Route::group(['prefix' => 'transactions'], function() {
+    Route::get('/', 'Api\TransactionApiController@index');
+});
+
+
+
+Route::group(['prefix' => 'questionnaire'], function() {
+    Route::get('/', 'Api\FormApiController@index');
+    Route::post('/create', 'Api\FormApiController@store');
+
 });

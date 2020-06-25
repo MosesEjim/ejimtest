@@ -68,7 +68,7 @@
               <table id="example" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Product Name</th>
+                        <th>Program Name</th>
                         <th>Action</th>
                     </tr>
                 </thead>

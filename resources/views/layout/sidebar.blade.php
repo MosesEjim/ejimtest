@@ -46,6 +46,7 @@
       <ul class="sidebar-submenu">
         <li><a href="{{ route('dashboard.product.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Products</a></li>
         <li><a href="{{ route('dashboard.product.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create a Product</a></li>
+        <li><a href="{{ route('dashboard.product.dispatch') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Dispatch Product</a></li>
       </ul>
     </li>
     <li>

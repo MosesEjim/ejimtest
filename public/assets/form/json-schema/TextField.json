@@ -5,36 +5,37 @@
     "type": "object",
     "properties": {
         "type": {
-            	"description": "textField is the identifier for a TextField type",
-            	"type": "string"
+					"description": "textField is the identifier for a TextField type",
+					"type": "string"
         },
         "title": {
-            	"description": "title text for a TextField question",
-            	"type": "string"
+					"description": "title text for a TextField question",
+					"type": "string"
         },
         "helpText": {
-            	"description": "help text for a TextField",
-            	"type": "string"
+					"description": "help text for a TextField",
+					"type": "string"
         },
-	"requiredQuestion": {
-            	"description": "is the field a required question",
-            	"type": "boolean"
+				"requiredQuestion": {
+					"description": "is the field a required question",
+					"type": "boolean"
         },
-	"advancedSettings": {
-                "type": "object",
-                "properties": {
-                    	"dataValidation": {
-                        	"description": "is data validation used true/false", 
-				"type": "boolean" 
-			},
-                    	"validationType": {
-                        	"description": "what type of validation is done: number, text, regular expression",
-				"type": "string",
-                        	"oneOf": [
-					{ "format": "number" },
-                			{ "format": "text" },              		
-                			{ "format": "regular_expression" } ] 
-			},
+				"advancedSettings": {
+					"type": "object",
+					"properties": {
+						"dataValidation": {
+							"description": "is data validation used true/false", 
+							"type": "boolean" 
+						},
+						"validationType": {
+							"description": "what type of validation is done: number, text, regular expression",
+							"type": "string",
+							"oneOf": [
+								{ "format": "number" },
+								{ "format": "text" },              		
+								{ "format": "regular_expression" } 
+							] 
+						},
                     	"numberValidation": {
 				"type": "object",
                 		"properties": {

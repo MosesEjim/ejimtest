@@ -24,6 +24,7 @@
   <link href="{{ URL::asset('assets/css/sidebar-menu.css') }}" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="{{ URL::asset('assets/css/app-style.css') }}" rel="stylesheet"/>
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <!-- skins CSS-->
   <link href="{{ URL::asset('assets/css/skins.css') }}" rel="stylesheet"/>
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">

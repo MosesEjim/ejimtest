@@ -15,10 +15,11 @@ class CreateLGASTable extends Migration
     {
         Schema::create('lgas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('state_id');
+            
             $table->string('name');
             $table->string('slug')->nullable();
             $table->timestamps();
+            $table->unsignedBigInteger('state_id');
             $table->foreign('state_id')->references('id')->on('states');
         });
     }

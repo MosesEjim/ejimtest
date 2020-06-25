@@ -28,6 +28,12 @@ class RolesTableSeeder extends Seeder
             'name' => 'User',
             'description' => 'Can READ on the system.',
         ]);
+        
+        DB::table('roles')->insert([
+            'slug' => 'partner',
+            'name' => 'Partner',
+            'description' => 'Can READ on the system.',
+        ]);
           
     }
 }

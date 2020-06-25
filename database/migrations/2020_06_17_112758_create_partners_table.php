@@ -15,7 +15,6 @@ class CreatePartnersTable extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
-            $table->string('partner_id')->unique();
             $table->string('partner_name');
             $table->string('email')->unique();
             $table->string('payment_email')->unique();
@@ -28,6 +27,12 @@ class CreatePartnersTable extends Migration
             $table->string('telephone1')->unique();
             $table->string('telephone2')->unique();
             $table->string('slug')->nullable();
+
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('state_id');
+            $table->foreign('state_id')->references('id')->on('states');
             $table->timestamps();
         });
     }

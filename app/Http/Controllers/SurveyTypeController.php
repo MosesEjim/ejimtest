@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\SurveyType\SurveyTypeContract;
 use Sentinel;
-use App\SubCategory;
+use App\Subcategory;
 use App\SurveyType;
 
 class SurveyTypeController extends Controller
@@ -28,7 +28,7 @@ class SurveyTypeController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-        $subprograms = SubCategory::all();
+        $subprograms = Subcategory::all();
         return view('surveytype.create')->with('subprograms', $subprograms);
     }
     

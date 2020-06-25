@@ -67,21 +67,31 @@
                 <thead>
                     <tr>
                         <th>Transaction Ref</th>
-                        <th>User</th>
                         <th>Product</th>
-                        <th>Quantity</th>
+                        <th>Quantity Dispatched</th>
                         <th>Partner</th>
+                        <th>Partner Phone</th>
+                        <th>State Dispatched To</th>
+                        <th>Dispatch Agent</th>
+                        <th>Dispatch Agent Phone</th>
+                        <th>Dispatch Agent Plate Number</th>
+                        <th>Delivery Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                   @foreach($transactions as $transaction)
                     <tr>
-                        <td>{{ $transaction->transaction_ref }}</td>
-                        <td>{{ $transaction->user->email }}</td>
+                        <td>{{ strtoupper($transaction->transaction_ref) }}</td>
                         <td>{{ $transaction->product->product_name }}</td>
-                        <td>{{ $transaction->quantity }}</td>
-                        <td>{{ $transaction->partner->partner_name }}</td>
+                        <td>{{ $transaction->quantity_dispatched }}</td>
+                        <td>{{ $transaction->partner_name }}</td>
+                        <td>{{ $transaction->partner_telephone1 }}</td>
+                        <td>{{ $transaction->state_dispatched_to }}</td>
+                        <td>{{ $transaction->vendor_name }}</td>
+                        <td>{{ $transaction->vendor_phone }}</td>
+                        <td>{{ strtoupper($transaction->vendor_plate_number) }}</td>
+                        <td>{{ ucfirst($transaction->delivery_status) }}</td>
                         
                         <td>
                         <div class="btn-group m-1">
@@ -96,11 +106,16 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                    <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
+                      <th>Transaction Ref</th>
+                        <th>Product</th>
+                        <th>Quantity Dispatched</th>
+                        <th>Partner</th>
+                        <th>Partner Phone</th>
+                        <th>State Dispatched To</th>
+                        <th>Dispatch Agent</th>
+                        <th>Dispatch Agent Phone</th>
+                        <th>Dispatch Agent Plate Number</th>
+                        <th>Delivery Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

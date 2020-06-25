@@ -68,6 +68,7 @@
               <table id="example" class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Survey Type</th>
                         <th>Sub Program</th>
                         <th>Action</th>
                     </tr>
@@ -76,6 +77,7 @@
                   @foreach($surveytypes as $surveytype)
                     <tr>
                         <td>{{ $surveytype->name}}</td>
+                        <td>{{ $surveytype->subCategory->name}}</td>
                         
                         <td>
                         <div class="btn-group m-1">
@@ -92,6 +94,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th>Survey Type</th>
                         <th>Sub Program</th>
                         <th>Action</th>
                     </tr>
