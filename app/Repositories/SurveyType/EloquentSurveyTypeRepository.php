@@ -2,12 +2,16 @@
 namespace App\Repositories\SurveyType;
 use App\Repositories\SurveyType\SurveyTypeContract;
 use App\SurveyType;
+use App\Subcategory;
 class EloquentSurveyTypeRepository implements SurveyTypeContract {
     public function create($request) {
       $surveyType = new SurveyType();
       $surveyType->name = $request->name;
       $surveyType->sub_category_id = $request->sub_category_id;
-      $surveyType->slug = preg_replace('/\s/', '-', $request->name);
+      $sub_category = Subcategory::find($request->sub_category_id);
+      $surveyType->program_id = $sub_category->program->id;
+      $slug = preg_replace('/\s/', '-', $request->name);
+      $surveyType->slug = strtolower($slug);
       $surveyType->save();
       return $surveyType;
     }

@@ -7,7 +7,8 @@ class EloquentSubcategoryRepository implements SubcategoryContract {
         $subcategory = new SubCategory();
         $subcategory->name = $request->name;
         $subcategory->program_id = $request->program_id;
-        $subcategory->slug = preg_replace('/\s/', '-', $request->name);
+        $slug = preg_replace('/\s/', '-', $request->name);
+        $subcategory->slug = strtolower($slug);
         $subcategory->save();
         return $subcategory;
     }
