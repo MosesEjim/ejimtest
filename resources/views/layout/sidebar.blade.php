@@ -126,7 +126,7 @@
           <li>
             <a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> Survey <i class="fa fa-angle-left pull-right"></i></a>
             <ul class="sidebar-submenu">
-              <li><a href="{{ route('dashboard.eum.form.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create Survey</a></li>
+              
               <li><a href="{{ route('dashboard.eum.form.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Surveys</a></li>
               </li>
             </ul>

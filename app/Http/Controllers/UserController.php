@@ -11,6 +11,12 @@ class UserController extends Controller
         $this->repo = $userContract;
     }
     
+    public function adminDashboard(){
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        return view('dashboard.index');
+    }
     public function index()
     {
         return view('user.index');
