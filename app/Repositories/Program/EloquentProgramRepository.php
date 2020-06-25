@@ -7,7 +7,8 @@ class EloquentProgramRepository implements ProgramContract {
     public function create($request) {
         $program = new Program();
         $program->name = $request->name;
-        $program->slug = preg_replace('/\s/','-',$request->name);
+        $slug = preg_replace('/\s/','-',$request->name);
+        $program->slug = strtolower($slug);
         $program->save();
         return $program;
     }
