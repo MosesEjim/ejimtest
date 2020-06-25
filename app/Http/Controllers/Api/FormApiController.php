@@ -14,21 +14,19 @@ class FormApiController extends Controller
     public function __construct(FormContract $formContract) {
         $this->repo = $formContract;
     }
-
     public function index() {
         $forms = $this->repo->findAll();
-        // $data = unserialize($forms);
         return response()->json([
             'data' => json_decode($forms),
             'succces' => true,
         ], Response::HTTP_OK);
     }
 
-    public function store(Request $request) {
-        // dd($request->all());
-        $form = Form::create($request->all());
-        // $form->content = $request->all();
-        // $form->save();
+    public function store(Request $request, $id) {
+        $form = new Form();
+        $form->content = $request->all();
+        $form->survey_type_id = $id;
+        $form->save();
 
         return response()->json([
             'data' => $form,

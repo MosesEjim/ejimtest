@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Form\FormContract;
 use Sentinel;
+use App\SurveyType;
 
 class FormController extends Controller
 {
@@ -16,15 +17,17 @@ class FormController extends Controller
         return view('form.index');
     }
     
-    public function create()
+    public function create($id)
     {
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
+
         }
-        return view('form.create');
+        $survey = SurveyType::find($id);
+        return view('form.create')->with('survey', $survey);
     }
     
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         //
     }

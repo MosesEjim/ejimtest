@@ -81,8 +81,11 @@
                         
                         <td>
                         <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.eum.surveytype.edit', $surveytype->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
+                          <a href="{{ route('dashboard.eum.surveytype.edit', $surveytype->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
                             <i class="fa fa-edit"></i> 
+                          </a>
+                          <a href="{{ route('dashboard.eum.form.create', $surveytype->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Create Survey" class="btn btn-outline-info waves-effect waves-light"> 
+                            <i class="fa fa-create"></i> 
                           </a>
                           <a href="{{ route('dashboard.eum.surveytype.delete', $surveytype->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Delete" class="btn btn-outline-danger waves-effect waves-light"> 
                             <i class="fa fa fa-trash-o"></i> 

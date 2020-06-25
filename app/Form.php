@@ -13,6 +13,10 @@ class Form extends Model
         'content' => 'array',
     ];
 
+    public function surveyType() {
+        return $this->belongsTo('App\SurveyType');
+    }
+
     public function submissions(){
         return $this->hasMany('App\Submission');
     }
