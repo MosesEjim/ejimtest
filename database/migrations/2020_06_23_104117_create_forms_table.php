@@ -17,7 +17,11 @@ class CreateFormsTable extends Migration
             $table->id();
             $table->longText('content')->nullable();
             $table->string('slug')->nullable();
+            $table->unsignedBigInteger('program_id')->nullable();
+            $table->unsignedBigInteger('sub_category_id')->nullable();
             $table->unsignedBigInteger('survey_type_id')->nullable();
+            $table->foreign('program_id')->references('id')->on('programs');
+            $table->foreign('sub_category_id')->references('id')->on('subcategories');
             $table->foreign('survey_type_id')->references('id')->on('survey_types');
             $table->timestamps();
         });
