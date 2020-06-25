@@ -26,9 +26,9 @@ class FormApiController extends Controller
 
     public function store(Request $request) {
         // dd($request->all());
-        $form = new Form();
-        $form->content = serialize($request->all());
-        $form->save();
+        $form = Form::create($request->all());
+        // $form->content = $request->all();
+        // $form->save();
 
         return response()->json([
             'data' => $form,
