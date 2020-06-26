@@ -13,32 +13,32 @@ class QuestionTypesSeeder extends Seeder
     public function run()
     {
         QuestionType::firstOrCreate([
-            'type' => 'text',
+            'type' => 'Text',
             'slug' => 'text'
         ]);
         
         QuestionType::firstOrCreate([
-            'type' => 'single_choice',
+            'type' => 'Single Choice',
             'slug' => 'single_choice',
         ]);
         
         QuestionType::firstOrCreate([
-            'type' => 'multi_choice',
+            'type' => 'Multi Choice',
             'slug' => 'multi_choice',
         ]);
         
         QuestionType::firstOrCreate([
-            'type' => 'select_option',
+            'type' => 'Select Option',
             'slug' => 'select_option',
         ]);
         
         QuestionType::firstOrCreate([
-            'type' => 'date',
+            'type' => 'Date',
             'slug' => 'date',
         ]);
         
         QuestionType::firstOrCreate([
-            'type' => 'other',
+            'type' => 'Other',
             'slug' => 'other'
         ]);
     }

@@ -24,6 +24,9 @@ class ProgramController extends Controller
     
     public function create()
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         return view('program.create');
     }
     

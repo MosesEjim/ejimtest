@@ -13,11 +13,17 @@ class QuestionTypeController extends Controller
     
     public function index()
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         return view('questiontype.index');
     }
     
     public function create()
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         return view('questiontype.create');
     }
     
