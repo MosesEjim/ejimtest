@@ -1,6 +1,6 @@
  <nav class="side-nav">
                 <a href="" class="intro-x flex items-center pl-5 pt-4">
-                    <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="dist/images/logo.svg">
+                    <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="{{URL::asset('assets/dashboard/images/logo.svg')}}">
                     <span class="hidden xl:block text-white text-lg ml-3"> Mid<span class="font-medium">one</span> </span>
                 </a>
                 <div class="side-nav__devider my-6"></div>
@@ -13,80 +13,278 @@
                     </li>
                     <li>
                         <a href="javascript:;" class="side-menu">
-                            <div class="side-menu__icon"> <i data-feather="box"></i> </div>
-                            <div class="side-menu__title"> Menu Layout <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                            <div class="side-menu__icon"> <i data-feather="users"></i> </div>
+                            <div class="side-menu__title"> Users <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
                         </a>
                         <ul class="">
                             <li>
-                                <a href="index.html" class="side-menu">
+                                <a href="{{route('dashboard.user.index')}}" class="side-menu">
                                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                    <div class="side-menu__title"> Side Menu </div>
+                                    <div class="side-menu__title"> All Users </div>
                                 </a>
                             </li>
                             <li>
-                                <a href="simple-menu-dashboard.html" class="side-menu">
+                                <a href="{{route('dashboard.user.create')}}" class="side-menu">
                                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                    <div class="side-menu__title"> Simple Menu </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="top-menu-dashboard.html" class="side-menu">
-                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                    <div class="side-menu__title"> Top Menu </div>
+                                    <div class="side-menu__title"> Create A User </div>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="side-menu-inbox.html" class="side-menu">
-                            <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
-                            <div class="side-menu__title"> Inbox </div>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                            <div class="side-menu__title"> User Roles <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
                         </a>
+                        <ul class="">
+                            <li>
+                                <a href="{{route('dashboard.role.index')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> All Roles </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('dashboard.role.create')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Create A Role </div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="side-menu-file-manager.html" class="side-menu">
-                            <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
-                            <div class="side-menu__title"> File Manager </div>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                            <div class="side-menu__title"> Categories <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
                         </a>
+                        <ul class="">
+                            <li>
+                                <a href="{{route('dashboard.category.index')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> All Categories </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('dashboard.category.create')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Add Category </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('dashboard.category.disabled')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Disabled Categories </div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="side-menu-point-of-sale.html" class="side-menu">
-                            <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
-                            <div class="side-menu__title"> Point of Sale </div>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                            <div class="side-menu__title"> Products <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
                         </a>
+                        <ul class="">
+                            <li>
+                                <a href="{{route('dashboard.product.index')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> All Products </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('dashboard.product.create')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Create Product </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('dashboard.product.dispatch')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Dispatch Products </div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="side-menu-chat.html" class="side-menu">
-                            <div class="side-menu__icon"> <i data-feather="message-square"></i> </div>
-                            <div class="side-menu__title"> Chat </div>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                            <div class="side-menu__title"> Stocks <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
                         </a>
+                        <ul class="">
+                            <li>
+                                <a href="{{route('dashboard.stock.index')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> All stocks </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{('dashboard.stock.create')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Create stock </div>
+                                </a>
+                            </li>
+                            
+                        </ul>
                     </li>
                     <li>
-                        <a href="side-menu-post.html" class="side-menu">
-                            <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
-                            <div class="side-menu__title"> Post </div>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                            <div class="side-menu__title"> Partners <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
                         </a>
+                        <ul class="">
+                            <li>
+                                <a href="{{('dashboard.partner.index')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> All Partners </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('dashboard.partner.create')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Add Partner </div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+                    <li>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                            <div class="side-menu__title"> Vendors <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                        </a>
+                        <ul class="">
+                            <li>
+                                <a href="{{route('dashboard.vendor.index')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> All Vendors </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('dashboard.vendor.create')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Create Vendor </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                            <div class="side-menu__title"> Transactions <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                        </a>
+                        <ul class="">
+                            <li>
+                                <a href="{{route('dashboard.transaction.index')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> All Transactions </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('dashboard.transaction.create')}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Create Transaction </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                   
                     <li class="side-nav__devider my-6"></li>
                     <li>
                         <a href="javascript:;" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
-                            <div class="side-menu__title"> Crud <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                            <div class="side-menu__title"> EUM <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
                         </a>
                         <ul class="">
                             <li>
-                                <a href="side-menu-crud-data-list.html" class="side-menu">
+                                <a href="javascript:;" class="side-menu">
                                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                    <div class="side-menu__title"> Data List </div>
+                                    <div class="side-menu__title"> Programs </div>
                                 </a>
+                                <ul class="">
+                                    <a href="{{route('dashboard.eum.program.index')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> All Programs</div>
+                                    </a>
+                                    <a href="{{route('dashboard.eum.program.create')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> Add Program</div>
+                                    </a>
+                                </ul>
                             </li>
                             <li>
-                                <a href="side-menu-crud-form.html" class="side-menu">
+                                <a href="javascript:;" class="side-menu">
                                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                    <div class="side-menu__title"> Form </div>
+                                    <div class="side-menu__title"> SubPrograms </div>
                                 </a>
+                                <ul class="">
+                                    <a href="{{route('dashboard.eum.subprogram.index')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> All SubPrograms</div>
+                                    </a>
+                                    <a href="{{route('dashboard.eum.program.create')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> Add SubProgram</div>
+                                    </a>
+                                </ul>
                             </li>
+                            <li>
+                                <a href="javascript:;" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> SurveyType </div>
+                                </a>
+                                <ul class="">
+                                    <a href="{{route('dashboard.eum.surveytype.index')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> All SurveyTypes</div>
+                                    </a>
+                                    <a href="j{{route('dashboard.eum.surveytype.create')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> Add SurveyType</div>
+                                    </a>
+                                </ul>
+                            </li>
+        
                         </ul>
+                        
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
+                            <div class="side-menu__title"> SETTING <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                        </a>
+                        <ul class="">
+                            <li>
+                                <a href="javascript:;" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> States </div>
+                                </a>
+                                <ul class="">
+                                    <a href="{{route('dashboard.state.index')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> All states</div>
+                                    </a>
+                                    <a href="{{route('dashboard.state.create')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> Add State</div>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> LGAs </div>
+                                </a>
+                                <ul class="">
+                                    <a href="{{route('dashboard.lga.index')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> All LGAs</div>
+                                    </a>
+                                    <a href="{{route('dashboard.lga.create')}}" class="side-menu">
+                                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                        <div class="side-menu__title"> Add LGA</div>
+                                    </a>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                        
                     </li>
                     <li>
                         <a href="javascript:;" class="side-menu">

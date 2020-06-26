@@ -9,6 +9,7 @@
         <meta name="author" content="LEFT4CODE">
   <title>UNICEF > @yield('title')</title>
    <!-- BEGIN: CSS Assets-->
+   <link href="{{ URL::asset('assets/dashboard/images/logo.png') }}" rel="shortcut icon">
    <link rel="stylesheet" href="{{URL::asset('assets/css/app.css')}}" />
    <!-- END: CSS Assets-->
   <!--favicon-->
@@ -16,10 +17,10 @@
   <!-- simplebar CSS-->
   <!-- <link href="{{ URL::asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet"/> -->
   <!-- Bootstrap core CSS-->
-  <!-- <link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet"/> -->
+  <link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet"/>
   <!--Data Tables -->
-  <!-- <link href="{{ URL::asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css"> -->
-  <!-- <link href="{{ URL::asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css"> -->
+  <link href="{{ URL::asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ URL::asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
   <!-- animate CSS-->
   <!-- <link href="{{ URL::asset('assets/css/animate.css') }}" rel="stylesheet" type="text/css"/> -->
   <!-- Icons CSS-->
@@ -27,15 +28,15 @@
   <!-- Sidebar CSS-->
   <!-- <link href="{{ URL::asset('assets/css/sidebar-menu.css') }}" rel="stylesheet"/> -->
   <!-- Custom Style-->
-  <!-- <link href="{{ URL::asset('assets/css/app-style.css') }}" rel="stylesheet"/> -->
+  <link href="{{ URL::asset('assets/css/app-style.css') }}" rel="stylesheet"/>
   <meta name="csrf-token" content="{{ csrf_token() }}" />
   <!-- skins CSS-->
-  <!-- <link href="{{ URL::asset('assets/css/skins.css') }}" rel="stylesheet"/> -->
+  <link href="{{ URL::asset('assets/css/skins.css') }}" rel="stylesheet"/>
   <!-- <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"> -->
   @yield('styles')
 </head>
 
-<body class="app">
+<body class="app" style="background:#1C3FAA">
 
 
 
@@ -46,6 +47,7 @@
     @include('layout.sidebar')
     <div class="content">
     @include('layout.topbar')
+    @yield('content')  
     </div>
     
   </div>
@@ -56,7 +58,7 @@
 
 <div class="clearfix"></div>
     
-    @yield('content')   
+     
 	
 	<!--Start footer-->
         
@@ -64,7 +66,7 @@
    
  
 
-
+  <script src="{{ URL::asset('assets/dashboard/js/app.js') }}"></script>
   <!-- Bootstrap core JavaScript-->
   <script src="{{ URL::asset('assets/js/jquery.min.js') }}"></script>
   <script src="{{ URL::asset('assets/js/popper.min.js') }}"></script>

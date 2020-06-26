@@ -28,7 +28,7 @@
   <!-- BEGIN: JS Assets-->
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=["your-google-map-api"]&libraries=places"></script>
-        <script src="dist/js/app.js"></script>
+       <script src="{{ URL::asset('assets/dashboard/js/app.js') }}"></script>
         <!-- END: JS Assets-->
 <script src="{{ URL::asset('assets/js/jquery.min.js')}}"></script>
   <script src="{{ URL::asset('assets/js/popper.min.js')}}"></script>
