@@ -17,11 +17,19 @@
   <link href="{{ URL::asset('assets/css/app-style.css')}}" rel="stylesheet"/>
   <!-- skins CSS-->
   <link href="{{ URL::asset('assets/css/skins.css')}}" rel="stylesheet"/>
+   <!-- BEGIN: CSS Assets-->
+   <link rel="stylesheet" href="{{URL::asset('assets/css/app.css')}}" />
+   <!-- END: CSS Assets-->
   @yield('styles')
 </head>
 <body>
 
 @yield('scripts')
+  <!-- BEGIN: JS Assets-->
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=["your-google-map-api"]&libraries=places"></script>
+       <script src="{{ URL::asset('assets/dashboard/js/app.js') }}"></script>
+        <!-- END: JS Assets-->
 <script src="{{ URL::asset('assets/js/jquery.min.js')}}"></script>
   <script src="{{ URL::asset('assets/js/popper.min.js')}}"></script>
   <script src="{{ URL::asset('assets/js/bootstrap.min.js')}}"></script>
