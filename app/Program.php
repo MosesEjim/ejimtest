@@ -13,7 +13,7 @@ class Program extends Model
     public function surveyTypes() {
         return $this->hasMany('App\SurveyType');
     }
-    public function forms() {
-        return $this->hasMany('App\Form');
+    public function questions() {
+        return $this->hasMany('App\Question');
     }
 }

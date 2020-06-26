@@ -50,12 +50,13 @@ class QuestionController extends Controller
         
         try{
             $question = $this->repo->create($request, $slug);
+            
             if($question){
                 $notification = array(
                     'message' => "Question Created successfully!",
                     'alert-type' => 'success'
                 );
-                return redirect()->route('dashboard.eum.questionnaire.index')->with('success', 'Question Created successfully!')->with($notification);
+                return redirect()->route('dashboard.eum.option.create', $question->slug)->with('success', 'Question Created successfully!')->with($notification);
             } else { 
                 $notificationErr = array(
                     'message' => "Could not create Question. Try again!",

@@ -18,10 +18,10 @@ class FormApiController extends Controller
         $this->repo = $formContract;
     }
     public function index() {
-        $forms = $this->repo->findAll();
+        $questions = $this->repo->findAll();
         // dd($forms[0]->forms[0]->content);
         return response()->json([
-            'data' => $forms,
+            'data' => $questions,
             'succces' => true,
         ], Response::HTTP_OK);
     }
