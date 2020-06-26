@@ -19,8 +19,9 @@ class FormApiController extends Controller
     }
     public function index() {
         $forms = $this->repo->findAll();
+        // dd($forms[0]->forms[0]->content);
         return response()->json([
-            'data' => json_decode($forms),
+            'data' => $forms,
             'succces' => true,
         ], Response::HTTP_OK);
     }

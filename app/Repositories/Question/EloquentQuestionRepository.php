@@ -4,7 +4,9 @@ use App\Repositories\Question\QuestionContract;
 use App\Question;
 class EloquentQuestionRepository implements QuestionContract {
     public function create($request) {
-        // 
+        $question = new Question();
+        $question->type = $request->type;
+        $question->question_text = $request->question_text;
     }
 
       // return all Question
@@ -28,12 +30,12 @@ class EloquentQuestionRepository implements QuestionContract {
 
       // Update a Question
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+        $question = $this->findBySlug($slug);
     }
 
       // Remove a Question
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+        $question = $this->findBySlug($slug);
+        return $question->delete();
     }
 }

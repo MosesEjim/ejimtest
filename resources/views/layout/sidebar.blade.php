@@ -116,7 +116,11 @@
           </li>
 
           <li>
-            <a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> Survey type <i class="fa fa-angle-left pull-right"></i></a>
+            <a href="javaScript:void();">
+              <i class="zmdi zmdi-dot-circle-alt"></i> 
+              Survey type 
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
             <ul class="sidebar-submenu">
               <li><a href="{{ route('dashboard.eum.surveytype.create') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Create Survey type</a></li>
               <li><a href="{{ route('dashboard.eum.surveytype.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Survey types</a></li>
@@ -125,15 +129,13 @@
           </li>
           <li>
             <a href="javaScript:void();"><i class="zmdi zmdi-dot-circle-alt"></i> Survey <i class="fa fa-angle-left pull-right"></i></a>
-            <ul class="sidebar-submenu">
-              
-              <li><a href="{{ route('dashboard.eum.form.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i> All Surveys</a></li>
+            <ul class="sidebar-submenu">              
+              <li>
+                <a href="{{ route('dashboard.eum.form.index') }}">
+                <i class="zmdi zmdi-dot-circle-alt"></i> All Surveys</a>
               </li>
             </ul>
           </li>
-
-          
-          
         </ul>
     </li>
 

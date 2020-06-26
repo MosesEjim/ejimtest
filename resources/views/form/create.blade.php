@@ -131,7 +131,7 @@
 
         $('.submitForm').click(function() {
             console.log(fb.getFormData(), url);
-            $.post(url, fb.getFormData().toString(), function(data, status) {
+            $.post(url, fb.getFormData(), function(data, status) {
                 console.log(`${data} and response status is ${status}`);
             });
         });
