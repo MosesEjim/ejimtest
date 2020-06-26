@@ -1,75 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-  <meta name="description" content=""/>
-  <meta name="author" content=""/>
+        <meta charset="utf-8">
+        <link href="dist/images/logo.svg" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
+        <meta name="keywords" content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app">
+        <meta name="author" content="LEFT4CODE">
   <title>UNICEF > @yield('title')</title>
+   <!-- BEGIN: CSS Assets-->
+   <link rel="stylesheet" href="{{URL::asset('assets/css/app.css')}}" />
+   <!-- END: CSS Assets-->
   <!--favicon-->
-  <link rel="icon" href="{{ URL::asset('assets/images/favicon.ico') }}" type="image/x-icon">
+  <!-- <link rel="icon" href="{{ URL::asset('assets/images/favicon.ico') }}" type="image/x-icon"> -->
   <!-- simplebar CSS-->
-  <link href="{{ URL::asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet"/>
+  <!-- <link href="{{ URL::asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet"/> -->
   <!-- Bootstrap core CSS-->
-  <link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet"/>
+  <!-- <link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet"/> -->
   <!--Data Tables -->
-  <link href="{{ URL::asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
-  <link href="{{ URL::asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
+  <!-- <link href="{{ URL::asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css"> -->
+  <!-- <link href="{{ URL::asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css"> -->
   <!-- animate CSS-->
-  <link href="{{ URL::asset('assets/css/animate.css') }}" rel="stylesheet" type="text/css"/>
+  <!-- <link href="{{ URL::asset('assets/css/animate.css') }}" rel="stylesheet" type="text/css"/> -->
   <!-- Icons CSS-->
-  <link href="{{ URL::asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css"/>
+  <!-- <link href="{{ URL::asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css"/> -->
   <!-- Sidebar CSS-->
-  <link href="{{ URL::asset('assets/css/sidebar-menu.css') }}" rel="stylesheet"/>
+  <!-- <link href="{{ URL::asset('assets/css/sidebar-menu.css') }}" rel="stylesheet"/> -->
   <!-- Custom Style-->
-  <link href="{{ URL::asset('assets/css/app-style.css') }}" rel="stylesheet"/>
+  <!-- <link href="{{ URL::asset('assets/css/app-style.css') }}" rel="stylesheet"/> -->
   <meta name="csrf-token" content="{{ csrf_token() }}" />
   <!-- skins CSS-->
-  <link href="{{ URL::asset('assets/css/skins.css') }}" rel="stylesheet"/>
-  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+  <!-- <link href="{{ URL::asset('assets/css/skins.css') }}" rel="stylesheet"/> -->
+  <!-- <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"> -->
   @yield('styles')
 </head>
 
-<body>
+<body class="app">
 
-<!-- start loader -->
-   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
-   <!-- end loader -->
 
-<!-- Start wrapper-->
- <div id="wrapper">
 
-   <!--Start sidebar-wrapper-->
-   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
-     <div class="brand-logo">
-      <a href="">
-       <img src="{{ URL::asset('assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Unicef Admin</h5>
-     </a>
-   </div>
-   <div class="user-details">
-    <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
-      <div class="avatar"><img class="mr-3 side-user-img" src="{{ URL::asset('assets/images/logo-icon.png') }}" alt="user avatar"></div>
-       <div class="media-body">
-       <h6 class="side-user-name">{{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }}</h6>
-      </div>
-       </div>
-     <div id="user-dropdown" class="collapse">
-      <ul class="user-setting-menu">
-        <li><a href="javaScript:void();"><i class="icon-user"></i>  My Profile</a></li>
-        <li><a href="javaScript:void();"><i class="icon-settings"></i> Setting</a></li>
-      <li><a href="javaScript:void();"><i class="icon-power"></i> Logout</a></li>
-      </ul>
-     </div>
-      </div>
-    @include('layout.sidebar')
+    
    
-   </div>
-   <!--End sidebar-wrapper-->
+  
+  <div class="flex">
+    @include('layout.sidebar')
+    <div class="content">
+    @include('layout.topbar')
+    </div>
+    
+  </div>
 
 <!--Start topbar header-->
-    @include('layout.topbar')
+    
 <!--End topbar header-->
 
 <div class="clearfix"></div>
@@ -80,7 +62,7 @@
         
 	<!--End footer-->
    
-  </div><!--End wrapper-->
+ 
 
 
   <!-- Bootstrap core JavaScript-->
@@ -107,8 +89,8 @@
   <script src="{{ URL::asset('assets/plugins/bootstrap-datatable/js/buttons.html5.min.js') }}"></script>
   <script src="{{ URL::asset('assets/plugins/bootstrap-datatable/js/buttons.print.min.js') }}"></script>
   <script src="{{ URL::asset('assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js') }}"></script>
-
-    <script>
+ 
+   <script>
      $(document).ready(function() {
       //Default data table
        $('#default-datatable').DataTable();
