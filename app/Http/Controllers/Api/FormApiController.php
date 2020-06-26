@@ -7,6 +7,9 @@ use App\Repositories\Form\FormContract;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 use App\Form;
+use App\Program;
+use App\Subcategory;
+use App\SurveyType;
 
 class FormApiController extends Controller
 {
@@ -16,14 +19,9 @@ class FormApiController extends Controller
     }
     public function index() {
         $forms = $this->repo->findAll();
-        // $data = unserialize($forms);
-        $surveyType = SurveyType::where('id', id);
-
-        // $subProgram = SubCategory::where('id', $surveyType->sub_category_id);
-
-        // $program = Program::where('id', $subProgram->program_id);
+        // dd($forms[0]->forms[0]->content);
         return response()->json([
-            'data' => json_decode($forms),
+            'data' => $forms,
             'succces' => true,
         ], Response::HTTP_OK);
     }
@@ -31,7 +29,17 @@ class FormApiController extends Controller
     public function store(Request $request, $id) {
         $form = new Form();
         $form->content = $request->all();
-        $form->survey_type_id = $id;
+
+        $surveyType = SurveyType::find($id);
+        
+        $cat = Subcategory::find($surveyType->id);
+        $form->sub_category_id = $cat->id;
+        
+        $program = Program::find($cat->id);
+        $form->program_id = $program->id;
+
+        $form->survey_type_id = $surveyType->id;
+        
         $form->save();
 
         return response()->json([

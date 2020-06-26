@@ -9,4 +9,8 @@ class SurveyType extends Model
     public function subCategory(){
         return $this->belongsTo('App\Subcategory');
     }
+
+    public function forms() {
+        return $this->hasMany('App\Form');
+    }
 }

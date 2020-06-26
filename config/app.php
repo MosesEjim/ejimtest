@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+ 		App\Providers\QuestionTypeServiceProvider::class,
  		App\Providers\UserServiceProvider::class,
  		App\Providers\SubmissionServiceProvider::class,
  		App\Providers\FormServiceProvider::class,

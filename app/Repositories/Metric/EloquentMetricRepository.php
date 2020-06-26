@@ -28,12 +28,12 @@ class EloquentMetricRepository implements MetricContract {
 
       // Update a Metric
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+        $metric = $this->findBySlug($slug);
     }
 
       // Remove a Metric
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+        $metric = $this->findBySlug($slug);
+        return $metric->delete();
     }
 }

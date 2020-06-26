@@ -28,12 +28,12 @@ class EloquentResponseRepository implements ResponseContract {
 
       // Update a Response
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+        $res = $this->findBySlug($slug);
     }
 
       // Remove a Response
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+        $res = $this->findBySlug($slug);
+        return $res->delete();
     }
 }

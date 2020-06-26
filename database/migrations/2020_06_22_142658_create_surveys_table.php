@@ -16,10 +16,10 @@ class CreateSurveysTable extends Migration
         Schema::create('surveys', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('program_id');
-            $table->unsignedBigInteger('survey_id');
+            // $table->unsignedBigInteger('survey_id');
             $table->string('status');
             $table->foreign('program_id')->references('id')->on('programs');
-            $table->foreign('survey_id')->references('id')->on('surveys');
+            // $table->foreign('survey_id')->references('id')->on('surveys');
             $table->timestamps();
         });
     }
