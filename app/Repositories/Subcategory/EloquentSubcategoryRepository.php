@@ -36,14 +36,14 @@ class EloquentSubcategoryRepository implements SubcategoryContract {
     public function update($request, $id) {
         $updateSubCategory = $this->findById($id);
         $updateSubCategory->name = $request->name;
-        $updateSubCategory->category_id = $request->category_id;
+        $updateSubCategory->program_id = $request->program_id;
         $updateSubCategory->save();
         return $updateSubCategory;
     }
 
       // Remove a Subcategory
     public function remove($id) {
-        $subcategory = $this->findById($slug);
+        $subcategory = $this->findById($id);
         return $subcategory->delete();
     }
 }

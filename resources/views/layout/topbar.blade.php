@@ -32,8 +32,8 @@
                         <div class="w-8 h-8 image-fit">
                             <img alt="" class="rounded-full" src="{{ URL::asset('assets/dashboard/images/profile-13.jpg') }}">
                         </div>
-                        <div class="ml-3">Angelina Jolie</div>
-                        <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">angelinajolie@left4code.com</div>
+                        <div class="ml-3">{{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }}</div>
+                        <div class="ml-auto w-48 truncate text-gray-600 text-xs text-right">{{ Sentinel::getUser()->email }}</div>
                     </a>
                     <a href="" class="flex items-center mt-2">
                         <div class="w-8 h-8 image-fit">
