@@ -199,9 +199,9 @@
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> All SubPrograms</div>
                     </a>
-                    <a href="{{route('dashboard.eum.program.create')}}" class="side-menu">
+                    <a href="{{route('dashboard.eum.subprogram.create')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Add SubProgram</div>
+                        <div class="side-menu__title"> Create Sub Program</div>
                     </a>
                 </ul>
             </li>
