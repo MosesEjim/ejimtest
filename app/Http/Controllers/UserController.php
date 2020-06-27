@@ -19,7 +19,11 @@ class UserController extends Controller
     }
     public function index()
     {
-        return view('user.index');
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        $users = $this->repo->findAll();
+        return view('user.index')->with('users', $users);
     }
     
     public function create()

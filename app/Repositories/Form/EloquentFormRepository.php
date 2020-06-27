@@ -20,13 +20,14 @@ class EloquentFormRepository implements FormContract {
       //  ->select('country.country_name', 'state.state_name', 'city.city_name')
       //  ->get();
 
-      return Program::with('subcategories')->with('surveyTypes')->with('questions')->get();
+      return Program::with('subcategories')->with('surveyTypes')->with('questions')->with('options')->get();
       
       return DB::table('programs')
         ->join('subcategories', 'subcategories.program_id', '=', 'programs.id')
         ->join('survey_types', 'survey_types.sub_category_id', '=', 'subcategories.id')
-        ->join('question', 'question.survey_type_id', '=', 'survey_types.id')
-        ->select('survey_types.*', 'subcategories.*', 'programs.*', 'question.*')
+        ->join('questions', 'questions.survey_type_id', '=', 'survey_types.id')
+        ->join('options', 'options.question_id', '=', 'questions.id')
+        ->select('survey_types.*', 'subcategories.*', 'programs.*', 'question.*', 'options.*')
         ->get();
       
        

@@ -16,4 +16,7 @@ class Program extends Model
     public function questions() {
         return $this->hasMany('App\Question');
     }
+    public function options() {
+        return $this->hasMany('App\Option');
+    }
 }
