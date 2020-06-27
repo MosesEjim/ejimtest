@@ -22,7 +22,7 @@ class CreateQuestionsTable extends Migration
             $table->string('sub_category_name');
             $table->string('survey_type_name');
             
-            $table->longText('slug');
+            $table->longText('slug')->unique();
 
             $table->unsignedBigInteger('question_type_id');
             $table->foreign('question_type_id')->references('id')->on('question_types');

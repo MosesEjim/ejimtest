@@ -17,7 +17,7 @@ class CreateProgramsTable extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('active_status')->default(true);
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->timestamps();
         });

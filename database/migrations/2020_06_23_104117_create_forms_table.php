@@ -16,7 +16,7 @@ class CreateFormsTable extends Migration
         Schema::create('forms', function (Blueprint $table) {
             $table->id();
             $table->longText('content')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->unsignedBigInteger('program_id')->nullable();
             $table->unsignedBigInteger('sub_category_id')->nullable();
             $table->unsignedBigInteger('survey_type_id')->nullable();
