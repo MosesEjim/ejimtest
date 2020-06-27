@@ -22,37 +22,56 @@ class UserController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
+        
         $users = $this->repo->findAll();
         return view('user.index')->with('users', $users);
     }
     
     public function create()
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         return view('user.create');
     }
     
     public function store(Request $request)
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         //
     }
     
     public function show($id)
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         //
     }
     
     public function edit($id)
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         //
     }
     
     public function update(Request $request, $id)
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         //
     }
     
     public function delete($id)
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         //
     }
 }

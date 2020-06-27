@@ -168,13 +168,13 @@
     
     <li class="side-nav__devider my-6"></li>
     <li>
-        <a href="javascript:;" class="side-menu">
+        <a href="javascript:;" class="side-menu @yield('program_active')">
             <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
             <div class="side-menu__title"> EUM <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
         </a>
         <ul class="">
             <li>
-                <a href="javascript:;" class="side-menu">
+                <a href="javascript:;" class="side-menu ">
                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                     <div class="side-menu__title"> Programs </div>
                 </a>
@@ -215,7 +215,7 @@
                       <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                       <div class="side-menu__title"> All SurveyTypes</div>
                   </a>
-                  <a href="j{{route('dashboard.eum.surveytype.create')}}" class="side-menu">
+                  <a href="{{route('dashboard.eum.surveytype.create')}}" class="side-menu">
                       <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                       <div class="side-menu__title"> Add SurveyType</div>
                   </a>

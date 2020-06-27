@@ -40,4 +40,5 @@ Route::group(['prefix' => 'questionnaire'], function() {
     Route::get('/', 'Api\FormApiController@index');
     Route::post('{id}/create', 'Api\FormApiController@store');
 
+    Route::post('/resonse', 'AnswerApiController@store');
 });

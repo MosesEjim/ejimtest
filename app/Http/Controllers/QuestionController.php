@@ -38,7 +38,7 @@ class QuestionController extends Controller
 
         $surveyType = $this->surveyTypeRepo->findBySlug($slug);
         $questionTypes = $this->questionTypeRepo->findAll();
-        // dd($questionTypes);
+        // dd($surveyType);
         return view('question.create')->with('questionTypes', $questionTypes)->with('surveyType', $surveyType);
     }
     

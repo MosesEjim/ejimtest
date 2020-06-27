@@ -59,7 +59,7 @@ class OptionController extends Controller
                 if($request->save_record){
                     return redirect()->back()->with('success', 'Option Created successfully!')->with($notification);
                 }
-                return redirect()->route('dashboard.eum.questionnaire.index')->with('success', 'Product Created successfully!')->with($notification);
+                return redirect()->route('dashboard.eum.surveytype.index')->with('success', 'Product Created successfully!')->with($notification);
             }else {
  
                 $notificationErr = array(
