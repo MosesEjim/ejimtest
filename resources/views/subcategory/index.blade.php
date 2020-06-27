@@ -79,7 +79,7 @@
               </div>
               <div class="intro-y flex flex-wrap sm:flex-row sm:flex-no-wrap items-center mt-3">
                   <ul class="pagination">
-                    {{ $subprograms->links() }}
+                    
                   </ul>
                   <select class="w-20 input box mt-3 sm:mt-0">
                       <option>10</option>
