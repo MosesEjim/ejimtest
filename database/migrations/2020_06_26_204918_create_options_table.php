@@ -17,7 +17,7 @@ class CreateOptionsTable extends Migration
             $table->id();
             $table->text('option');
             $table->string('type');
-            $table->text('slug');
+            $table->string('slug')->unique();
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
 
