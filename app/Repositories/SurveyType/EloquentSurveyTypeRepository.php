@@ -10,7 +10,7 @@ class EloquentSurveyTypeRepository implements SurveyTypeContract {
       $surveyType->sub_category_id = $request->sub_category_id;
       $sub_category = Subcategory::find($request->sub_category_id);
       $surveyType->program_id = $sub_category->program->id;
-      $slug = preg_replace('/\s/', '-', $request->name);
+      $slug = preg_replace('/\s/', '-', $request->name).rand();
       $surveyType->slug = strtolower($slug);
       $surveyType->save();
       return $surveyType;
