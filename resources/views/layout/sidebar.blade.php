@@ -192,12 +192,12 @@
             <li>
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                    <div class="side-menu__title"> SubPrograms </div>
+                    <div class="side-menu__title"> Sub Programs </div>
                 </a>
                 <ul class="">
                     <a href="{{route('dashboard.eum.subprogram.index')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> All SubPrograms</div>
+                        <div class="side-menu__title"> All Sub Programs</div>
                     </a>
                     <a href="{{route('dashboard.eum.subprogram.create')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
@@ -208,16 +208,16 @@
             <li>
               <a href="javascript:;" class="side-menu">
                   <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                  <div class="side-menu__title"> SurveyType </div>
+                  <div class="side-menu__title"> Survey Type </div>
               </a>
               <ul class="">
                   <a href="{{route('dashboard.eum.surveytype.index')}}" class="side-menu">
                       <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                      <div class="side-menu__title"> All SurveyTypes</div>
+                      <div class="side-menu__title"> All Survey Types</div>
                   </a>
                   <a href="{{route('dashboard.eum.surveytype.create')}}" class="side-menu">
                       <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                      <div class="side-menu__title"> Add SurveyType</div>
+                      <div class="side-menu__title"> Create a Survey Type</div>
                   </a>
               </ul>
           </li>
@@ -226,18 +226,34 @@
     <li class="side-nav__devider my-6"></li>
     <li>
       <a href="javascript:;" class="side-menu">
-        <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
+        <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
         <div class="side-menu__title"> SETTINGS <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
       </a>
       <ul class="">
         <li>
           <a href="javascript:;" class="side-menu">
-            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+            <div class="side-menu__icon"> <i data-feather="shield"></i> </div>
+            <div class="side-menu__title"> User Roles </div>
+          </a>
+          <ul class="">
+            <a href="{{route('dashboard.state.index')}}" class="side-menu">
+              <div class="side-menu__icon"> <i data-feather="list"></i> </div>
+              <div class="side-menu__title"> All Roles</div>
+            </a>
+              <a href="{{route('dashboard.state.create')}}" class="side-menu">
+                  <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                  <div class="side-menu__title"> Create a Role</div>
+              </a>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:;" class="side-menu">
+            <div class="side-menu__icon"> <i data-feather="map"></i> </div>
             <div class="side-menu__title"> States </div>
           </a>
           <ul class="">
             <a href="{{route('dashboard.state.index')}}" class="side-menu">
-              <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+              <div class="side-menu__icon"> <i data-feather="list"></i> </div>
               <div class="side-menu__title"> All states</div>
             </a>
               <a href="{{route('dashboard.state.create')}}" class="side-menu">
@@ -248,7 +264,7 @@
         </li>
         <li>
             <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                <div class="side-menu__icon"> <i data-feather="map-pin"></i> </div>
                 <div class="side-menu__title"> LGAs </div>
             </a>
             <ul class="">
