@@ -39,7 +39,7 @@
                               <td class="table-report__action w-56">
                                   <div class="flex justify-center items-center">
                                       <a class="flex items-center mr-3" href="{{ route('dashboard.eum.program.edit', $program->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
-                                      <a class="flex items-center text-theme-6" href="{{ route('dashboard.eum.program.edit', $program->id) }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
+                                      <a class="flex items-center text-theme-6" href="{{ route('dashboard.eum.program.delete', $program->id) }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                                   </div>
                               </td>
                           </tr>
@@ -47,7 +47,7 @@
                       </tbody>
                   </table>
               </div>
-              <div class="intro-y flex flex-wrap sm:flex-row sm:flex-no-wrap items-center mt-3">
+              <!-- <div class="intro-y flex flex-wrap sm:flex-row sm:flex-no-wrap items-center mt-3">
                   <ul class="pagination">
                       <li>
                           <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevrons-left"></i> </a>
@@ -73,7 +73,7 @@
                       <option>35</option>
                       <option>50</option>
                   </select>
-              </div>
+              </div> -->
           </div>
           <!-- END: Weekly Top Seller -->
       </div>

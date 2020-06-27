@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('title', 'Create Partner')
-
+@section('program_active', 'side-menu--active')
 @section('content')
 
 <!-- wrapper -->

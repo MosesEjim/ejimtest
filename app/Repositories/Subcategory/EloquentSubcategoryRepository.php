@@ -15,7 +15,7 @@ class EloquentSubcategoryRepository implements SubcategoryContract {
 
       // return all Subcategory
     public function findAll() {
-        return Subcategory::all();
+        return Subcategory::paginate(10);
     }
 
     public function getAll() {

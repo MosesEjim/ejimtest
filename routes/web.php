@@ -166,7 +166,7 @@ Route::group(['prefix' => 'account'], function() {
                 Route::post('/create', 'SurveyTypeController@store')->name('dashboard.eum.surveytype.store');
                 Route::get('/edit/{id}', 'SurveyTypeController@edit')->name('dashboard.eum.surveytype.edit');
                 Route::put('/edit/{id}', 'SurveyTypeController@update')->name('dashboard.eum.surveytype.update');
-                Route::post('/{slug}', 'SurveyTypeController@delete')->name('dashboard.eum.surveytype.delete');
+                Route::get('/{slug}', 'SurveyTypeController@delete')->name('dashboard.eum.surveytype.delete');
             });
             //form group
             Route::group(['prefix'=>'form'], function(){
