@@ -3,95 +3,75 @@
 @section('program_active', 'side-menu--active')
 @section('content')
 
-<!-- wrapper -->
-<div id="wrapper">
+<div class="grid grid-cols-12 gap-6 mt-5">
+        <div class="intro-y col-span-12 lg:col-span-8">
+          
+            <!-- BEGIN: Vertical Form -->
+            <div class="intro-y box">
+                <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200">
+                    <h2 class="font-medium text-base mr-auto">
+                    Add Survey Type
+                    </h2>
+                </div>
+                <div class="p-5" id="vertical-form">
 
-<div class="loader-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-   <div class="card card-authentication1 mx-auto my-5">
-       <div class="card-body">
-        <div class="card-content p-2">
-            <div class="text-center">
-                <img src="{{URL::asset('assets/images/logo-icon.png')}}" alt="logo icon" width = "50px" height ="50px">
+                @if(session('error'))
+                  <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-gray-200 text-gray-600"> 
+                    <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                      <span><strong>Error!</strong> {{ session('error') }}!</span>
+                    <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                  </div>
+                  @endif
+
+                  @if(session('success'))
+                  <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-9 text-white"> 
+                    <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                    <strong>Success!</strong> {{ session('success') }}
+                    <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                  </div>
+                @endif
+
+                @if($errors->any())
+                  <div class="rounded-md px-5 py-4 mb-2 bg-theme-6 text-white">
+                    <div class="flex items-center">
+                        <div class="font-medium text-lg">Error! </div>
+                        <div class="text-xs bg-white px-1 rounded-md text-gray-800 ml-auto">New</div>
+                    </div>
+                    <div class="mt-3">
+                      <ul>
+                        @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  </div>
+                @endif 
+
+
+                  <form method = "post" action = "{{ route('dashboard.eum.surveytype.update', $surveytype->id) }}">
+                    @csrf
+                    @method("PUT")
+                    <div class="preview">
+                        <div>
+                            <label>Survey Type</label>
+                            <input type="text"  id="name" name="name" value="{{$surveytype->name}}" class="input w-full border mt-2" placeholder="Educations" required>
+                        </div>
+                        <div class="mt-3">
+                            <label>Sub Program</label>                            
+                            <select class="input w-full border mr-2" name="sub_category_id" id="sub_category_id" required>
+                                <option> --- Select --- </option>
+                                @foreach($subprograms as $subprogram)
+                                  <option value="{{$subprogram->id}}" {{ $surveytype->sub_category_id === $subprogram->id ? 'selected' : '' }}>{{$subprogram->name}}</option>
+                                @endforeach
+                            </select> 
+                        </div>
+                        <button type="submit" class="button bg-theme-1 text-white mt-5">Update Record</button>
+                    </div>
+                  </form>
+                </div>
             </div>
-         <div class="card-title text-uppercase text-center py-3">Add Survey Type</div>
-
-            @if(session('error'))
-            <div class="alert alert-danger alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <div class="alert-icon contrast-alert">
-                <i class="fa fa-times"></i>
-              </div>
-              <div class="alert-message">
-                <span><strong>Danger!</strong> {{ session('error') }}!</span>
-              </div>
-            </div>
-          @endif
-
-          @if(session('success'))
-          <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <div class="alert-icon contrast-alert">
-              <i class="fa fa-check"></i>
-            </div>
-            <div class="alert-message">
-              <span><strong>Success!</strong> {{ session('success') }}</span>
-            </div>
-          </div>
-          @endif  
-
-          @if ($errors->any())
-            <div class="alert alert-danger alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <ul>
-                @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-              </ul>
-            </div>
-          @endif 
-
-           <form method = "post" action = "{{ route('dashboard.eum.subprogram.store') }}">
-              @csrf
-             <div class="form-group">
-             <label for="partner_name" class="sr-only">Sub category name</label>
-              <div class="position-relative has-icon-right">
-                 <input type="text" id="name" name = "name" value="{{surveytype->name}}"class="form-control input-shadow" placeholder="Enter Sub Category Name">
-              </div>
-             </div>
-
-
-             <div class="form-group">
-             <label for="lga" class="sr-only">SubProgram</label>
-              <div class="position-relative has-icon-right">
-                 <select class="form-control select-lga" name="sub_category_id" id="sub_category_id">
-                 @foreach($subprograms as $subprogram)
-                      <option value="{{$subprogram->id}}">{{$subprogram->name}}</option>
-                 @endforeach
-                 </select>
-              </div>
-             </div>
-
-
-        
-
-               <button type="submit" class="btn btn-primary btn-block" >Add survey Type</button>
-            
-            </form>
-          </div>
-         </div>
+            <!-- END: Vertical Form -->
         </div>
-   
-    <!--Start Back To Top Button-->
-   <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
-   <!--End Back To Top Button-->
-   
-   
-   
-   </div><!--wrapper-->
+    </div>
 
-@endsection
-
-@section('scripts')
-    <script src="{{ URL::asset('assets/js/lga.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 @endsection

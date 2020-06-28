@@ -39,6 +39,17 @@ Route::group(['prefix' => 'account'], function() {
         Route::get('/createrole', 'RoleController@create')->name('createroles');
 
 
+        // User Route Group
+        Route::group(['prefix' => 'user'], function() {
+            Route::get('/', 'CategoryController@index')->name('dashboard.category.index');
+            Route::get('/create', 'CategoryController@create')->name('dashboard.category.create');
+            Route::post('/create', 'CategoryController@store')->name('dashboard.category.store');
+            Route::get('/{id}/enable-status', 'CategoryController@enabledStatus')->name('dashboard.category.enabledStatus');
+            Route::get('/{id}/disable-status', 'CategoryController@disableStatus')->name('dashboard.category.disabledStatus');
+            Route::get('/disabled-categories', 'CategoryController@disabled')->name('dashboard.category.disabled');
+        });
+        
+        
         // Categories Route Group
         Route::group(['prefix' => 'category'], function() {
             Route::get('/', 'CategoryController@index')->name('dashboard.category.index');
