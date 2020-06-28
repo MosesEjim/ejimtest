@@ -47,8 +47,6 @@ class OptionController extends Controller
             return redirect()->route('auth.login.get');
         }
 
-        // dd($slug);
-
         try{
 
             $option = $this->repo->create($request, $slug);
@@ -61,16 +59,16 @@ class OptionController extends Controller
                 if($request->save_record){
                     return redirect()->back()->with('success', 'Option Created successfully!')->with($notification);
                 }
-                return redirect()->route('dashboard.eum.surveytype.index')->with('success', 'Product Created successfully!')->with($notification);
+                return redirect()->route('dashboard.eum.surveytype.index')->with('success', 'Option Created successfully!')->with($notification);
             }else {
  
                 $notificationErr = array(
-                'message' => "Could not Add Partner. Try again!",
+                'message' => "Could not Add Option. Try again!",
                 'alert-type' => 'error'
                 );
                 return back()
                  ->withInput()
-                 ->with('error', 'Could not add partner. Try again!')->with($notificationErr);
+                 ->with('error', 'Could not add Option. Try again!')->with($notificationErr);
             }
             
          

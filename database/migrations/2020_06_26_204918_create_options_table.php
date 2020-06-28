@@ -18,10 +18,11 @@ class CreateOptionsTable extends Migration
             $table->text('option');
             $table->string('type');
             $table->string('slug')->unique();
+            
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
 
-            $table->unsignedBigInteger('question_type_id');
+            $table->unsignedBigInteger('question_type_id')->nullable();
             $table->foreign('question_type_id')->references('id')->on('question_types');
 
             $table->unsignedBigInteger('sub_category_id')->nullable();
@@ -29,7 +30,6 @@ class CreateOptionsTable extends Migration
 
             $table->unsignedBigInteger('survey_type_id')->nullable();
             $table->foreign('survey_type_id')->references('id')->on('survey_types');
-
 
             $table->unsignedBigInteger('program_id')->nullable();
             $table->foreign('program_id')->references('id')->on('programs');

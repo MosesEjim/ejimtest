@@ -62,7 +62,7 @@
                           <select class="input w-full border mr-2" name="option_type" id="option_type" required>
                             <option> -- Select Type --- </option>
                             @foreach($questionTypes as $type)
-                              <option value="{{ $type->slug }}">{{ $type->type }}</option>
+                              <option value="{{ $type->id }}">{{ $type->type }}</option>
                             @endforeach
                           </select> 
                       </div>
