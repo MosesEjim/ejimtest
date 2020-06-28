@@ -5,11 +5,11 @@ use App\Option;
 use App\Question;
 
 class EloquentOptionRepository implements OptionContract {
-    public function create($request, $slug) {
+    public function create($request, $id) {
         $option = new Option();
-        // dd($slug);
+        // dd($id);
 
-        $question = Question::where('slug', $slug)->first();
+        $question = Question::where('id', $id)->first();
         // dd($question);
         $option->option = $request->option;
         $sluger = preg_replace('/\s/','-', $request->option);
