@@ -33,7 +33,7 @@
                               
                           <td class="table-report__action w-56">
                             <div class="flex justify-center items-center">
-                              <a class="flex items-center mr-3" href="{{ route('dashboard.eum.program.edit', $program->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                              <a class="flex items-center mr-3" href="{{ route('dashboard.uem.question.edit', $question->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                               <a class="flex items-center text-theme-6" href="{{ route('dashboard.question.type.delete', $question->id) }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                             </div>
                           </td>
