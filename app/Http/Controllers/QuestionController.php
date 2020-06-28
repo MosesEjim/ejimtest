@@ -27,7 +27,10 @@ class QuestionController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-        return view('question.index');
+
+        $questions = $this->repo->getAll();
+        // dd($questions);
+        return view('question.index')->with('questions', $questions);
     }
     
     public function create($slug)

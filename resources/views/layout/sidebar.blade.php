@@ -206,26 +206,39 @@
                 </ul>
             </li>
             <li>
-              <a href="javascript:;" class="side-menu">
-                  <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                  <div class="side-menu__title"> Survey Type </div>
-              </a>
-              <ul class="">
-                  <a href="{{route('dashboard.eum.surveytype.index')}}" class="side-menu">
-                      <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                      <div class="side-menu__title"> All Survey Types</div>
-                  </a>
-                  <a href="{{route('dashboard.eum.surveytype.create')}}" class="side-menu">
-                      <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                      <div class="side-menu__title"> Create a Survey Type</div>
-                  </a>
-              </ul>
-          </li>
-       </ul>      
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                    <div class="side-menu__title"> Survey Type </div>
+                </a>
+                <ul class="">
+                    <a href="{{route('dashboard.eum.surveytype.index')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> All Survey Types</div>
+                    </a>
+                    <a href="{{route('dashboard.eum.surveytype.create')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Create a Survey Type</div>
+                    </a>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                    <div class="side-menu__title"> Survey Questions </div>
+                </a>
+                <ul class="">
+                    <a href="{{route('dashboard.uem.question.index')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="help-circle"></i> </div>
+                        <div class="side-menu__title"> All Survey Question</div>
+                    </a>
+                </ul>
+            </li>
+        </ul>      
     </li>
     <li class="side-nav__devider my-6"></li>
     <li>
-      <a href="javascript:;" class="side-menu">
+      <a href="javascript:;" class="side-menu @yield('setting_active')">
         <div class="side-menu__icon"> <i data-feather="settings"></i> </div>
         <div class="side-menu__title"> SETTINGS <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
       </a>
@@ -275,6 +288,22 @@
                 <a href="{{route('dashboard.lga.create')}}" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                     <div class="side-menu__title"> Add LGA</div>
+                </a>
+            </ul>
+        </li>                            
+        <li>
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="help-circle"></i> </div>
+                <div class="side-menu__title"> Question/Option Type </div>
+            </a>
+            <ul class="">
+                <a href="{{route('dashboard.question.type.index')}}" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                    <div class="side-menu__title"> All Types</div>
+                </a>
+                <a href="{{route('dashboard.question.type.create')}}" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                    <div class="side-menu__title"> Add a Type</div>
                 </a>
             </ul>
         </li>                            

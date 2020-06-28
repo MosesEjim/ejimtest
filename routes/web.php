@@ -188,6 +188,25 @@ Route::group(['prefix' => 'account'], function() {
                 Route::put('/edit/{id}', 'FormController@update')->name('dashboard.eum.form.update');
                 Route::get('/{slug}', 'FormController@delete')->name('dashboard.eum.form.delete');
             });
+           
+            Route::group(['prefix'=>'question-type'], function(){
+                Route::get('/', 'QuestionTypeController@index')->name('dashboard.question.type.index');
+                Route::get('/create', 'QuestionTypeController@create')->name('dashboard.question.type.create');
+                Route::post('/create', 'QuestionTypeController@store')->name('dashboard.question.type.store');
+                Route::get('/edit/{id}', 'QuestionTypeController@edit')->name('dashboard.question.type.edit');
+                Route::put('/edit/{id}', 'QuestionTypeController@update')->name('dashboard.question.type.update');
+                Route::get('/{slug}', 'QuestionTypeController@delete')->name('dashboard.question.type.delete');
+            });
+            
+            
+            Route::group(['prefix'=>'questions'], function(){
+                Route::get('/', 'QuestionController@index')->name('dashboard.uem.question.index');
+                Route::get('/create', 'QuestionController@create')->name('dashboard.uem.question.create');
+                Route::post('/create', 'QuestionController@store')->name('dashboard.uem.question.store');
+                Route::get('/edit/{id}', 'QuestionController@edit')->name('dashboard.uem.question.edit');
+                Route::put('/edit/{id}', 'QuestionController@update')->name('dashboard.uem.question.update');
+                Route::get('/{slug}', 'QuestionController@delete')->name('dashboard.uem.question.delete');
+            });
             
             //form group
             Route::group(['prefix'=>'questionnaire'], function(){

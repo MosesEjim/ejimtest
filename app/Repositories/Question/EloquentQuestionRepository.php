@@ -40,7 +40,7 @@ class EloquentQuestionRepository implements QuestionContract {
     }
 
     public function getAll() {
-        return Question::latest()->paginate(3);
+        return Question::latest()->paginate(20);
     }
 
       // return a Question by ID
