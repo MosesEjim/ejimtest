@@ -8,7 +8,7 @@ class EloquentQuestionTypeRepository implements QuestionTypeContract {
       $type = new QuestionType();
       $type->type = $request->type;
       $slug = preg_replace('/\s/','-',$request->type);
-      $type->slug = strtolower($slug);
+      $type->slug = strtolower($slug).rand();
 
       $type->save();
       return $type;

@@ -56,9 +56,10 @@
                           <label for="question_text">Question</label>
                           <input type="text"  id="question_text" name="question_text" class="input w-full border mt-2" placeholder="Enter Question" required>
                       </div>
+                      <input type="hidden" name="survey_type_id" value="{{$surveyType->id}}">
                       <div class="mt-3">
-                          <label for="survey_type_name">Type of Question</label>
-                          <select class="input w-full border mr-2" name="survey_type_name" id="survey_type_name" required>
+                          <label for="question_type_id">Type of Question</label>
+                          <select class="input w-full border mr-2" name="question_type_id" id="question_type_id" required>
                               <option> --- Select --- </option>
                               @foreach($questionTypes as $questionType)
                                 <option value="{{ $questionType->id }}">{{ $questionType->type }}</option>

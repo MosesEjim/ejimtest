@@ -11,8 +11,8 @@ class EloquentQuestionRepository implements QuestionContract {
     public function create($request, $slug) {
         $question = new Question();
         // dd($request->all());
-        $type = SurveyType::find($request->survey_type_name);
-        $questionType = QuestionType::find($request->survey_type_name);
+        $questionType = QuestionType::find($request->question_type_id);
+        $type = SurveyType::find($request->survey_type_id);
 
         $program = Program::find($type->program_id);
         $subcategory = Subcategory::find($type->sub_category_id);
