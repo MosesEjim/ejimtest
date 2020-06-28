@@ -22,8 +22,8 @@ class EloquentQuestionRepository implements QuestionContract {
         $question->program_name = $program->name;
         $question->sub_category_name = $subcategory->name;
         $question->survey_type_name = $type->name;        
-        $slug = preg_replace('/\s/','-', $request->question_text);
-        $question->slug = strtolower($slug).rand();
+        $sluger = preg_replace('/\s/','-', $request->question_text);
+        $question->slug = strtolower($sluger).rand();
 
         $question->question_type_id = $questionType->id;
         $question->program_id = $program->id;

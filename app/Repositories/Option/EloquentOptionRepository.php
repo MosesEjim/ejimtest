@@ -2,14 +2,20 @@
 namespace App\Repositories\Option;
 use App\Repositories\Option\OptionContract;
 use App\Option;
+use App\Question;
+
 class EloquentOptionRepository implements OptionContract {
-    public function create($request) {
+    public function create($request, $slug) {
         $option = new Option();
+        // dd($slug);
+
+        $question = Question::where('slug', $slug)->first();
         $option->option = $request->option;
-        $slug = preg_replace('/\s/','-', $request->option);
-        $option->slug = strtolower($slug);
-        $option->question_id = $request->question_id;
+        $sluger = preg_replace('/\s/','-', $request->option);
+        $option->slug = strtolower($sluger).rand();
+        $option->question_id = $question->id;
         $option->type = $request->option_type;
+        // dd($option);
         $option->save();
         return $option;
     }

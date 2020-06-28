@@ -47,9 +47,11 @@ class OptionController extends Controller
             return redirect()->route('auth.login.get');
         }
 
+        // dd($slug);
+
         try{
 
-            $option = $this->repo->create($request);
+            $option = $this->repo->create($request, $slug);
             if($option){
                 $notification = array(
                     'message' => "Option Added successfully!",
