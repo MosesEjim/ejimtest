@@ -10,12 +10,17 @@ class EloquentOptionRepository implements OptionContract {
         // dd($slug);
 
         $question = Question::where('slug', $slug)->first();
+        // dd($question);
         $option->option = $request->option;
         $sluger = preg_replace('/\s/','-', $request->option);
         $option->slug = strtolower($sluger).rand();
         $option->question_id = $question->id;
         $option->type = $request->option_type;
         // dd($option);
+        $option->question_type_id = $question->question_type_id;
+        $option->sub_category_id = $question->sub_category_id;
+        $option->survey_type_id = $question->survey_type_id;
+        $option->program_id = $question->program_id;
         $option->save();
         return $option;
     }
