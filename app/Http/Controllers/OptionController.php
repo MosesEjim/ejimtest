@@ -41,7 +41,7 @@ class OptionController extends Controller
         return view('option.create')->with('question', $question)->with('questionTypes', $questionTypes);
     }
     
-    public function store(Request $request, $id)
+    public function store(Request $request, $slug)
     {
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
@@ -49,7 +49,7 @@ class OptionController extends Controller
 
         try{
 
-            $option = $this->repo->create($request, $id);
+            $option = $this->repo->create($request, $slug);
             if($option){
                 $notification = array(
                     'message' => "Option Added successfully!",

@@ -200,8 +200,8 @@ Route::group(['prefix' => 'account'], function() {
 
                 Route::group(['prefix' => 'options'], function() {
                     Route::get('/', 'OptionController@index')->name('dashboard.eum.option.index');
-                    Route::get('/{id}/create', 'OptionController@create')->name('dashboard.eum.option.create');
-                    Route::post('/{id}/create', 'OptionController@store')->name('dashboard.eum.option.store');
+                    Route::get('/{slug}/create', 'OptionController@create')->name('dashboard.eum.option.create');
+                    Route::post('/{slug}/create', 'OptionController@store')->name('dashboard.eum.option.store');
                 });
             });
         });
