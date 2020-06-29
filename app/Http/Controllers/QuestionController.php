@@ -23,13 +23,13 @@ class QuestionController extends Controller
         $this->surveyTypeRepo = $surveyTypeContract;
     }
     
-    public function index()
+    public function index($id)
     {
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
 
-        $questions = $this->repo->getAll();
+        $questions = $this->repo->surveyQuestions($id);
         // dd($questions);
         return view('question.index')->with('questions', $questions);
     }
@@ -91,18 +91,15 @@ class QuestionController extends Controller
         //
     }
     
-    public function edit($id)
+    public function edit($q_id)
     {
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
 
-        $question = $this->repo->findById($id);
-        dd($question);
+        $question = $this->repo->findById($q_id);
         $programs = Program::where('id', $question->program_id)->first();
-        // dd($programs);
         $surveyType = $this->surveyTypeRepo->findAll();
-
         $questionTypes = $this->questionTypeRepo->findAll();
         return view('question.edit')
             ->with('question', $question)

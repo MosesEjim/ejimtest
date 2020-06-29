@@ -23,7 +23,7 @@ class EloquentQuestionRepository implements QuestionContract {
         $question->sub_category_name = $subcategory->name;
         $question->survey_type_name = $type->name;        
         $sluger = preg_replace('/\s/','-', $request->question_text);
-        $question->slug = strtolower($sluger).rand();
+        $question->slug = strtolower(str_replace("?", "-", $sluger)).rand();
 
         $question->question_type_id = $questionType->id;
         $question->program_id = $program->id;
@@ -41,6 +41,9 @@ class EloquentQuestionRepository implements QuestionContract {
 
     public function getAll() {
         return Question::latest()->paginate(20);
+    }
+    public function surveyQuestions($id) {
+        return Question::where('survey_type_id', $id)->paginate(20);
     }
 
       // return a Question by ID

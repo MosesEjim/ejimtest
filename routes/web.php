@@ -178,6 +178,11 @@ Route::group(['prefix' => 'account'], function() {
                 Route::get('/edit/{id}', 'SurveyTypeController@edit')->name('dashboard.eum.surveytype.edit');
                 Route::put('/edit/{id}', 'SurveyTypeController@update')->name('dashboard.eum.surveytype.update');
                 Route::get('/{slug}', 'SurveyTypeController@delete')->name('dashboard.eum.surveytype.delete');
+
+                Route::group(['prefix'=>'questions'], function(){
+                    Route::get('/{id}', 'QuestionController@index')->name('dashboard.uem.surveytype.question.index');
+                    Route::get('/{q_id}/edit/', 'QuestionController@edit')->name('dashboard.uem.surveytype.question.edit');
+                });
             });
             //form group
             Route::group(['prefix'=>'form'], function(){

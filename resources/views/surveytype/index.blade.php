@@ -64,10 +64,11 @@
                                   <a href="" class="font-medium whitespace-no-wrap">{{ $surveytype->subCategory->name}}</a>                                  
                               </td>
                               
-                              <td class="table-report__action w-56">
+                              <td class="table-report__action">
                                   <div class="flex justify-center items-center">
                                       <a class="flex items-center mr-3" href="{{ route('dashboard.eum.surveytype.edit', $surveytype->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                                       <a class="flex items-center mr-3" href="{{ route('dashboard.eum.questionnaire.create', $surveytype->slug) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Create Survey </a>
+                                      <a class="flex items-center mr-3" href="{{ route('dashboard.uem.surveytype.question.index', $surveytype->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> View Survey Questions</a>
                                       <a class="flex items-center text-theme-6" href="{{ route('dashboard.eum.surveytype.delete', $surveytype->id) }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                                   </div>
                               </td>
