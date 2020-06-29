@@ -50,30 +50,19 @@
                       <thead>
                           <tr>
 
-                            <th>TRANSACTION REF</th>
-                            <th>PRODUCT</th>
-                            <th>QUANTITY DISPATCHED</th>
-                            <th>PARTNER</th>
-                            <th>PARTNER PHONE</th>
-                            <th>STATE DISPATCHED  TO</th>
-                            <th>ACTION</th>
+                            <th>NAME</th>
+                            <th>VALUE</th>
                        
                          </tr>
                           </tr>
                       </thead>
                       <tbody>
-                      @foreach($transactions as $transaction)
+                      
                           <tr class="intro-x">
 
-                              <td>
-                                  <a href="" class="font-medium whitespace-no-wrap">{{ strtoupper($transaction->transaction_ref) }} </a>                                  
-                              </td>
-                              <td>
-                                  <a href="" class="font-medium whitespace-no-wrap">{{ $transaction->product->product_name }}</a>                                  
-                              </td>
-                              <td>
-                                  <a href="" class="font-medium whitespace-no-wrap">{{ $transaction->quantity_dispatched }}</a>                                  
-                              </td>
+                             
+                              
+                              
                               <td>
                                   <a href="" class="font-medium whitespace-no-wrap">{{ $transaction->partner_name}}</a>                                  
                               </td>
@@ -84,14 +73,26 @@
                                   <a href="" class="font-medium whitespace-no-wrap">{{ $transaction->state_dispatched_to }}</a>                                  
                               </td>
                              
-                              <td class="table-report__action w-56">
-                                  <div class="flex justify-center items-center">
-                                      <a class="flex items-center mr-3" href="{{ route('dashboard.transaction.show', $transaction->id) }}"> <i data-feather="eye" class="w-4 h-4 mr-1"></i> View </a>
-                                  </div>
-                              </td>
+                              
                               
                           </tr>
-                        @endforeach
+
+                          <tr class="intro-x">
+                                <td>
+                                    <a href="" class="font-medium whitespace-no-wrap">{{ strtoupper($transaction->transaction_ref) }} </a>                                  
+                                </td>
+                          </tr>
+                          <tr class="intro-x">
+                                <td>
+                                    <a href="" class="font-medium whitespace-no-wrap">{{ $transaction->product->product_name }}</a>                                  
+                                </td>
+                          </tr>
+                          <tr class="intro-x">
+                                <td>
+                                    <a href="" class="font-medium whitespace-no-wrap">{{ $transaction->quantity_dispatched }}</a>                                  
+                                </td>
+                          </tr>
+                      
                       </tbody>
                   </table>
               </div>

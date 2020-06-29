@@ -35,7 +35,6 @@ class EloquentVendorRepository implements VendorContract {
       // Update a Vendor
     public function update($request, $id) {
       $vendor = $this->findById($id);
-      $vendor->vendor_id = $request->vendor_id;
       $vendor->name = $request->name;
       $vendor->phone = $request->phone;
       $vendor->plate_number = $request->plate_number;

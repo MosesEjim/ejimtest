@@ -1,118 +1,80 @@
 @extends('layout.app')
 
-@section('title', 'Product')
+@section('title', 'Categories')
 
 @section('content')
+<div class="grid grid-cols-12 gap-6">
+      <div class="col-span-12 xxl:col-span-12 grid grid-cols-12 gap-6">
+          
+          <!-- BEGIN: Weekly Top Seller -->
+          <div class="col-span-12 mt-6">
+              <div class="intro-y block sm:flex items-center h-10">
+                  <h2 class="text-lg font-medium truncate mr-5">
+                      LISTING ALL CATEGORIES
+                  </h2>
+                  <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
+                      <button class="button box flex items-center text-gray-700"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to Excel </button>
+                      <button class="ml-3 button box flex items-center text-gray-700"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to PDF </button>
+                  </div>
+              </div>
+              <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+                  <table class="table table-report sm:mt-2">
+                      <thead>
+                          <tr>
 
-
-	
-  <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumb-->
-     <div class="row pt-2 pb-2">
-        <div class="col-sm-9">
-		    <h4 class="page-title">All Products</h4>
-		    <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javaScript:void();">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="javaScript:void();">Products</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Listing All</li>
-         </ol>
-	   </div>
-	   <div class="col-sm-3">
-       <div class="btn-group float-sm-right">
-        <button type="button" class="btn btn-light waves-effect waves-light"><i class="fa fa-cog mr-1"></i> Action</button>
-        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown">
-        <span class="caret"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a href="{{ route('dashboard.product.create') }}" class="dropdown-item">Create a Product</a>
-        </div>
+                              <th>PRODUCT NAME</th>
+                              <th>BRAND</th>
+                              <th>MATERIAL NO</th>
+                              <th>BATCH NO</th>
+                              <th>CATEGORY</th>
+                              <th>ACTIONS</th>
+                  
+                          </tr>
+                      </thead>
+                      <tbody>
+                      @foreach($products as $product)
+                      
+                          <tr class="intro-x">
+                              <td>
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $product->product_name }} </a> 
+                                  
+                              </td>
+                              <td>
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $product->brand }} </a> 
+                                  
+                              </td>
+                              <td>
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $product->material_no }} </a> 
+                                  
+                              </td>
+                              <td>
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $product->batch_no }}</a> 
+                                  
+                              </td>
+                              <td>
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $product->category->title }}</a> 
+                                  
+                              </td>
+                              
+                              <td class="table-report__action w-56">
+                                  <div class="flex justify-center items-center">
+                                      <a class="flex items-center mr-3" href="{{ route('dashboard.product.edit', $product->id) }}"> <i data-feather="edit-3" class="w-4 h-4 mr-1"></i> Edit </a>
+                                  </div>
+                              </td>
+                          </tr>
+                          
+                        @endforeach
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+         
       </div>
-     </div>
-     </div>
-    <!-- End Breadcrumb-->
-      
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header"><i class="fa fa-table"></i>All Products</div>
-            <div class="card-body">
-            @if(session('error'))
-            <div class="alert alert-danger alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <div class="alert-icon contrast-alert">
-                <i class="fa fa-times"></i>
-              </div>
-              <div class="alert-message">
-                <span><strong>Danger!</strong> {{ session('error') }}!</span>
-              </div>
-            </div>
-          @endif
+  </div>
 
-          @if(session('success'))
-          <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <div class="alert-icon contrast-alert">
-              <i class="fa fa-check"></i>
-            </div>
-            <div class="alert-message">
-              <span><strong>Success!</strong> {{ session('success') }}</span>
-            </div>
-          </div>
-          @endif
-              <div class="table-responsive">
-              <table id="example" class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  @foreach($products as $product)
-                    <tr>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->brand }}</td>
-                        <td>{{ $product->material_no }}</td>
-                        <td>{{ $product->batch_no }}</td>
-                        <td>{{ $product->category->title }}</td>
-                        
-                        <td>
-                        <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.product.edit', $product->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
-                            <i class="fa fa-edit"></i> 
-                          </a>
-                          {{-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> --}}
-                        </div>
-                        </td>
-                    </tr>
-                  @endforeach
-                </tbody>
-                <tfoot>
-                    <tr>
-                    <th>Product Name</th>
-                        <th>Brand</th>
-                        <th>Material No</th>
-                        <th>Batch No</th>
-                        <th>Category</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
-            </table>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- End Row-->
-<!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
-    </div>
-    <!-- End container-fluid-->
-    
-    </div>
 @endsection
+
+
+
+
+

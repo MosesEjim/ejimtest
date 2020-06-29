@@ -27,6 +27,9 @@ class PartnerController extends Controller
     
     public function create()
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         $states = $this->stateRepo->findAll();
         // dd($states);
         return view('partner.create')->with('states', $states);
@@ -39,7 +42,7 @@ class PartnerController extends Controller
             return redirect()->route('auth.login.get');
         }
 
-        // dd($request->all());
+       
 
         $this->validate($request, [
             "partner_name"=>"required",
@@ -57,12 +60,13 @@ class PartnerController extends Controller
         try{
 
             $partner = $this->repo->create($request);
+            // dd($partner);
             if($partner){
              $notification = array(
                  'message' => "Partner Added successfully!",
                  'alert-type' => 'success'
              );
-             return redirect()->route('dashboard.partner.index')->with('success', 'Product Created successfully!')->with($notification);
+             return redirect()->route('dashboard.partner.index')->with('success', 'Partner Created successfully!')->with($notification);
             }else {
  
              $notificationErr = array(

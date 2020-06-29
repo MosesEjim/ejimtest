@@ -34,5 +34,6 @@
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="{{ URL::asset('assets/dashboard/js/app.js') }}"></script>
         <!-- END: JS Assets-->
+        @yield('scripts')
     </body>
 </html>
