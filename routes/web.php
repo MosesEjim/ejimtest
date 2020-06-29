@@ -41,12 +41,9 @@ Route::group(['prefix' => 'account'], function() {
 
         // User Route Group
         Route::group(['prefix' => 'user'], function() {
-            Route::get('/', 'CategoryController@index')->name('dashboard.category.index');
-            Route::get('/create', 'CategoryController@create')->name('dashboard.category.create');
-            Route::post('/create', 'CategoryController@store')->name('dashboard.category.store');
-            Route::get('/{id}/enable-status', 'CategoryController@enabledStatus')->name('dashboard.category.enabledStatus');
-            Route::get('/{id}/disable-status', 'CategoryController@disableStatus')->name('dashboard.category.disabledStatus');
-            Route::get('/disabled-categories', 'CategoryController@disabled')->name('dashboard.category.disabled');
+            Route::get('/', 'UserController@index')->name('dashboard.user.index');
+            Route::get('/create', 'UserController@create')->name('dashboard.user.create');
+            Route::post('/create', 'UserController@store')->name('dashboard.user.store');
         });
         
         
@@ -55,7 +52,9 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/', 'CategoryController@index')->name('dashboard.category.index');
             Route::get('/create', 'CategoryController@create')->name('dashboard.category.create');
             Route::post('/create', 'CategoryController@store')->name('dashboard.category.store');
-            Route::get('/{id}/enable-status', 'CategoryController@enabledStatus')->name('dashboard.category.enabledStatus');
+            Route::get('/edit/{id}', 'CategoryController@edit')->name('dashboard.category.edit');
+            Route::put('/edit/{id}', 'CategoryController@update')->name('dashboard.category.update');
+            Route::get('/{id}/enable-status', 'CategoryController@enableStatus')->name('dashboard.category.enabledStatus');
             Route::get('/{id}/disable-status', 'CategoryController@disableStatus')->name('dashboard.category.disabledStatus');
             Route::get('/disabled-categories', 'CategoryController@disabled')->name('dashboard.category.disabled');
         });

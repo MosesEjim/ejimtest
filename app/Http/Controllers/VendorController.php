@@ -104,7 +104,7 @@ class VendorController extends Controller
 
         try{
 
-            $vendor = $this->repo->create($request);
+            $vendor = $this->repo->update($request, $id);
             if($vendor){
              $notification = array(
                  'message' => "vendor Added successfully!",

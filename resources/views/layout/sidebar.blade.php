@@ -97,7 +97,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{('dashboard.stock.create')}}" class="side-menu">
+                <a href="{{route('dashboard.stock.create')}}" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                     <div class="side-menu__title"> Create stock </div>
                 </a>
@@ -112,7 +112,7 @@
         </a>
         <ul class="">
             <li>
-                <a href="{{('dashboard.partner.index')}}" class="side-menu">
+                <a href="{{route('dashboard.partner.index')}}" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                     <div class="side-menu__title"> All Partners </div>
                 </a>

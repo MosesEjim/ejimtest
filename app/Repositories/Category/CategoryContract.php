@@ -7,4 +7,5 @@ interface CategoryContract {
     public function findBySlug($slug);
     public function update($request, $id);
     public function remove($id);
+    public function findAllDisabled();
 }

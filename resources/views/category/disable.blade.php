@@ -1,159 +1,60 @@
 @extends('layout.app')
 
-@section('title', 'UNICEF > Categories')
+@section('title', 'DisabledCategories')
 
-@section('styles')
-  <link href="{{ asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
-  <link href="{{ asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
-@endsection
-  
 @section('content')
-
-
-	
-  <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumb-->
-     <div class="row pt-2 pb-2">
-        <div class="col-sm-9">
-		    <h4 class="page-title">All Categories</h4>
-		    <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javaScript:void();">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="javaScript:void();">Categories</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Listing All</li>
-         </ol>
-	   </div>
-	   <div class="col-sm-3">
-       <div class="btn-group float-sm-right">
-        <button type="button" class="btn btn-light waves-effect waves-light"><i class="fa fa-cog mr-1"></i> Setting</button>
-        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown">
-        <span class="caret"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a href="javaScript:void();" class="dropdown-item">Action</a>
-          <a href="javaScript:void();" class="dropdown-item">Another action</a>
-          <a href="javaScript:void();" class="dropdown-item">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a href="javaScript:void();" class="dropdown-item">Separated link</a>
-        </div>
-      </div>
-     </div>
-     </div>
-    <!-- End Breadcrumb-->
-      
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header"><i class="fa fa-table"></i>All Categories</div>
-            <div class="card-body">
-            @if(session('error'))
-            <div class="alert alert-danger alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <div class="alert-icon contrast-alert">
-                <i class="fa fa-times"></i>
+<div class="grid grid-cols-12 gap-6">
+      <div class="col-span-12 xxl:col-span-12 grid grid-cols-12 gap-6">
+          
+          <!-- BEGIN: Weekly Top Seller -->
+          <div class="col-span-12 mt-6">
+              <div class="intro-y block sm:flex items-center h-10">
+                  <h2 class="text-lg font-medium truncate mr-5">
+                      LISTING ALL DISABLED CATEGORIES
+                  </h2>
+                  <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
+                      <button class="button box flex items-center text-gray-700"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to Excel </button>
+                      <button class="ml-3 button box flex items-center text-gray-700"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to PDF </button>
+                  </div>
               </div>
-              <div class="alert-message">
-                <span><strong>Danger!</strong> {{ session('error') }}!</span>
-              </div>
-            </div>
-          @endif
-
-          @if(session('success'))
-          <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <div class="alert-icon contrast-alert">
-              <i class="fa fa-check"></i>
-            </div>
-            <div class="alert-message">
-              <span><strong>Success!</strong> {{ session('success') }}</span>
-            </div>
-          </div>
-          @endif
-              <div class="table-responsive">
-              <table id="example" class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Date Created</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  @foreach($categories as $cat)
-                    <tr>
-                        <td>{{ $cat->title }}</td>
-                        <td>{{ $cat->description }}</td>
-                        <td>{{ $cat->created_at }}</td>
-                        <td>
-                        <div class="btn-group m-1">
-                          <a herf="" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
-                            <i class="fa fa-edit"></i> 
-                          </a>
-                          @if($cat->active_status === 1)
-                            <a href="{{ route('dashboard.category.disabledStatus', $cat->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Disable Visibility" class="btn btn-outline-info waves-effect waves-light"> 
-                              <i class="fa fa-edit"></i> 
-                            </a>
-                          @else
-                            <a href="{{ route('dashboard.category.enabledStatus', $cat->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Enable Visibility " class="btn btn-outline-info waves-effect waves-light"> 
-                              <i class="fa fa-edit"></i> 
-                            </a>
+              <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+                  <table class="table table-report sm:mt-2">
+                      <thead>
+                          <tr>
+                              
+                              <th class="whitespace-no-wrap">NAME</th>
+                              <th class="whitespace-no-wrap">STATUS</th>
+                              <th class="text-center whitespace-no-wrap">ACTIONS</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      @foreach($categories as $category)
+                          @if($category->active_status == 0)
+                          <tr class="intro-x">
+                              <td>
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $category->title }} </a> 
+                                  
+                              </td>
+                              <td>
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $category->active_status }} </a> 
+                                  
+                              </td>
+                              
+                              <td class="table-report__action w-56">
+                                  <div class="flex justify-center items-center">
+                                      <a class="flex items-center mr-3" href="{{ route('dashboard.category.edit', $category->id) }}"> <i data-feather="edit-3" class="w-4 h-4 mr-1"></i> Edit </a>
+                                      <a class="flex items-center text-theme-9" href="{{ route('dashboard.category.enabledStatus', $category->id) }}"> <i data-feather="eye" class="w-4 h-4 mr-1"></i> Enable </a>
+                                  </div>
+                              </td>
+                          </tr>
                           @endif
-                          <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button>
-                        </div>
-                        </td>
-                    </tr>
-                  @endforeach
-                </tbody>
-                <tfoot>
-                    <tr>
-                    <th>Title</th>
-                        <th>Description</th>
-                        <th>Date Created</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
-            </table>
-            </div>
-            </div>
+                        @endforeach
+                      </tbody>
+                  </table>
+              </div>
           </div>
-        </div>
-      </div><!-- End Row-->
-<!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
-    </div>
-    <!-- End container-fluid-->
-    
-    </div>
-@endsection
+         
+      </div>
+  </div>
 
-@section('scripts')
-    <!--Data Tables js-->
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/jszip.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js') }}"></script>
-
-    <script>
-      $(document).ready(function() {
-        //Default data table
-        $('#default-datatable').DataTable();
-        var table = $('#example').DataTable( {
-        lengthChange: false,
-        buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
-      });
- 
-      table.buttons().container()
-        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
-      
-      });
-
-    </script>
 @endsection

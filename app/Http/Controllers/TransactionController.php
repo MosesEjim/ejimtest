@@ -5,7 +5,7 @@ use App\Repositories\Transaction\TransactionContract;
 use Sentinel;
 use App\Partner;
 use App\Product;
-
+use App\Vendor;
 class TransactionController extends Controller
 {
     protected $repo;
@@ -30,8 +30,10 @@ class TransactionController extends Controller
         }
         $products = Product::all();
         $partners = Partner::all();
+        $vendors = Vendor::all();
         return view('transaction.create')
         ->with('partners', $partners)
+        ->with('vendors', $vendors)
         ->with('products', $products);
     }
     

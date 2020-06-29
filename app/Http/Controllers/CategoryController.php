@@ -38,7 +38,6 @@ class CategoryController extends Controller
 
         try {
             $cat = $this->repo->create($request);
-            // dd($cat);
             if($cat) {
                 $notification = array(
                     'message' => "Category Created successfully!",
@@ -74,16 +73,71 @@ class CategoryController extends Controller
     
     public function edit($id)
     {
-        //
+        $category = $this->repo->findById($id);
+        return view('category.edit')->with('category', $category);
     }
     
     public function update(Request $request, $id)
     {
-        //
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
+        $this->validate($request, [
+            'title' => 'required'
+        ]);
+
+        try {
+            $cat = $this->repo->update($request, $id);
+            if($cat) {
+                $notification = array(
+                    'message' => "Category Updated successfully!",
+                    'alert-type' => 'success'
+                );
+                return redirect()->route('dashboard.category.index')->with('success', 'Category Updated successfully!')->with($notification);
+            } else {
+
+                $notificationErr = array(
+                  'message' => "Could not Update Category. Try again!",
+                  'alert-type' => 'error'
+                );
+                return back()
+                    ->withInput()
+                    ->with('error', 'Could not update Category. Try again!')->with($notificationErr);
+            }
+        } catch(QueryException $e) {
+            $errorCode = $e->errorInfo[1];
+            if($errorCode == 1062){
+                $notification = array(
+                    'message' => "OPS... A Category with title $request->title already exists!",
+                    'alert-type' => 'error'
+                );
+                return back()->withInput()->with('error', 'OPS... A Category with title '.$request->title.' already exists!')->with($notification);
+            }
+        }
     }
     
     public function delete($id)
     {
         //
+    }
+
+    public function disableStatus($id){
+        $category = $this->repo->findById($id);
+        $category->active_status = 0;
+        $category->save();
+        return redirect()->back()->with('success', 'Category successfully disabled');
+    }
+
+
+    public function enableStatus($id){
+        $category = $this->repo->findById($id);
+        $category->active_status = 1;
+        $category->save();
+        return redirect()->back()->with('success', 'category successfully enabled');
+    }
+    public function disabled(){
+        $categories = $this->repo->findAllDisabled();
+        return view('category.disable')->with('categories', $categories);
     }
 }

@@ -4,7 +4,13 @@ use App\Repositories\Category\CategoryContract;
 use App\Category;
 class EloquentCategoryRepository implements CategoryContract {
     public function create($request) {
-        // 
+        $category = new Category();
+        $category->title = $request->title;
+        $category->description = $request->description;
+        $slug = preg_replace('/\s/', '-', $request->title);
+        $category->slug = strtolower($slug);
+        $category->save();
+        return $category;
     }
 
       // return all Category
@@ -26,9 +32,17 @@ class EloquentCategoryRepository implements CategoryContract {
         return Category::where('slug', $slug)->first();
     }
 
+    public function findAllDisabled(){
+        return Category::where('active_status', false)->get();
+    }
+
       // Update a Category
-    public function update($request, $slug) {
-        $cat = $this->findBySlug($slug);
+    public function update($request, $id) {
+        $cat = $this->findById($id);
+        $cat->title = $request->title;
+        $cat->description = $request->description;
+        $cat->save();
+        return $cat;
     }
 
       // Remove a Category
