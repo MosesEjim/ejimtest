@@ -50,8 +50,8 @@ class EloquentOptionRepository implements OptionContract {
     }
 
       // Remove a Option
-    public function remove($slug) {
-        $option = $this->findBySlug($slug);
+    public function remove($id) {
+        $option = $this->findById($id);
         return $option->delete();
     }
 }

@@ -23,6 +23,17 @@ class QuestionController extends Controller
         $this->surveyTypeRepo = $surveyTypeContract;
     }
     
+    public function all()
+    {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
+        $questions = $this->repo->findAll();
+        // dd($questions);
+        return view('question.index')->with('questions', $questions);
+    }
+    
     public function index($id)
     {
         if(!Sentinel::check()){
@@ -88,7 +99,12 @@ class QuestionController extends Controller
     
     public function show($id)
     {
-        //
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        // dd($id);
+        $question = $this->repo->findById($id);
+        return view('question.show')->with('question', $question);
     }
     
     public function edit($q_id)
@@ -108,9 +124,44 @@ class QuestionController extends Controller
             ->with('surveyType', $surveyType);
     }
     
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $slug)
+    {   
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
+        try{
+
+            $question = $this->repo->update($request, $slug);
+            if($question){
+                $notification = array(
+                    'message' => "Question Updated successfully!",
+                    'alert-type' => 'success'
+                );
+                return redirect()->back()->with('success', 'Question edited successfully!')->with($notification);
+            } else {
+ 
+                $notificationErr = array(
+                    'message' => "Could not edited Question. Try again!",
+                    'alert-type' => 'error'
+                );
+                return back()
+                    ->withInput()
+                    ->with('error', 'Could not edited Question. Try again!')
+                    ->with($notificationErr);
+            }
+            
+         
+        } catch(QueryException $e){    
+            $errorCode = $e->errorInfo[1];
+            if($errorCode == 1062){
+                $notification = array(
+                    'message' => "OPS... Question already exist",
+                    'alert-type' => 'error'
+                );
+                return back()->withInput()->with('error', 'OPS... Question already exist!')->with($notification);
+            }    
+        }
     }
     
     public function delete($id)

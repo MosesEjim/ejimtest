@@ -2,7 +2,7 @@
 
 @section('title', 'All Question/Option Types')
 
-@section('setting_active', 'side-menu--active')
+@section('program_active', 'side-menu--active')
 
 @section('content')
 <div class="grid grid-cols-12 gap-6">
@@ -34,6 +34,7 @@
                           <td class="table-report__action w-56">
                             <div class="flex justify-center items-center">
                               <a class="flex items-center mr-3" href="{{ route('dashboard.uem.surveytype.question.edit', $question->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                              <a class="flex items-center mr-3" href="{{ route('dashboard.uem.surveytype.question.show', $question->id) }}"> <i data-feather="eye" class="w-4 h-4 mr-1"></i> View </a>
                               <a class="flex items-center text-theme-6" href="{{ route('dashboard.question.type.delete', $question->id) }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                             </div>
                           </td>

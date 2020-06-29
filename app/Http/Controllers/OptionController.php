@@ -106,5 +106,10 @@ class OptionController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
+
+        // dd($id);
+        $this->repo->remove($id);
+        return redirect()->back()
+        ->with('success', 'Option deleted successfully');
     }
 }

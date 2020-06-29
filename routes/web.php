@@ -182,6 +182,7 @@ Route::group(['prefix' => 'account'], function() {
                 Route::group(['prefix'=>'questions'], function(){
                     Route::get('/{id}', 'QuestionController@index')->name('dashboard.uem.surveytype.question.index');
                     Route::get('/{q_id}/edit/', 'QuestionController@edit')->name('dashboard.uem.surveytype.question.edit');
+                    Route::get('/show/{id}', 'QuestionController@show')->name('dashboard.uem.surveytype.question.show');
                 });
             });
             //form group
@@ -205,10 +206,11 @@ Route::group(['prefix' => 'account'], function() {
             
             
             Route::group(['prefix'=>'questions'], function(){
-                Route::get('/', 'QuestionController@index')->name('dashboard.uem.question.index');
+                Route::get('/', 'QuestionController@all')->name('dashboard.uem.question.index');
                 Route::get('/create', 'QuestionController@create')->name('dashboard.uem.question.create');
                 Route::post('/create', 'QuestionController@store')->name('dashboard.uem.question.store');
                 Route::get('/edit/{id}', 'QuestionController@edit')->name('dashboard.uem.question.edit');
+                
                 Route::put('/edit/{id}', 'QuestionController@update')->name('dashboard.uem.question.update');
                 Route::get('/{slug}', 'QuestionController@delete')->name('dashboard.uem.question.delete');
             });
@@ -226,6 +228,7 @@ Route::group(['prefix' => 'account'], function() {
                     Route::get('/', 'OptionController@index')->name('dashboard.eum.option.index');
                     Route::get('/{slug}/create', 'OptionController@create')->name('dashboard.eum.option.create');
                     Route::post('/{slug}/create', 'OptionController@store')->name('dashboard.eum.option.store');
+                    Route::delete('/{id}/delete', 'OptionController@delete')->name('dashboard.eum.option.delete');
                 });
             });
         });

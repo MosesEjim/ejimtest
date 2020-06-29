@@ -59,6 +59,23 @@ class EloquentQuestionRepository implements QuestionContract {
       // Update a Question
     public function update($request, $slug) {
         $question = $this->findBySlug($slug);
+        // dd($request->all());
+        // $questionType = QuestionType::find($request->question_type_id);
+        // $type = SurveyType::find($question->survey_type_id);
+        // $program = Program::find($type->program_id);
+        // $subcategory = Subcategory::find($type->sub_category_id);
+        // $question->type = $questionType->type;
+        $question->question_text = $request->question_text;
+        // $question->program_name = $program->name;
+        // $question->sub_category_name = $subcategory->name;
+        // $question->survey_type_name = $type->name;
+
+        $question->question_type_id = $request->question_type_id;
+        // $question->program_id = $program->id;
+        // $question->sub_category_id = $subcategory->id;
+        // $question->survey_type_id = $type->id;
+        $question->save();
+        return $question;
     }
 
       // Remove a Question

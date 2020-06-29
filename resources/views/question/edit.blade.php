@@ -48,8 +48,9 @@
                 </div>
               @endif 
 
-                <form method="post" action="{{ route('dashboard.eum.questionnaire.store', $question->slug) }}">
+                <form method="post" action="{{ route('dashboard.uem.question.update', $question->slug) }}">
                   @csrf
+                  @method('PUT')
                   <div class="preview">
                       <div>
                           <label for="question_text">Question</label>
@@ -61,11 +62,11 @@
                           <select class="input w-full border mr-2" name="question_type_id" id="question_type_id" required>
                               <option> --- Select --- </option>
                               @foreach($questionTypes as $questionType)
-                                <option value="{{ $questionType->id }}">{{ $questionType->type }}</option>
+                                <option value="{{ $questionType->id }}" {{ $questionType->id === $question->id ? 'selected' : ''  }}>{{ $questionType->type }}</option>
                               @endforeach
                           </select> 
                       </div>
-                      <button type="submit" class="button bg-theme-1 text-white mt-5">Save Question</button>
+                      <button type="submit" class="button bg-theme-1 text-white mt-5">Update Question</button>
                   </div>
                 </form>
               </div>
