@@ -33,6 +33,8 @@ Route::group(['prefix' => 'account'], function() {
         Route::post('/', 'PageController@store')->name('auth.signup.post');
     });
 
+    Route::post('/logout', 'LoginController@logout')->name('auth.logout.post');
+
     Route::group(['prefix'=>'dashboard'], function(){
         Route::get('/', 'UserController@adminDashboard')->name('dashboard.admin.index');
         Route::get('/roles', 'RoleController@index')->name('roles');

@@ -202,6 +202,7 @@ return [
  		App\Providers\RoleServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Creativeorange\Gravatar\GravatarServiceProvider::class
     ],
 
     /*
@@ -258,6 +259,7 @@ return [
         'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
     ],
 
 ];

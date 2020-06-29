@@ -1,7 +1,7 @@
 <nav class="side-nav">
     <a href="" class="intro-x flex items-center pl-5 pt-4">
-        <img alt="" class="w-6" src="{{ URL::asset('assets/dashboard/images/logo.png') }}">
-        <span class="hidden xl:block text-white text-lg ml-3"> Mid<span class="font-medium">one</span> </span>
+        <img alt="" class="w-10" src="{{ URL::asset('assets/dashboard/images/logo.png') }}">
+        <span class="hidden xl:block text-white text-lg ml-3"> UNI<span class="font-medium">CEF</span> </span>
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
@@ -306,7 +306,17 @@
                     <div class="side-menu__title"> Add a Type</div>
                 </a>
             </ul>
-        </li>                            
+        </li>
+        <li>
+            <form method="post" id="logout-form" action="{{ route('auth.logout.post') }}">
+                @csrf
+            
+                <a onclick="document.getElementById('logout-form').submit()" style="cursor: pointer;" class="side-menu side-menu--active">
+                    <div class="side-menu__icon"> <i data-feather="log-out"></i>  </div>
+                    <div class="side-menu__title"> Logout </div>
+                </a>
+            </form>
+        </li>                         
       </ul>                        
     </li>
   </ul>
