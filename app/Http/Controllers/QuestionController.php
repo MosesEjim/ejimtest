@@ -5,6 +5,7 @@ use App\Repositories\Question\QuestionContract;
 use App\Repositories\QuestionType\QuestionTypeContract;
 use App\Repositories\SurveyType\SurveyTypeContract;
 use Sentinel;
+use App\Program;
 
 class QuestionController extends Controller
 {
@@ -92,7 +93,22 @@ class QuestionController extends Controller
     
     public function edit($id)
     {
-        //
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
+        $question = $this->repo->findById($id);
+        dd($question);
+        $programs = Program::where('id', $question->program_id)->first();
+        // dd($programs);
+        $surveyType = $this->surveyTypeRepo->findAll();
+
+        $questionTypes = $this->questionTypeRepo->findAll();
+        return view('question.edit')
+            ->with('question', $question)
+            ->with('questionTypes', $questionTypes)
+            ->with('programs', $programs)
+            ->with('surveyType', $surveyType);
     }
     
     public function update(Request $request, $id)
