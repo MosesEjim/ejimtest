@@ -1,120 +1,70 @@
 @extends('layout.app')
-
-@section('title', 'Create Category')
-
+@section('title', 'Create Sub Category')
+@section('program_active', 'side-menu--active')
 @section('content')
-
-<div class="content-wrapper">
-    <div class="container-fluid">
-    <!-- Breadcrumb-->
-     <div class="row pt-2 pb-2">
-        <div class="col-sm-9">
-		    <h4 class="page-title">Create Category</h4>
-		    <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javaScript:void();">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="javaScript:void();">Category</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Create</li>
-         </ol>
-	   </div>
-	   <div class="col-sm-3">
-       <div class="btn-group float-sm-right">
-        <button type="button" class="btn btn-light waves-effect waves-light"><i class="fa fa-cog mr-1"></i> Setting</button>
-        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown">
-        <span class="caret"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a href="javaScript:void();" class="dropdown-item">Action</a>
-          <a href="javaScript:void();" class="dropdown-item">Another action</a>
-          <a href="javaScript:void();" class="dropdown-item">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a href="javaScript:void();" class="dropdown-item">Separated link</a>
-        </div>
-      </div>
-     </div>
-     </div>
-    <!-- End Breadcrumb-->
-
-
-    <div class="row">
-      <div class="col-lg-8">
-         <div class="card">
-           <div class="card-body">
-           <div class="card-title">Category Details</div>
-
-           
-           
-      
-
-
-           <hr>
-
-           @if(session('error'))
-            <div class="alert alert-danger alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <div class="alert-icon contrast-alert">
-                <i class="fa fa-times"></i>
+  <div class="grid grid-cols-12 gap-6 mt-5">
+      <div class="intro-y col-span-12 lg:col-span-8">        
+          <!-- BEGIN: Vertical Form -->
+          <div class="intro-y box">
+              <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200">
+                  <h2 class="font-medium text-base mr-auto">
+                    Add Sub Category
+                  </h2>
               </div>
-              <div class="alert-message">
-                <span><strong>Danger!</strong> {{ session('error') }}!</span>
+              <div class="p-5" id="vertical-form">
+
+              @if(session('error'))
+                <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-gray-200 text-gray-600"> 
+                  <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                    <span><strong>Error!</strong> {{ session('error') }}!</span>
+                  <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                </div>
+                @endif
+
+                @if(session('success'))
+                <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-9 text-white"> 
+                  <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                  <strong>Success!</strong> {{ session('success') }}
+                  <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                </div>
+              @endif
+
+              @if($errors->any())
+                <div class="rounded-md px-5 py-4 mb-2 bg-theme-6 text-white">
+                  <div class="flex items-center">
+                      <div class="font-medium text-lg">Error</div>
+                  </div>
+                  <div class="mt-3">
+                    <ul>
+                      @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                      @endforeach
+                    </ul>
+                  </div>
+                </div>
+              @endif 
+
+
+              <form method="post" action="{{ route('dashboard.category.store') }}">
+                  @csrf
+                  <div class="preview">
+                      <div>
+                          <label for="title"> category name</label>
+                          <input type="text"  id="title" name="title" class="input w-full border mt-2" placeholder="Enter Category Name" required>
+                      </div>
+                      
+                      <div class="mt-3">
+                          <label for="description">Program</label>
+                          <textarea name="description" id="description" cols="30" rows="10" class="input w-full border mt-2" placeholder="Enter Category Description"></textarea>
+                      </div>
+                      <button type="submit" class="button bg-theme-9 text-white mt-5 mr-5">Save Category</button>
+                  </div>
+                </form>
               </div>
-            </div>
-          @endif
-
-          @if(session('success'))
-          <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <div class="alert-icon contrast-alert">
-              <i class="fa fa-check"></i>
-            </div>
-            <div class="alert-message">
-              <span><strong>Success!</strong> {{ session('success') }}</span>
-            </div>
           </div>
-          @endif  
-
-          @if ($errors->any())
-            <div class="alert alert-danger alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <ul>
-                @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-              </ul>
-            </div>
-          @endif  
-
-
-            <form method="post" action="{{ route('dashboard.category.store') }}">
-              @csrf
-           <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title" value="{{ old('title') }}">
-           </div>
-           <div class="form-group">
-            <label for="description">Description (optional)</label>
-  
-            <textarea name="description" id="description" cols="5" class="form-control">
-            {{ old('description') }}
-            </textarea>
-           </div>
-           
-           <div class="form-group">
-            <button type="submit" class="btn btn-primary px-5"><i class="icon-lock"></i> Save Category</button>
-          </div>
-          </form>
-         </div>
-         </div>
+          <!-- END: Vertical Form -->
       </div>
-
-    </div><!--End Row-->
-
-<!--start overlay-->
-	  <div class="overlay toggle-menu"></div>
-	<!--end overlay-->
-    </div>
-    <!-- End container-fluid-->
-    
-   </div>
-
+  </div>
 @endsection
+
 

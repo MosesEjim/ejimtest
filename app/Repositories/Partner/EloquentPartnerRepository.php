@@ -18,7 +18,7 @@ class EloquentPartnerRepository implements PartnerContract {
       // dd($request->all());
       $state = $this->stateRepo->findByName($request->state);
       $user = $this->userRepo->create($request);
-      // dd($state);
+      
       $partner = new Partner();
       $partner->partner_name = $request->partner_name;
       $partner->email = $request->email;
@@ -34,7 +34,6 @@ class EloquentPartnerRepository implements PartnerContract {
       $partner->state_id = $state->id;
       $partner->user_id = $user->id;
       $partner->save();
-      // dd($partner);
       return $partner;
     }
 
