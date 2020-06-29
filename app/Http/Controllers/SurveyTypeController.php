@@ -19,7 +19,7 @@ class SurveyTypeController extends Controller
             return redirect()->route('auth.login.get');
         }
         
-        $surveytypes = SurveyType::all();
+        $surveytypes = $this->repo->findAll();
         return view('surveytype.index')->with('surveytypes', $surveytypes);
     }
     
