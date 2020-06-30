@@ -17,7 +17,7 @@ class LGAController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-        $lgas = $this->repo->findAll();
+        $lgas = $this->repo->getAll();
         return view('lga.index')->with('lgas', $lgas);
     }
     

@@ -1,44 +1,70 @@
 @extends('layout.app')
+@section('title', 'Create Sub Category')
+@section('program_active', 'side-menu--active')
 @section('content')
-
-<!-- Start wrapper-->
-<div id="wrapper">
-
-<div class="loader-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-   <div class="card card-authentication1 mx-auto my-5">
-       <div class="card-body">
-        <div class="card-content p-2">
-            <div class="text-center">
-                <img src="{{URL::asset('assets/images/logo-icon.png')}}" alt="logo icon" width = "50px" height ="50px">
-            </div>
-         <div class="card-title text-uppercase text-center py-3">Create A Role</div>
-           <form>
-             <div class="form-group">
-             <label for="exampleInputUsername" class="sr-only">Role Name</label>
-              <div class="position-relative has-icon-right">
-                 <input type="text" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Role Name">
+  <div class="grid grid-cols-12 gap-6 mt-5">
+      <div class="intro-y col-span-12 lg:col-span-8">        
+          <!-- BEGIN: Vertical Form -->
+          <div class="intro-y box">
+              <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200">
+                  <h2 class="font-medium text-base mr-auto">
+                    Add Role
+                  </h2>
               </div>
-             </div>
-             <div class="form-group">
-             <label for="exampleInputPassword" class="sr-only">Role Description</label>
-              <div class="position-relative has-icon-right">
-                  <textarea name="roledescription" id="" cols="30" rows="10" class ="form-control" placeholder = "Describe Role"></textarea>
-              </div>
-             </div>
-           
-                <button type="button" class="btn btn-primary btn-block">Create Role</button>
+              <div class="p-5" id="vertical-form">
+
+              @if(session('error'))
+                <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-gray-200 text-gray-600"> 
+                  <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                    <span><strong>Error!</strong> {{ session('error') }}!</span>
+                  <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                </div>
+                @endif
+
+                @if(session('success'))
+                <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-9 text-white"> 
+                  <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                  <strong>Success!</strong> {{ session('success') }}
+                  <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                </div>
+              @endif
+
+              @if($errors->any())
+                <div class="rounded-md px-5 py-4 mb-2 bg-theme-6 text-white">
+                  <div class="flex items-center">
+                      <div class="font-medium text-lg">Error</div>
+                  </div>
+                  <div class="mt-3">
+                    <ul>
+                      @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                      @endforeach
+                    </ul>
+                  </div>
+                </div>
+              @endif 
+
+
+              <form method="post" action="{{ route('dashboard.role.store') }}">
+                  @csrf
+                  <div class="preview">
+                      <div>
+                          <label for="name"> Enter Role Name</label>
+                          <input type="text" id="name" name="name" class="input w-full border mt-2" placeholder="Enter Role Name">
+                          
+                      </div>
+
+                      <div>
+                          <label for="description"> Describe Role</label>
+                          <textarea name="description" id="" cols="30" rows="10" class ="input w-full border mt-2" placeholder = "Describe Role"></textarea>                          
+                      </div>
             
-            </form>
+                      <button type="submit" class="button bg-theme-9 text-white mt-5 mr-5">Add Role</button>
+                  </div>
+                </form>
+              </div>
           </div>
-         </div>
-        </div>
-   
-    <!--Start Back To Top Button-->
-   <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
-   <!--End Back To Top Button-->
-   
-   
-   
-   </div><!--wrapper-->
-
+          <!-- END: Vertical Form -->
+      </div>
+  </div>
 @endsection

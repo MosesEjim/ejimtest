@@ -16,7 +16,7 @@ class StateController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-        $states = $this->repo->findAll();
+        $states = $this->repo->getAll();
         return view('state.index')->with('states', $states);
     }
     

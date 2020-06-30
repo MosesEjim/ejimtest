@@ -37,13 +37,20 @@
                       <thead>
                           <tr>
                               
+                              <th class="whitespace-no-wrap">S/N</th>
                               <th class="whitespace-no-wrap">NAME</th>
                               <th class="text-center whitespace-no-wrap">ACTIONS</th>
                           </tr>
                       </thead>
                       <tbody>
+                      @php
+                      $i = 0;
+                      @endphp
                       @foreach($questions as $question)
                         <tr class="intro-x">
+                          <td>
+                              <a href="" class="font-medium whitespace-no-wrap">{{ $i++ }} </a>                                  
+                          </td>
                           <td>
                               <a href="" class="font-medium whitespace-no-wrap">{{ $question->question_text }} </a>                                  
                           </td>

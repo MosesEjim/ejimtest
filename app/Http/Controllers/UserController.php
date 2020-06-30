@@ -46,7 +46,7 @@ class UserController extends Controller
             return redirect()->route('auth.login.get');
         }
         
-        $users = $this->repo->findAll();
+        $users = $this->repo->getAll();
         return view('user.index')->with('users', $users);
     }
     
