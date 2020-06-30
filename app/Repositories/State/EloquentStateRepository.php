@@ -18,7 +18,7 @@ class EloquentStateRepository implements StateContract {
     }
 
     public function getAll() {
-        return State::latest()->paginate(3);
+        return State::latest()->paginate(15);
     }
 
       // return a State by ID

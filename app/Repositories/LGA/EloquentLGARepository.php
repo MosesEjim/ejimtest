@@ -19,7 +19,7 @@ class EloquentLGARepository implements LGAContract {
     }
 
     public function getAll() {
-        return LGA::latest()->paginate(3);
+        return LGA::latest()->paginate(20);
     }
 
       // return a LGSA by ID
