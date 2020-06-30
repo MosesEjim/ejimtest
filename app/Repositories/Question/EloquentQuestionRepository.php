@@ -79,8 +79,8 @@ class EloquentQuestionRepository implements QuestionContract {
     }
 
       // Remove a Question
-    public function remove($slug) {
-        $question = $this->findBySlug($slug);
+    public function remove($id) {
+        $question = $this->findById($id);
         return $question->delete();
     }
 }

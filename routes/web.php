@@ -184,6 +184,7 @@ Route::group(['prefix' => 'account'], function() {
                     Route::get('/{id}', 'QuestionController@index')->name('dashboard.uem.surveytype.question.index');
                     Route::get('/{q_id}/edit/', 'QuestionController@edit')->name('dashboard.uem.surveytype.question.edit');
                     Route::get('/show/{id}', 'QuestionController@show')->name('dashboard.uem.surveytype.question.show');
+                    Route::get('/{id}/delete', 'QuestionController@delete')->name('dashboard.uem.surveytype.question.delete');
                 });
             });
             //form group

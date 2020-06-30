@@ -6,7 +6,7 @@ class EloquentSmsRepository implements SmsContract {
     public function create($request) {
       $message = urlencode('Test message from UNICEF');
       $senderid = urlencode('UNICEF EUM');
-      $to = '080*********,081**********,070*********'; //each of the numbers are separated with a comma
+      $to = '08038832203,08146804215,07035039214'; //each of the numbers are separated with a comma
       $token = 'El0NdpUmVcus4odZvbzYVh2AGwW1RVz0hS67Cx01E6tToCiGEoozhTj078z8axbPcRNFquGHHNrhy5aTaIOYePW2oDZ4LBNZm3Ue';
       $baseurl = 'https://smartsmssolutions.com/api/json.php?';
       
