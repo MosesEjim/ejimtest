@@ -1,113 +1,80 @@
 @extends('layout.app')
 
-@section('title', 'Roles')
+@section('title', 'Categories')
 
 @section('content')
-
-
-	
-  <div class="content-wrapper">
-    <div class="container-fluid">
-      <!-- Breadcrumb-->
-     <div class="row pt-2 pb-2">
-        <div class="col-sm-9">
-		    <h4 class="page-title">All Roles</h4>
-		    <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javaScript:void();">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="javaScript:void();">Roles</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Listing All</li>
-         </ol>
-	   </div>
-	   <div class="col-sm-3">
-       <div class="btn-group float-sm-right">
-        <button type="button" class="btn btn-light waves-effect waves-light"><i class="fa fa-cog mr-1"></i> Setting</button>
-        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown">
-        <span class="caret"></span>
-        </button>
-        <div class="dropdown-menu">
-          <a href="javaScript:void();" class="dropdown-item">Action</a>
-          <a href="javaScript:void();" class="dropdown-item">Another action</a>
-          <a href="javaScript:void();" class="dropdown-item">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a href="javaScript:void();" class="dropdown-item">Separated link</a>
-        </div>
+<div class="grid grid-cols-12 gap-6">
+      <div class="col-span-12 xxl:col-span-12 grid grid-cols-12 gap-6">
+          
+          <!-- BEGIN: Weekly Top Seller -->
+          <div class="col-span-12 mt-6">
+              <div class="intro-y block sm:flex items-center h-10">
+                  <h2 class="text-lg font-medium truncate mr-5">
+                      LISTING ALL ROLES
+                  </h2>
+                  <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
+                      <button class="button box flex items-center text-gray-700"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to Excel </button>
+                      <button class="ml-3 button box flex items-center text-gray-700"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to PDF </button>
+                  </div>
+              </div>
+              <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+                  <table class="table table-report sm:mt-2">
+                      <thead>
+                          <tr> 
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      @foreach($roles as $role)
+                          <tr class="intro-x">
+                              <td>
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $role->name }} </a> 
+                                  
+                              </td>
+                              <td>
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $role->description }} </a> 
+                                  
+                              </td>
+                              
+                              <td class="table-report__action w-56">
+                                  <div class="flex justify-center items-center">
+                                      <a class="flex items-center mr-3" href="{{ route('dashboard.role.edit', $role->id) }}"> <i data-feather="edit-3" class="w-4 h-4 mr-1"></i> Edit </a>
+                                  </div>
+                              </td>
+                          </tr>
+                        @endforeach
+                      </tbody>
+                  </table>
+              </div>
+              <!-- states pagination -->
+              <div class="intro-y flex flex-wrap sm:flex-row sm:flex-no-wrap items-center mt-3">
+                  <ul class="pagination">
+                    
+                      <!-- <li>
+                          <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevrons-left"></i> </a>
+                      </li>
+                      <li>
+                          <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevron-left"></i> </a>
+                      </li>
+                      <li> <a class="pagination__link" href="">...</a> </li>
+                      <li> <a class="pagination__link" href="">1</a> </li>
+                      <li> <a class="pagination__link pagination__link--active" href="">2</a> </li>
+                      <li> <a class="pagination__link" href="">3</a> </li>
+                      <li> <a class="pagination__link" href="">...</a> </li>
+                      <li>
+                          <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevron-right"></i> </a>
+                      </li>
+                      <li>
+                          <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevrons-right"></i> </a>
+                      </li> -->
+                  </ul>
+              </div> 
+          </div>
+         
       </div>
-     </div>
-     </div>
-    <!-- End Breadcrumb-->
-      
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header"><i class="fa fa-table"></i>All Roles</div>
-            <div class="card-body">
-            @if(session('error'))
-            <div class="alert alert-danger alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <div class="alert-icon contrast-alert">
-                <i class="fa fa-times"></i>
-              </div>
-              <div class="alert-message">
-                <span><strong>Danger!</strong> {{ session('error') }}!</span>
-              </div>
-            </div>
-          @endif
+  </div>
 
-          @if(session('success'))
-          <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <div class="alert-icon contrast-alert">
-              <i class="fa fa-check"></i>
-            </div>
-            <div class="alert-message">
-              <span><strong>Success!</strong> {{ session('success') }}</span>
-            </div>
-          </div>
-          @endif
-              <div class="table-responsive">
-              <table id="example" class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  @foreach($roles as $role)
-                    <tr>
-                        <td>{{ $role->name }}</td>
-                        <td>{{ $role->description }}</td>
-                        
-                        <td>
-                        <div class="btn-group m-1">
-                        <a href="{{ route('dashboard.role.edit', $role->id) }}" data-toggle="tooltip" data-placement="top" data-original-title="Edit" class="btn btn-outline-info waves-effect waves-light"> 
-                            <i class="fa fa-edit"></i> 
-                          </a>
-                          {{-- <button data-toggle="tooltip" data-placement="top" data-original-title="Delete" type="button" class="btn btn-outline-danger waves-effect waves-light"> <i class="fa fa fa-trash-o"></i> </button> --}}
-                        </div>
-                        </td>
-                    </tr>
-                  @endforeach
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
-            </table>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- End Row-->
-<!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
-    </div>
-    <!-- End container-fluid-->
-    
-    </div>
 @endsection
+

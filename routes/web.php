@@ -136,11 +136,11 @@ Route::group(['prefix' => 'account'], function() {
         });
         //Stock role Group
         Route::group(['prefix'=>'role'], function(){
-            Route::get('/', 'UserController@index')->name('dashboard.role.index');
-            Route::get('/create', 'UserController@create')->name('dashboard.role.create');
-            Route::post('/create', 'UserController@store')->name('dashboard.role.store');
-            Route::get('/edit/{id}', 'UserController@edit')->name('dashboard.role.edit');
-            Route::put('/edit/{id}', 'UserController@update')->name('dashboard.role.update');
+            Route::get('/', 'RoleController@index')->name('dashboard.role.index');
+            Route::get('/create', 'RoleController@create')->name('dashboard.role.create');
+            Route::post('/create', 'RoleController@store')->name('dashboard.role.store');
+            Route::get('/edit/{id}', 'RoleController@edit')->name('dashboard.role.edit');
+            Route::put('/edit/{id}', 'RoleController@update')->name('dashboard.role.update');
         });
         //Stock vendor Group
         Route::group(['prefix'=>'vendor'], function(){

@@ -249,11 +249,11 @@
             <div class="side-menu__title"> User Roles </div>
           </a>
           <ul class="">
-            <a href="{{route('dashboard.state.index')}}" class="side-menu">
+            <a href="{{route('dashboard.role.index')}}" class="side-menu">
               <div class="side-menu__icon"> <i data-feather="list"></i> </div>
               <div class="side-menu__title"> All Roles</div>
             </a>
-              <a href="{{route('dashboard.state.create')}}" class="side-menu">
+              <a href="{{route('dashboard.role.create')}}" class="side-menu">
                   <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                   <div class="side-menu__title"> Create a Role</div>
               </a>

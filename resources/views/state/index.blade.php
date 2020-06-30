@@ -21,13 +21,21 @@
                   <table class="table table-report sm:mt-2">
                       <thead>
                           <tr> 
+                            <th>S/N</th>
                             <th>State Name</th>
                             <th>Action</th>
                           </tr>
                       </thead>
                       <tbody>
+                      @php
+                      $i = 1;
+                      @endphp
                       @foreach($states as $state)
+                          
                           <tr class="intro-x">
+                              <td>
+                                  <a href="" >{{$i++}} </a> 
+                              </td>
                               <td>
                                   <a href="" class="font-medium whitespace-no-wrap">{{ $state->name }} </a> 
                                   
@@ -46,7 +54,7 @@
               <!-- states pagination -->
               <div class="intro-y flex flex-wrap sm:flex-row sm:flex-no-wrap items-center mt-3">
                   <ul class="pagination">
-                    {{$states->links()}}
+                    {{$states->links('vendor.pagination.tailwind')}}
                       <!-- <li>
                           <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevrons-left"></i> </a>
                       </li>
