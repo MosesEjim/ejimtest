@@ -36,7 +36,10 @@
                                   
                               </td>
                               <td>
-                                  <a href="" class="font-medium whitespace-no-wrap">{{ $category->active_status }} </a> 
+                                    <a href="" class="flex items-center px-3 py-2 mt-2 rounded-md">
+                                        <div class="w-2 h-2 bg-theme-6 rounded-full mr-3"></div>
+                                        {{ $category->active_status === 1 ? 'Active' : "Disabled" }} 
+                                    </a>  
                                   
                               </td>
                               
