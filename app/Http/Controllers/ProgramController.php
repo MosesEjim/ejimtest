@@ -2,8 +2,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Program\ProgramContract;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
 use Sentinel;
 
 class ProgramController extends Controller

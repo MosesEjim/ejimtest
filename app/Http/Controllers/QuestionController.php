@@ -29,7 +29,7 @@ class QuestionController extends Controller
             return redirect()->route('auth.login.get');
         }
 
-        $questions = $this->repo->findAll();
+        $questions = $this->repo->getAll();
         // dd($questions);
         return view('question.index')->with('questions', $questions);
     }
