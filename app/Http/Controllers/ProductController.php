@@ -6,6 +6,8 @@ use App\Repositories\Partner\PartnerContract;
 use App\Repositories\State\StateContract;
 use App\Repositories\Transaction\TransactionContract;
 use App\Repositories\Vendor\VendorContract;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Mailer;
 use App\Category;
 use Sentinel;
 
@@ -71,7 +73,7 @@ class ProductController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-
+        
         $this->validate($request, [
             "product_id"=>"required",
             "quantity"=>"required",
@@ -85,6 +87,7 @@ class ProductController extends Controller
 
             $dispatch = $this->transRepo->create($request);
             if($dispatch){
+             Mail::to($dispatch->partner->email)->send(new Mailer($dispatch));
              $notification = array(
                  'message' => "Dispatch Created successfully!",
                  'alert-type' => 'success'
