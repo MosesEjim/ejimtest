@@ -4,8 +4,10 @@ use Illuminate\Http\Request;
 use App\Repositories\Question\QuestionContract;
 use App\Repositories\QuestionType\QuestionTypeContract;
 use App\Repositories\SurveyType\SurveyTypeContract;
+use Illuminate\Database\QueryException;
 use Sentinel;
 use App\Program;
+use Exception;
 
 class QuestionController extends Controller
 {
@@ -166,6 +168,25 @@ class QuestionController extends Controller
     
     public function delete($id)
     {
-        //
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
+        try {
+            $this->repo->remove($id);
+            return redirect()->route('dashboard.uem.question.index')
+            // return redirect()->back()
+                ->with('success', 'Question deleted successfully');
+        } catch (QueryException $exception) {
+            $errorCode = $exception->errorInfo[1];
+            if($errorCode === 1451) {
+                $notification = array(
+                    'message' => "OPS... Question already exist",
+                    'alert-type' => 'error'
+                );
+                return back()->withInput()->with('error', 'OPS... Can not delete this question, other options depends on it. Delete the options first')->with($notification);
+            }
+        }
+        
     }
 }

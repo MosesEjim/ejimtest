@@ -5,14 +5,36 @@
 @section('content')
 
   <div class="grid grid-cols-12 gap-6 mt-5">
-      <div class="intro-y col-span-12 lg:col-span-8">
+      <div class="intro-y col-span-12 lg:col-span-12">
         
           <!-- BEGIN: Vertical Form -->
           <div class="intro-y box">
               <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200" style="margin-bottom: 20px;">
-                  <h1 class="font-medium text-base mr-auto">
-                  Viewing Question: {{ $question->question_text }}
-                  </h1>
+                  <table class="table table-report sm:mt-2">
+                      <thead>
+                          <tr>
+                              
+                              <th class="whitespace-no-wrap">QUESTION</th>
+                              <th class="text-center whitespace-no-wrap">ACTIONS</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="intro-x">
+                          <td>
+                              <a href="" class="font-medium whitespace-no-wrap">{{ $question->question_text }} </a>                                  
+                          </td>
+                              
+                          <td class="table-report__action w-100">
+                            <div class="flex justify-center items-center">
+                              <!-- <a class="flex items-center mr-3" href="{{ route('dashboard.uem.surveytype.question.edit', $question->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Add Option </a> -->
+                              
+                              <a class="flex items-center text-theme-6" href="{{ route('dashboard.uem.surveytype.question.delete', $question->id) }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete Question</a>
+                            </div>
+                          </td>
+                        </tr>
+                      
+                    </tbody>
+                  </table>
               </div>
               <div class="overflow-x-auto">
 
