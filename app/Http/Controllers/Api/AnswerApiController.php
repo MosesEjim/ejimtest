@@ -15,11 +15,12 @@ class AnswerApiController extends Controller
 
 
 
-    public function store(Request $request, $id) {
+    public function store(Request $request) {
         $form = new Answer();
 
-        dd($form);
-        $form->content = $request->all();
+        // dd($form);
+        $form->answer = $request->answer;
+        $form->question_id = $request->question_id;
 
         $surveyType = SurveyType::find($id);
         
