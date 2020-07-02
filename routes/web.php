@@ -97,6 +97,7 @@ Route::group(['prefix' => 'account'], function() {
             Route::post('/create', 'TransactionController@store')->name('dashboard.transaction.store');
             Route::get('/edit/{id}', 'TransactionController@edit')->name('dashboard.transaction.edit');
             Route::put('/edit/{id}', 'TransactionController@update')->name('dashboard.transaction.update');
+            Route::put('/show/{id}', 'TransactionController@show')->name('dashboard.transaction.show');
         });
 
         //State Route Group
