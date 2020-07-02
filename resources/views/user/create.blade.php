@@ -64,6 +64,10 @@
                           <input type="tel"  id="phone" name = "phone" class="input w-full border mt-2" placeholder="phone" required>
                       </div>
                       <div>
+                          <label>Password</label>
+                          <input type="password"  id="password" name = "password" class="input w-full border mt-2" placeholder="password" required>
+                      </div>
+                      <div>
                           <label>Sex</label>
                           <select name="sex" id="sex" class="input w-full border mt-2" required>
                             <option value="male">Male</option>

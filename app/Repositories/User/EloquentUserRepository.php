@@ -68,12 +68,23 @@ class EloquentUserRepository implements UserContract {
 
       // Update a User
     public function update($request, $slug) {
-        // ${repoName,,} = $this->findBySlug($slug);
+        $user = $this->findBySlug($slug);
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->sex = $request->sex;
+        $user->user_role = $request->account_type;
+        $user->save();
+        $role = Sentinel::findRoleBySlug($request->account_type);
+        $role->users()->attach($user);
+
+        return $user;
     }
 
       // Remove a User
     public function remove($slug) {
-        // ${repoName,,} = $this->findBySlug($slug);
-        // return ${repoName,,}->delete();
+        $user = $this->findBySlug($slug);
+        return $user->delete();
     }
 }

@@ -6,6 +6,8 @@ use App\Repositories\State\StateContract;
 use App\Repositories\Question\QuestionContract;
 use App\Repositories\Program\ProgramContract;
 use App\Repositories\Role\RoleContract;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegisterUserMailer;
 use Sentinel;
 
 class UserController extends Controller
@@ -78,9 +80,10 @@ class UserController extends Controller
             'sex'=>'required'
         ]);
         try{
-
+            $password = $request->password;
             $user = $this->repo->create($request);
             if($user){
+             Mail::to($user->email)->send(new RegisterUserMailer($user, $password));
              $notification = array(
                  'message' => "User Created successfully!",
                  'alert-type' => 'success'
@@ -116,27 +119,68 @@ class UserController extends Controller
         //
     }
     
-    public function edit($id)
+    public function edit($slug)
     {
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-        //
+        $user = $this->repo->findBySlug($slug);
+        $roles = $this->roleRepo->findAll();
+        return view('user.edit')->with('user', $user)
+        ->with('roles', $roles);
+        
     }
     
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
+        }       
+
+        $request->validate([
+            'first_name'=>'required|string',
+            'last_name'=>'required|string',
+            'email'=>'required|email',
+            'phone'=>'required',
+            'account_type'=>'required',
+            'sex'=>'required'
+        ]);
+        try{
+            $password = $request->password;
+            $user = $this->repo->update($request, $slug);
+            if($user){
+             Mail::to($user->email)->send(new RegisterUserMailer($user, $password));
+             $notification = array(
+                 'message' => "User Updated successfully!",
+                 'alert-type' => 'success'
+             );
+             return redirect()->route('dashboard.user.index')->with('success', 'User Updated successfully!')->with($notification);
+            }else {
+ 
+             $notificationErr = array(
+               'message' => "Could not Update User. Try again!",
+               'alert-type' => 'error'
+             );
+             return back()
+                 ->withInput()
+                 ->with('error', 'Could not Update User. Try again!')->with($notificationErr);
+         }
+            
+         
+     }catch(QueryException $e){
+        $errorCode = $e->errorInfo[1];
+        if($errorCode == 1062){
+            return back()->withInput()->with('error', 'user with '.$request->email.' already exist');
         }
-        //
     }
-    
-    public function delete($id)
+}
+    public function delete($slug)
     {
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-        //
+        $this->repo->remove($slug);
+        return redirect()->route('dashboard.user.index')
+        ->withInput()->with('success','user deleted ssuccessfully');
     }
 }

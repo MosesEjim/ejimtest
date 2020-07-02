@@ -46,6 +46,9 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/', 'UserController@index')->name('dashboard.user.index');
             Route::get('/create', 'UserController@create')->name('dashboard.user.create');
             Route::post('/create', 'UserController@store')->name('dashboard.user.store');
+            Route::get('/edit', 'UserController@edit')->name('dashboard.user.edit');
+            Route::put('/edit/{slug}', 'UserController@update')->name('dashboard.user.update');
+            Route::put('/delete/{slug}', 'UserController@delete')->name('dashboard.user.delete');
         });
         
         
