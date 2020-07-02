@@ -23,15 +23,19 @@
                   <table class="table table-report sm:mt-2">
                       <thead>
                           <tr>
-                              
+                            <th class="whitespace-no-wrap">S/N</th>
                               <th class="whitespace-no-wrap">NAME</th>
                               <th class="text-center whitespace-no-wrap">Email</th>
                               <th class="text-center whitespace-no-wrap">ACTIONS</th>
                           </tr>
                       </thead>
                       <tbody>
+                        @php $counter = 0 @endphp
                         @foreach($users as $user)
                           <tr class="intro-x">
+                            <td>
+                              <a href="" class="font-medium whitespace-no-wrap">{{ ++$counter }} </a>                                  
+                            </td>
                               <td>
                                   <a href="" class="font-medium whitespace-no-wrap">{{ $user->first_name }} {{ $user->last_name }}</a> 
                                   <div class="text-gray-600 text-xs whitespace-no-wrap">{{ $user->email }}</div>
