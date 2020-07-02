@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('title', 'Create Sub Category')
-@section('program_active', 'side-menu--active')
+@section('partner_active', 'side-menu--active')
 @section('content')
   <div class="grid grid-cols-12 gap-6 mt-5">
       <div class="intro-y col-span-12 lg:col-span-8">        

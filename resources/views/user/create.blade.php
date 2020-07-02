@@ -2,10 +2,8 @@
 @section('title', 'Create User')
 @section('user_active', 'side-menu--active')
 @section('content')
-
   <div class="grid grid-cols-12 gap-6 mt-5">
-      <div class="intro-y col-span-12 lg:col-span-8">
-        
+      <div class="intro-y col-span-12 lg:col-span-8">        
           <!-- BEGIN: Vertical Form -->
           <div class="intro-y box">
               <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200">
@@ -46,21 +44,41 @@
                   </div>
                 </div>
               @endif 
-
-
-                <form method = "post" action = "{{ route('dashboard.eum.surveytype.store') }}">
+                <form method = "post" action = "{{ route('dashboard.user.store') }}">
                   @csrf
                   <div class="preview">
                       <div>
-                          <label>Survey Type</label>
-                          <input type="text"  id="name" name = "name" class="input w-full border mt-2" placeholder="Educations" required>
+                          <label>Firstname</label>
+                          <input type="text"  id="first_name" name = "first_name" class="input w-full border mt-2" placeholder="Firstname" required>
                       </div>
-                      <div class="mt-3">
-                          <label>Sub Program</label>                            
-                          <select class="input w-full border mr-2" name="sub_category_id" id="sub_category_id" required>
-                              <option> --- Select --- </option>
-                             
-                          </select> 
+                      <div>
+                          <label>Lastname</label>
+                          <input type="text"  id="last_name" name = "last_name" class="input w-full border mt-2" placeholder="Lastname" required>
+                      </div>
+                      <div>
+                          <label>Email</label>
+                          <input type="email"  id="email" name = "email" class="input w-full border mt-2" placeholder="email" required>
+                      </div>
+                      <div>
+                          <label>Phone Number</label>
+                          <input type="tel"  id="phone" name = "phone" class="input w-full border mt-2" placeholder="phone" required>
+                      </div>
+                      <div>
+                          <label>Sex</label>
+                          <select name="sex" id="sex" class="input w-full border mt-2" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                          </select>
+                          
+                      </div>
+                      <div>
+                          <label>User Role</label>
+                          <select name="account_type" id="account_type" class="input w-full border mt-2" required>
+                          @foreach($roles as $role)
+                            <option value="{{$role->slug}}">{{$role->name}}</option>
+                          @endforeach
+                          </select>
+                          
                       </div>
                       <button type="submit" class="button bg-theme-1 text-white mt-5">Save Record</button>
                   </div>
@@ -70,5 +88,4 @@
           <!-- END: Vertical Form -->
       </div>
   </div>
-
 @endsection
