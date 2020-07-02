@@ -123,6 +123,10 @@ class CategoryController extends Controller
     }
 
     public function disableStatus($id){
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
         $category = $this->repo->findById($id);
         $category->active_status = 0;
         $category->save();
@@ -131,12 +135,18 @@ class CategoryController extends Controller
 
 
     public function enableStatus($id){
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         $category = $this->repo->findById($id);
         $category->active_status = 1;
         $category->save();
         return redirect()->back()->with('success', 'category successfully enabled');
     }
     public function disabled(){
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         $categories = $this->repo->findAllDisabled();
         return view('category.disable')->with('categories', $categories);
     }
