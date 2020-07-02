@@ -21,7 +21,7 @@
                       <tbody>
                         <tr class="intro-x">
                           <td>
-                              <a href="" class="font-medium whitespace-no-wrap">{{ $question->question_text }} </a>                                  
+                              <a href="" class="font-medium">{{ $question->question_text }} </a>                                  
                           </td>
                               
                           <td class="table-report__action w-100">
