@@ -1,6 +1,6 @@
 @extends('layout.app')
-@section('title', 'Create Sub Category')
-@section('program_active', 'side-menu--active')
+@section('title', 'Stock Product')
+@section('stock_active', 'side-menu--active')
 @section('content')
   <div class="grid grid-cols-12 gap-6 mt-5">
       <div class="intro-y col-span-12 lg:col-span-8">        
@@ -8,7 +8,7 @@
           <div class="intro-y box">
               <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200">
                   <h2 class="font-medium text-base mr-auto">
-                    Add Program
+                    Stock Product
                   </h2>
               </div>
               <div class="p-5" id="vertical-form">
@@ -61,7 +61,7 @@
                           <input type="text" id="quantity" name ="quantity" class="input w-full border mt-2" placeholder="Enter quantity">
                       </div>
             
-                      <button type="submit" class="button bg-theme-9 text-white mt-5 mr-5">Save Category</button>
+                      <button type="submit" class="button bg-theme-9 text-white mt-5 mr-5">Save Stock</button>
                   </div>
                 </form>
               </div>

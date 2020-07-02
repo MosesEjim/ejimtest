@@ -1,6 +1,6 @@
 @extends('layout.app')
-@section('title', 'Create Partner')
-@section('program_active', 'side-menu--active')
+@section('title', 'Create Transaction')
+@section('transaction_active', 'side-menu--active')
 @section('content')
 
   <div class="grid grid-cols-12 gap-6 mt-5">

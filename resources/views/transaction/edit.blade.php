@@ -1,6 +1,6 @@
 @extends('layout.app')
-@section('title', 'Create Category')
-
+@section('title', 'Edit Transaction')
+@section('transaction_active', 'side-menu--active')
 @section('content')
 
 <!-- Start wrapper-->

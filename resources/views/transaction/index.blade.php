@@ -1,7 +1,6 @@
 @extends('layout.app')
-
-@section('title', 'Survey Type')
-@section('program_active', 'side-menu--active')
+@section('title', 'Transactions')
+@section('transaction_active', 'side-menu--active')
 @section('content')
   
   <div class="grid grid-cols-12 gap-6">
@@ -11,7 +10,7 @@
           <div class="col-span-12 mt-6">
               <div class="intro-y block sm:flex items-center h-10">
                   <h2 class="text-lg font-medium truncate mr-5">
-                      LISTING ALL SURVEY TYPES
+                      LISTING ALL TRANSACTIONS
                   </h2>
                   <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
                       <a href="{{ route('dashboard.eum.surveytype.create') }}" class="button box flex items-center text-gray-700" style="margin-right:10px"> 

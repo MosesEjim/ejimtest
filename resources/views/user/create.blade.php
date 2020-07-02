@@ -2,10 +2,8 @@
 @section('title', 'Create User')
 @section('user_active', 'side-menu--active')
 @section('content')
-
   <div class="grid grid-cols-12 gap-6 mt-5">
-      <div class="intro-y col-span-12 lg:col-span-8">
-        
+      <div class="intro-y col-span-12 lg:col-span-8">        
           <!-- BEGIN: Vertical Form -->
           <div class="intro-y box">
               <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200">
@@ -46,21 +44,16 @@
                   </div>
                 </div>
               @endif 
-
-
-                <form method = "post" action = "{{ route('dashboard.eum.surveytype.store') }}">
+                <form method = "post" action = "{{ route('dashboard.user.store') }}">
                   @csrf
                   <div class="preview">
                       <div>
-                          <label>Survey Type</label>
-                          <input type="text"  id="name" name = "name" class="input w-full border mt-2" placeholder="Educations" required>
+                          <label>Username</label>
+                          <input type="text"  id="name" name = "name" class="input w-full border mt-2" placeholder="Username" required>
                       </div>
-                      <div class="mt-3">
-                          <label>Sub Program</label>                            
-                          <select class="input w-full border mr-2" name="sub_category_id" id="sub_category_id" required>
-                              <option> --- Select --- </option>
-                             
-                          </select> 
+                      <div>
+                          <label>email</label>
+                          <input type="email"  id="email" name = "email" class="input w-full border mt-2" placeholder="email" required>
                       </div>
                       <button type="submit" class="button bg-theme-1 text-white mt-5">Save Record</button>
                   </div>
@@ -70,5 +63,4 @@
           <!-- END: Vertical Form -->
       </div>
   </div>
-
 @endsection

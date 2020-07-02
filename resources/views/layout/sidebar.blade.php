@@ -32,7 +32,7 @@
             </ul>
         </li>
         <li>
-            <a href="javascript:;" class="side-menu">
+            <a href="javascript:;" class="side-menu @yield('category_active')">
                 <div class="side-menu__icon"> <i data-feather="codesandbox"></i> </div>
                 <div class="side-menu__title"> Categories<i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
             </a>
@@ -58,7 +58,7 @@
             </ul>
         </li>
         <li>
-          <a href="javascript:;" class="side-menu">
+          <a href="javascript:;" class="side-menu @yield('product_active')">
               <div class="side-menu__icon"> <i data-feather="box"></i> </div>
               <div class="side-menu__title"> Products <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
           </a>
@@ -85,7 +85,7 @@
       </li>
 
       <li>
-        <a href="javascript:;" class="side-menu">
+        <a href="javascript:;" class="side-menu @yield('stock_active')">
             <div class="side-menu__icon"> <i data-feather="box"></i> </div>
             <div class="side-menu__title"> Stocks <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
         </a>
@@ -106,7 +106,7 @@
         </ul>
     </li>
     <li>
-        <a href="javascript:;" class="side-menu">
+        <a href="javascript:;" class="side-menu @yield('partner_active')">
             <div class="side-menu__icon"> <i data-feather="box"></i> </div>
             <div class="side-menu__title"> Partners <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
         </a>
@@ -126,7 +126,7 @@
         </ul>
     </li>
     <li>
-        <a href="javascript:;" class="side-menu">
+        <a href="javascript:;" class="side-menu @yield('vendor_active')">
             <div class="side-menu__icon"> <i data-feather="box"></i> </div>
             <div class="side-menu__title"> Vendors <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
         </a>
@@ -146,7 +146,7 @@
         </ul>
     </li>
     <li>
-        <a href="javascript:;" class="side-menu">
+        <a href="javascript:;" class="side-menu @yield('transaction_active')">
             <div class="side-menu__icon"> <i data-feather="box"></i> </div>
             <div class="side-menu__title"> Transactions <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
         </a>

@@ -1,7 +1,6 @@
 @extends('layout.app')
-
-@section('title', 'Categories')
-
+@section('title', 'Products')
+@section('product_active', 'side-menu--active')
 @section('content')
 <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 xxl:col-span-12 grid grid-cols-12 gap-6">
@@ -10,7 +9,7 @@
           <div class="col-span-12 mt-6">
               <div class="intro-y block sm:flex items-center h-10">
                   <h2 class="text-lg font-medium truncate mr-5">
-                      LISTING ALL CATEGORIES
+                      LISTING ALL PRODUCTS
                   </h2>
                   <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
                       <button class="button box flex items-center text-gray-700"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to Excel </button>

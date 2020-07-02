@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title', 'Survey Type')
-@section('program_active', 'side-menu--active')
+@section('transaction_active', 'side-menu--active')
 @section('content')
   
   <div class="grid grid-cols-12 gap-6">
