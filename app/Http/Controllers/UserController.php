@@ -5,6 +5,7 @@ use App\Repositories\User\UserContract;
 use App\Repositories\State\StateContract;
 use App\Repositories\Question\QuestionContract;
 use App\Repositories\Program\ProgramContract;
+use App\Repositories\Role\RoleContract;
 use Sentinel;
 
 class UserController extends Controller
@@ -13,17 +14,20 @@ class UserController extends Controller
     protected $questionRepo;
     protected $programRepo;
     protected $stateRepo;
+    protected $roleRepo;
 
     public function __construct(
         UserContract $userContract,
         QuestionContract $questionContract, 
         ProgramContract $programContract,
-        StateContract $stateContract
+        StateContract $stateContract,
+        RoleContract $roleContract
         ) {
         $this->repo = $userContract;
         $this->questionRepo = $questionContract;
         $this->programRepo = $programContract;
         $this->stateRepo = $stateContract;
+        $this->roleRepo = $roleContract;
     }
     
     public function adminDashboard(){
@@ -55,7 +59,8 @@ class UserController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-        return view('user.create');
+        $roles = $this->roleRepo->findAll();
+        return view('user.create')->with('roles', $roles);
     }
     
     public function store(Request $request)
@@ -63,7 +68,44 @@ class UserController extends Controller
         if(!Sentinel::check()){
             return redirect()->route('auth.login.get');
         }
-        //
+
+        $request->validate([
+            'first_name'=>'required|string',
+            'last_name'=>'required|string',
+            'email'=>'required|email',
+            'phone'=>'required',
+            'account_type'=>'required',
+            'sex'=>'required'
+        ]);
+        try{
+
+            $user = $this->repo->create($request);
+            if($user){
+             $notification = array(
+                 'message' => "User Created successfully!",
+                 'alert-type' => 'success'
+             );
+             return redirect()->route('dashboard.user.index')->with('success', 'User Created successfully!')->with($notification);
+            }else {
+ 
+             $notificationErr = array(
+               'message' => "Could not create User. Try again!",
+               'alert-type' => 'error'
+             );
+             return back()
+                 ->withInput()
+                 ->with('error', 'Could not create User. Try again!')->with($notificationErr);
+         }
+            
+         
+     }catch(QueryException $e){
+        $errorCode = $e->errorInfo[1];
+        if($errorCode == 1062){
+            return back()->withInput()->with('error', 'user with '.$request->email.' already exist');
+        }
+        
+     }
+
     }
     
     public function show($id)

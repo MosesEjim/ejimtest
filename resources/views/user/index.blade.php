@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Partners')
+@section('title', 'Users')
 
 @section('user_active', 'side-menu--active')
 
