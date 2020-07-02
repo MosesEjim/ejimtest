@@ -11,7 +11,7 @@ class EloquentUserRepository implements UserContract {
       if ($request->account_type === 'partner') {
         $credentials = [
           'first_name' => $request->first_name,
-          // 'last_name' => $request->last_name,
+          'last_name' => $request->last_name,
           'phone' => $request->telephone1,
           'email'    => $request->email,
           'username'    => $request->username,

@@ -80,7 +80,7 @@ class UserController extends Controller
             'sex'=>'required'
         ]);
         try{
-            $password = $request->password;
+            $password = $request->password ?: 'secret';
             $user = $this->repo->create($request);
             if($user){
              Mail::to($user->email)->send(new RegisterUserMailer($user, $password));

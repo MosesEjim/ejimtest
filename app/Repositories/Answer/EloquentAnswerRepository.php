@@ -28,12 +28,12 @@ class EloquentAnswerRepository implements AnswerContract {
 
       // Update a Answer
     public function update($request, $slug) {
-        ${repoName,,} = $this->findBySlug($slug);
+        $answer = $this->findBySlug($slug);
     }
 
       // Remove a Answer
     public function remove($slug) {
-        ${repoName,,} = $this->findBySlug($slug);
-        return ${repoName,,}->delete();
+        $answer = $this->findBySlug($slug);
+        return $answer->delete();
     }
 }

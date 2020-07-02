@@ -33,7 +33,7 @@
                         @foreach($users as $user)
                           <tr class="intro-x">
                               <td>
-                                  <a href="" class="font-medium whitespace-no-wrap">{{ $user->first_name }} {{ $user->first_name }}</a> 
+                                  <a href="" class="font-medium whitespace-no-wrap">{{ $user->first_name }} {{ $user->last_name }}</a> 
                                   <div class="text-gray-600 text-xs whitespace-no-wrap">{{ $user->email }}</div>
                               </td>
                               <td class="text-center">{{ $user->email }}</td>

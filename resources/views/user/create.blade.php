@@ -49,23 +49,23 @@
                   <div class="preview">
                       <div>
                           <label>Firstname</label>
-                          <input type="text"  id="first_name" name = "first_name" class="input w-full border mt-2" placeholder="Firstname" required>
+                          <input type="text"  id="first_name" name="first_name" class="input w-full border mt-2" placeholder="Firstname" required>
                       </div>
                       <div>
                           <label>Lastname</label>
-                          <input type="text"  id="last_name" name = "last_name" class="input w-full border mt-2" placeholder="Lastname" required>
+                          <input type="text"  id="last_name" name="last_name" class="input w-full border mt-2" placeholder="Lastname" required>
                       </div>
                       <div>
                           <label>Email</label>
-                          <input type="email"  id="email" name = "email" class="input w-full border mt-2" placeholder="email" required>
+                          <input type="email"  id="email" name="email" class="input w-full border mt-2" placeholder="email" required>
                       </div>
                       <div>
                           <label>Phone Number</label>
-                          <input type="tel"  id="phone" name = "phone" class="input w-full border mt-2" placeholder="phone" required>
+                          <input type="tel"  id="phone" name="phone" class="input w-full border mt-2" placeholder="phone" required>
                       </div>
                       <div>
                           <label>Password</label>
-                          <input type="password"  id="password" name = "password" class="input w-full border mt-2" placeholder="password" required>
+                          <input type="password"  id="password" name="password" class="input w-full border mt-2" placeholder="password" required>
                       </div>
                       <div>
                           <label>Sex</label>
