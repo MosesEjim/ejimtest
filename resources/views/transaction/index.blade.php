@@ -17,11 +17,11 @@
                         <i data-feather="folder-plus" class="hidden sm:block w-4 h-4 mr-2"></i> Create Survey Type 
                       </a>
                       
-                      <button class="button box flex items-center text-gray-700"> 
+                      <button class="button box flex items-center text-gray-700" id="excel"> 
                         <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to Excel 
                       </button>
                       
-                      <button class="ml-3 button box flex items-center text-gray-700"> 
+                      <button class="ml-3 button box flex items-center text-gray-700" id="pdf"> 
                         <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to PDF 
                       </button>
                   </div>
@@ -45,7 +45,7 @@
                   @endif
 
 
-                  <table class="table table-report sm:mt-2">
+                  <table class="table table-report sm:mt-2" id="table">
                       <thead>
                           <tr>
 
@@ -126,6 +126,37 @@
       </div>
   </div>
 @endsection
+
+
+@section('scripts')
+<script type='text/javascript' src="{{URL::asset('assets/js/jquery.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/tableExport.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/jquery.base64.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/jspdf.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/sprintf.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/base64.js')}}"></script>
+<script type='text/javascript'>
+    $(document).ready(function(e){
+        $('#excel').click(function(e){
+            $('#table').tableExport({
+                type: 'excel',
+                escape: 'false',
+                ignoreColumn: [6]
+
+            });
+        });
+
+        $('#pdf').click(function(e){
+            $('#table').tableExport({
+                type: 'pdf',
+                excape: 'false',
+                ignoreColumn: [6]
+            });
+        });
+    });
+</script>
+@endsection
+
 
 
 
