@@ -44,7 +44,7 @@
                       </thead>
                       <tbody>
                       @php
-                      $i = 0;
+                      $i = 1;
                       @endphp
                       @foreach($questions as $question)
                         <tr class="intro-x">
@@ -74,4 +74,33 @@
           <!-- END: Weekly Top Seller -->
       </div>
   </div>
+@endsection
+
+@section('scripts')
+<script type='text/javascript' src="{{URL::asset('assets/js/jquery.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/tableExport.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/jquery.base64.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/jspdf.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/sprintf.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/base64.js')}}"></script>
+<script type='text/javascript'>
+    $(document).ready(function(e){
+        $('#excel').click(function(e){
+            $('#table').tableExport({
+                type: 'excel',
+                escape: 'false',
+                ignoreColumn: [5]
+
+            });
+        });
+
+        $('#pdf').click(function(e){
+            $('#table').tableExport({
+                type: 'pdf',
+                excape: 'false',
+                
+            });
+        });
+    });
+</script>
 @endsection

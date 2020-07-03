@@ -13,12 +13,12 @@
                       LISTING ALL VENDORS
                   </h2>
                   <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
-                      <button class="button box flex items-center text-gray-700"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to Excel </button>
-                      <button class="ml-3 button box flex items-center text-gray-700"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to PDF </button>
+                      <button class="button box flex items-center text-gray-700" id="excel"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to Excel </button>
+                      <button class="ml-3 button box flex items-center text-gray-700" id="pdf"> <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to PDF </button>
                   </div>
               </div>
               <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-                  <table class="table table-report sm:mt-2">
+                  <table class="table table-report sm:mt-2" id="table">
                       <thead>
                           <tr>
                               <th class="whitespace-no-wrap">VENDOR ID</th>
@@ -69,4 +69,32 @@
 @endsection
 
 
+@section('scripts')
+<script type='text/javascript' src="{{URL::asset('assets/js/jquery.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/tableExport.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/jquery.base64.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/jspdf.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/sprintf.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/base64.js')}}"></script>
+<script type='text/javascript'>
+    $(document).ready(function(e){
+        $('#excel').click(function(e){
+            $('#table').tableExport({
+                type: 'excel',
+                escape: 'false',
+                ignoreColumn: [4]
+
+            });
+        });
+
+        $('#pdf').click(function(e){
+            $('#table').tableExport({
+                type: 'pdf',
+                excape: 'false',
+                ignoreColumn: [4]
+            });
+        });
+    });
+</script>
+@endsection
 
