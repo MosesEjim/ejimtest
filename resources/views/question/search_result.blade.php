@@ -17,8 +17,11 @@
       <div class="hidden md:block mx-auto text-gray-600"></div>
       <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
           <div class="w-56 relative text-gray-700">
-              <input type="text" class="input w-56 box pr-10 placeholder-theme-13" placeholder="Search...">
-              <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i> 
+            <form action="{{ route('dashboard.uem.question.search') }}" method="post">
+              @csrf
+              <input type="text" name="search" class="input w-400 box pr-10 placeholder-theme-13" placeholder="Search...">
+              <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i>
+            </form> 
           </div>
       </div>
     </div>
@@ -58,7 +61,7 @@
             @endforeach
           </tbody>
         </table>
-          </div>
       </div>
+    </div>
   </div>
 @endsection
