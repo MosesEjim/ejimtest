@@ -16,6 +16,19 @@
                   </h2>
               </div>
               <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+
+                <div class="intro-y col-span-12 flex flex-wrap sm:flex-no-wrap items-center mt-2">                    
+                  <div class="hidden md:block mx-auto text-gray-600"></div>
+                  <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
+                    <div class="w-400 relative text-gray-700">
+                      <form action="{{ route('dashboard.uem.question.search') }}" method="post">
+                        @csrf
+                        <input type="text" name="search" class="input w-400 box pr-10 placeholder-theme-13" placeholder="Search...">
+                        <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i>
+                      </form> 
+                    </div>
+                  </div>
+                </div>
                   @if(session('error'))
                     
                     <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-6 text-white"> 

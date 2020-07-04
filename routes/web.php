@@ -219,6 +219,8 @@ Route::group(['prefix' => 'account'], function() {
                 
                 Route::put('/edit/{id}', 'QuestionController@update')->name('dashboard.uem.question.update');
                 Route::get('/{slug}', 'QuestionController@delete')->name('dashboard.uem.question.delete');
+                Route::post('/search', 'QuestionController@search')->name('dashboard.uem.question.search');
+                Route::get('/search/results', 'QuestionController@searchResult')->name('dashboard.uem.question.search.result');
             });
             
             //form group

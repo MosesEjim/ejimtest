@@ -23,7 +23,7 @@ class AnswerApiController extends Controller
     public function store(Request $request) {        
         
         $array = $request->all();
-
+        // dd($array);
         foreach($array as $answer){
             $form = new Answer();
             $form->answer = $answer['answer'];

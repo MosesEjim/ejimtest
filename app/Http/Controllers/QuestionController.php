@@ -7,6 +7,7 @@ use App\Repositories\SurveyType\SurveyTypeContract;
 use Illuminate\Database\QueryException;
 use Sentinel;
 use App\Program;
+use App\Question;
 use Exception;
 
 class QuestionController extends Controller
@@ -164,6 +165,19 @@ class QuestionController extends Controller
                 return back()->withInput()->with('error', 'OPS... Question already exist!')->with($notification);
             }    
         }
+    }
+
+    public function search(Request $request) {
+        // dd($request->all());
+        $q = $request->search;
+        $results = Question::where('question_text', 'LIKE', '%' . $q . '%')->orWhere('sub_category_name', 'LIKE', '%' . $q . '%')->get ();
+        // dd($results);
+
+        if (count ( $results ) > 0) {
+            return view ( 'question.search_result' )->withDetails( $results )->withQuery($q);
+        } 
+        
+        return view ('question.search_result' )->withMessage('No record found. Try to search another search string !');        
     }
     
     public function delete($id)
