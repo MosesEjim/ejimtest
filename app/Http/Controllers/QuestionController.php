@@ -170,14 +170,14 @@ class QuestionController extends Controller
     public function search(Request $request) {
         // dd($request->all());
         $q = $request->search;
-        $results = Question::where('question_text', 'LIKE', '%' . $q . '%')->orWhere('sub_category_name', 'LIKE', '%' . $q . '%')->get ();
-        // dd($results);
+        $questions = Question::where('question_text', 'LIKE', '%' . $q . '%')->orWhere('sub_category_name', 'LIKE', '%' . $q . '%')->get ();
+        // dd($questions);
 
-        if (count ( $results ) > 0) {
-            return view ( 'question.search_result' )->withDetails( $results )->withQuery($q);
+        if (count ( $questions ) > 0) {
+            return view('question.search_result' )->with('questions', $questions )->with('q',$q);
         } 
         
-        return view ('question.search_result' )->withMessage('No record found. Try to search another search string !');        
+        return view('question.search_result' )->withMessage('No record found. Try to search another search string !');        
     }
     
     public function delete($id)
