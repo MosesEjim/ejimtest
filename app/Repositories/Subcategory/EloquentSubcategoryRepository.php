@@ -19,7 +19,7 @@ class EloquentSubcategoryRepository implements SubcategoryContract {
     }
 
     public function getAll() {
-        return Subcategory::latest()->paginate(3);
+        return Subcategory::latest()->paginate(15)->onEachSide(2);
     }
 
       // return a Subcategory by ID

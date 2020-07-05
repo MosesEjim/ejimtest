@@ -40,10 +40,10 @@ class EloquentQuestionRepository implements QuestionContract {
     }
 
     public function getAll() {
-        return Question::latest()->paginate(15);
+        return Question::latest()->paginate(15)->onEachSide(2);
     }
     public function surveyQuestions($id) {
-        return Question::where('survey_type_id', $id)->paginate(20);
+        return Question::where('survey_type_id', $id)->paginate(20)->onEachSide(2);
     }
 
       // return a Question by ID

@@ -20,7 +20,7 @@ class EloquentQuestionTypeRepository implements QuestionTypeContract {
     }
 
     public function getAll() {
-        return QuestionType::latest()->paginate(3);
+        return QuestionType::latest()->paginate(15)->onEachSide(2);
     }
 
       // return a QuestionType by ID

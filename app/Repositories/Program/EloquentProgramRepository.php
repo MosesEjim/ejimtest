@@ -19,7 +19,7 @@ class EloquentProgramRepository implements ProgramContract {
     }
 
     public function getAll() {
-        return Program::latest()->paginate(3);
+        return Program::latest()->paginate(15)->onEachSide(2);
     }
 
       // return a Program by ID

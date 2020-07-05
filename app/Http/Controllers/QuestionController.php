@@ -174,10 +174,10 @@ class QuestionController extends Controller
         // dd($questions);
 
         if (count ( $questions ) > 0) {
-            return view('question.search_result' )->with('questions', $questions )->with('q',$q);
+            return view('question.search_result' )->with('questions', $questions )->with('q', $q);
         } 
         
-        return view('question.search_result' )->withMessage('No record found. Try to search another search string !');        
+        return view('question.search_result' )->with('questions', $questions )->with('error', 'No record found. Try to search another search string !')->with('q', $q);        
     }
     
     public function delete($id)

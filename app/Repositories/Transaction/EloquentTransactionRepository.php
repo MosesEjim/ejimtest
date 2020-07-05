@@ -47,7 +47,7 @@ class EloquentTransactionRepository implements TransactionContract {
     }
 
     public function getAll() {
-        return Transaction::latest()->paginate(3);
+        return Transaction::latest()->paginate(15)->onEachSide(2);
     }
 
       // return a Transaction by ID

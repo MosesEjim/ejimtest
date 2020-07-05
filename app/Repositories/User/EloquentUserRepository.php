@@ -53,7 +53,7 @@ class EloquentUserRepository implements UserContract {
     }
 
     public function getAll() {
-        return User::latest()->paginate(15);
+        return User::latest()->paginate(15)->onEachSide(2);
     }
 
       // return a User by ID

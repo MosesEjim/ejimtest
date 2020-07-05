@@ -19,7 +19,7 @@ class EloquentVendorRepository implements VendorContract {
     }
 
     public function getAll() {
-        return Vendor::latest()->paginate(3);
+        return Vendor::latest()->paginate(15)->onEachSide(2);
     }
 
       // return a Vendor by ID

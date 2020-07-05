@@ -29,6 +29,16 @@
     
     <div class="intro-y col-span-12 md:col-span-12">
       <div class="box">
+        @if(count($questions) < 1)
+
+        <div class="rounded-md px-5 py-4 mb-2 bg-theme-1 text-white">
+            <div class="flex items-center">
+                <div class="font-medium text-lg">Not Found</div>
+            </div>
+            <div class="mt-3">No match for your query string, Try again with another query string.</div>
+        </div>
+
+        @else
         <table class="table table-report sm:mt-2">
           <thead>
             <tr>
@@ -61,6 +71,7 @@
             @endforeach
           </tbody>
         </table>
+        @endif
       </div>
     </div>
   </div>

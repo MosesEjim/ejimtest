@@ -31,7 +31,7 @@ class EloquentOptionRepository implements OptionContract {
     }
 
     public function getAll() {
-        return Option::latest()->paginate(3);
+        return Option::latest()->paginate(15)->onEachSide(2);
     }
 
       // return a Option by ID

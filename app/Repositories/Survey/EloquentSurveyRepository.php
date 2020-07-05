@@ -13,7 +13,7 @@ class EloquentSurveyRepository implements SurveyContract {
     }
 
     public function getAll() {
-        return Survey::latest()->paginate(3);
+        return Survey::latest()->paginate(15)->onEachSide(2);
     }
 
       // return a Survey by ID
