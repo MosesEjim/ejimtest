@@ -20,6 +20,21 @@
                   </div>
               </div>
               <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+              @if(session('error'))                    
+                    <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-6 text-white"> 
+                      <i data-feather="alert-octagon" class="w-6 h-6 mr-2"></i> 
+                      <span><strong>Error!</strong> {{ session('error') }}!</span>
+                      <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                    </div>
+                  @endif
+
+                  @if(session('success'))
+                    <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-9 text-white"> 
+                      <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                      <strong>Success! </strong> {{ session('success') }}
+                      <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                    </div>
+                  @endif
                   <table class="table table-report sm:mt-2" id='table'>
                       <thead>
                           <tr>
