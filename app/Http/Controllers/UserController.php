@@ -9,6 +9,7 @@ use App\Repositories\Role\RoleContract;
 use App\Repositories\Answer\AnswerContract;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterUserMailer;
+use Illuminate\Database\QueryException;
 use Sentinel;
 
 class UserController extends Controller
@@ -110,7 +111,7 @@ class UserController extends Controller
      }catch(QueryException $e){
         $errorCode = $e->errorInfo[1];
         if($errorCode == 1062){
-            return back()->withInput()->with('error', 'user with '.$request->email.' already exist');
+            return back()->withInput()->with('error', 'A user with '.$request->email.' already exist');
         }
         
      }
