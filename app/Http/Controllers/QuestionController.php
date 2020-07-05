@@ -33,8 +33,9 @@ class QuestionController extends Controller
         }
 
         $questions = $this->repo->getAll();
+        $programs = Program::all();
         // dd($questions);
-        return view('question.index')->with('questions', $questions);
+        return view('question.index')->with('questions', $questions)->with('programs', $programs);
     }
     
     public function index($id)

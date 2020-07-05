@@ -49,7 +49,10 @@
                     <thead>
                       <tr>
                         <th class="whitespace-no-wrap">S/N</th>
-                        <th class="whitespace-no-wrap">NAME</th>
+                        <th class="whitespace-no-wrap">QUESTION</th>
+                        <th class="whitespace-no-wrap">PROGRAM</th>
+                        <th class="whitespace-no-wrap">SUB PROGRAM</th>
+                        <th class="whitespace-no-wrap">SURVEY TYPE</th>
                         <th class="text-center whitespace-no-wrap">ACTIONS</th>
                       </tr>
                     </thead>
@@ -64,6 +67,16 @@
                           </td>
                           <td>
                               <a href="" class="font-medium">{{ $question->question_text }} </a>                                  
+                          </td>
+                          
+                          <td>
+                              <a href="" class="font-medium">{{ $question->program_name }} </a>                                  
+                          </td>
+                          <td>
+                              <a href="" class="font-medium">{{ $question->sub_category_name }} </a>                                  
+                          </td>
+                          <td>
+                              <a href="" class="font-medium">{{ $question->survey_type_name }} </a>                                  
                           </td>
                               
                           <td class="table-report__action w-56">
