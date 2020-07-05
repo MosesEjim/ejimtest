@@ -46,7 +46,7 @@
                         <div class="report-box zoom-in">
                             <div class="box p-5">
                                 <div class="flex">
-                                    <i data-feather="map-pin" class="report-box__icon text-theme-12"></i> 
+                                    <i data-feather="smile" class="report-box__icon text-theme-12"></i> 
                                     <div class="ml-auto">
                                         <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer"> </div>
                                     </div>

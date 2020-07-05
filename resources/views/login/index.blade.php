@@ -19,7 +19,7 @@
                 <div class="hidden xl:flex flex-col min-h-screen">
                     <a href="" class="-intro-x flex items-center pt-5">
                         <img alt="logo" class="w-6" src="{{ URL::asset('assets/dashboard/images/logo.png') }}">
-                        <span class="text-white text-lg ml-3"> Mid<span class="font-medium">One</span> </span>
+                        <span class="text-white text-lg ml-3"> UNI<span class="font-medium">CEF</span> </span>
                     </a>
                     <div class="my-auto">
                         <img alt="logo" class="-intro-x w-1/2 -mt-16" src="{{ URL::asset('assets/dashboard/images/illustration.svg') }}">
@@ -28,7 +28,7 @@
                             <br>
                             sign in to your account.
                         </div>
-                        <div class="-intro-x mt-5 text-lg text-white">Manage all your e-commerce accounts in one place</div>
+                        <div class="-intro-x mt-5 text-lg text-white">Manage all everything in one place</div>
                     </div>
                 </div>
                 <!-- END: Login Info -->
@@ -37,12 +37,43 @@
                     <div class="my-auto mx-auto xl:ml-20 bg-white xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
                         <form action="{{ route('auth.login.post') }}" method="post">
                           @csrf
-                        <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">
-                            Sign In
-                        </h2>
+                            <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">
+                                Sign In
+                            </h2>
+                            @if(session('error'))
+                                <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-6 text-white"> 
+                                    <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                                        <span><strong>Error!</strong> {{ session('error') }}!</span>
+                                    <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                                </div>
+                            @endif
+
+                            @if(session('success'))
+                                <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-9 text-white"> 
+                                    <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                                    <strong>Success!</strong> {{ session('success') }}
+                                    <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                                </div>
+                            @endif
+
+                            @if($errors->any())
+                                <div class="rounded-md px-5 py-4 mb-2 bg-theme-6 text-white">
+                                    <div class="flex items-center">
+                                        <div class="font-medium text-lg">Error! </div>
+                                        <div class="text-xs bg-white px-1 rounded-md text-gray-800 ml-auto">New</div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            @endif 
                         <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">A few more clicks to sign in to your account. Manage all your e-commerce accounts in one place</div>
                         <div class="intro-x mt-8">
-                            <input type="text" id="login" name="login" class="intro-x login__input input input--lg border border-gray-300 block" placeholder="Email">
+                            <input type="text" id="login" name="login" value="{{ old('login') }}" class="intro-x login__input input input--lg border border-gray-300 block" placeholder="Email">
                             <input type="password" id="password" name="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Password">
                         </div>
                         <div class="intro-x flex text-gray-700 text-xs sm:text-sm mt-4">
