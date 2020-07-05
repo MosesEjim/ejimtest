@@ -14,7 +14,7 @@
               <div class="p-5" id="vertical-form">
 
               @if(session('error'))
-                <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-gray-200 text-gray-600"> 
+                <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-6 text-white"> 
                   <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
                     <span><strong>Error!</strong> {{ session('error') }}!</span>
                   <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
