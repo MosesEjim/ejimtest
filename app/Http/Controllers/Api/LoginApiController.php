@@ -25,7 +25,7 @@ class LoginApiController extends Controller
         ]);
         
         $credentials = [
-            'email'    => $request->email,
+            'email'    => strtolower($request->email),
             'password' => $request->password,
         ];
         
