@@ -32,7 +32,7 @@ class RegisterUserMailer extends Mailable
      */
     public function build()
     {
-        return $this->from('admin@unicef-app.herokuapp.com')
+        return $this->from(env('MAIL_FROM_ADDRESS'))
         ->subject('EUM Registration')
         ->view('mail.register')
         ->with('password', $this->password)
