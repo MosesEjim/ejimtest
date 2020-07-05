@@ -60,7 +60,9 @@
                               <td class="table-report__action w-56">
                                   <div class="flex justify-center items-center">
                                       <a class="flex items-center mr-3" href="{{route('dashboard.user.edit', $user->slug)}}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
-                                      <a class="flex items-center text-theme-6" href="{{route('dashboard.user.delete', $user->slug)}}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
+                                      <a class="flex items-center text-theme-6" data-toggle="modal" data-target="#delete-modal-preview{{$user->id}}" href="javascript:;"> 
+                                        <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete 
+                                    </a>
                                   </div>
                               </td>
                           </tr>
@@ -77,6 +79,25 @@
           <!-- END: Weekly Top Seller -->
       </div>
   </div>
+
+  @foreach($users as $opt)
+    <div class="modal" id="delete-modal-preview{{$opt->id}}">
+      <div class="modal__content">
+        <form action="{{route('dashboard.user.delete', $opt->slug)}}" method="post">
+          @csrf 
+          @method('DELETE')
+          <div class="p-5 text-center"> <i data-feather="alert-triangle" class="w-16 h-16 text-theme-12 mx-auto mt-3"></i>
+              <div class="text-3xl mt-5">Are you sure you want to delete <strong>{{ $opt->first_name }} {{ $opt->last_name }}</strong>?</div>
+              <div class="text-gray-600 mt-2">Do you really want to delete these records? This process cannot be undone.</div>
+          </div>
+          <div class="px-5 pb-8 text-center"> 
+            <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button> 
+            <button type="submit" class="button w-24 bg-theme-6 text-white">Delete</button> 
+          </div>
+        </form>
+      </div>
+  </div>
+ @endforeach
 @endsection
 
 @section('scripts')

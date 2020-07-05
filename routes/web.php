@@ -136,7 +136,7 @@ Route::group(['prefix' => 'account'], function() {
             Route::post('/create', 'UserController@store')->name('dashboard.user.store');
             Route::get('/edit/{id}', 'UserController@edit')->name('dashboard.user.edit');
             Route::put('/edit/{id}', 'UserController@update')->name('dashboard.user.update');
-            Route::get('/{slug}', 'UserController@delete')->name('dashboard.user.delete');
+            Route::delete('/{slug}', 'UserController@delete')->name('dashboard.user.delete');
         });
         //Stock role Group
         Route::group(['prefix'=>'role'], function(){
