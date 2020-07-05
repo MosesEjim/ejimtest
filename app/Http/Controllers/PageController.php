@@ -30,7 +30,7 @@ class PageController extends Controller
 
   public function index(){
     $users = $this->repo->findAll();
-    dd($users);
+    // dd($users);
     return view('dashboard.index')->with('users', $users);
   }
   public function signUp(){

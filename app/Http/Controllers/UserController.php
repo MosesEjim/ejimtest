@@ -6,6 +6,7 @@ use App\Repositories\State\StateContract;
 use App\Repositories\Question\QuestionContract;
 use App\Repositories\Program\ProgramContract;
 use App\Repositories\Role\RoleContract;
+use App\Repositories\Answer\AnswerContract;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterUserMailer;
 use Sentinel;
@@ -17,19 +18,22 @@ class UserController extends Controller
     protected $programRepo;
     protected $stateRepo;
     protected $roleRepo;
+    protected $answerRepo;
 
     public function __construct(
         UserContract $userContract,
         QuestionContract $questionContract, 
         ProgramContract $programContract,
         StateContract $stateContract,
-        RoleContract $roleContract
+        RoleContract $roleContract,
+        AnswerContract $answerContract
         ) {
         $this->repo = $userContract;
         $this->questionRepo = $questionContract;
         $this->programRepo = $programContract;
         $this->stateRepo = $stateContract;
         $this->roleRepo = $roleContract;
+        $this->answerRepo = $answerContract;
     }
     
     public function adminDashboard(){
@@ -40,10 +44,12 @@ class UserController extends Controller
         $states = $this->stateRepo->findAll();
         $questions = $this->questionRepo->findAll();
         $programs = $this->programRepo->findAll();
+        $answers = $this->answerRepo->findAll();
         return view('dashboard.index')
             ->with('users', $users)
             ->with('questions', $questions)
             ->with('programs', $programs)
+            ->with('answers', $answers)
             ->with('states', $states);
     }
     public function index()

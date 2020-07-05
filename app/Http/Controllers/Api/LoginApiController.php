@@ -8,6 +8,7 @@ use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Sentinel;
 use Carbon\Carbon;
+use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 
 class LoginApiController extends Controller
 {

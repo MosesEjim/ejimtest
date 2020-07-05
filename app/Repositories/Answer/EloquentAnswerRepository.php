@@ -9,7 +9,9 @@ class EloquentAnswerRepository implements AnswerContract {
 
       // return all Answer
     public function findAll() {
-        return Answer::all();
+        $answers = Answer::all();
+        $dataList  = collect($answers)->unique('reference_id');
+        return $dataList;
     }
 
     public function getAll() {

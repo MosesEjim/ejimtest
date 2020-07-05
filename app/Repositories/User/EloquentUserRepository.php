@@ -13,7 +13,7 @@ class EloquentUserRepository implements UserContract {
           'first_name' => $request->first_name,
           'last_name' => $request->last_name,
           'phone' => $request->telephone1,
-          'email'    => $request->email,
+          'email'    => strtolower($request->email),
           'username'    => $request->username,
           'password' => $request->password ?: 'secret',
           'account_type' => $request->account_type,
@@ -28,7 +28,7 @@ class EloquentUserRepository implements UserContract {
           'first_name' => $request->first_name,
           'last_name' => $request->last_name,
           'phone' => $request->phone,
-          'email'    => $request->email,
+          'email'    => strtolower($request->email),
           'username'    => $request->username,
           'password' => $request->password ?: 'secret',
           'account_type' => $request->account_type,
@@ -72,7 +72,7 @@ class EloquentUserRepository implements UserContract {
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->phone = $request->phone;
-        $user->email = $request->email;
+        $user->email = strtolower($request->email);
         $user->sex = $request->sex;
         $user->user_role = $request->account_type;
         $user->save();

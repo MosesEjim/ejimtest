@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Login\LoginContract;
+use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Sentinel;
 
 class LoginController extends Controller
