@@ -84,7 +84,7 @@
                                   <div class="font-medium whitespace-no-wrap">{{ $option->option }}</div>
                               </td>
                               <td class="text-right border-b w-32">
-                                <a class="flex items-center text-theme-6" data-toggle="modal" data-target="#delete-modal-preview{{$option->slug}}" href="javascript:;"> 
+                                <a class="flex items-center text-theme-6" data-toggle="modal" data-target="#delete-modal-preview{{$option->id}}" href="javascript:;"> 
                                   <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete 
                                 </a>
                               </td>
@@ -98,7 +98,7 @@
       </div>
   </div>
   @foreach($question->options as $opt)
-    <div class="modal" id="delete-modal-preview{{$opt->slug}}">
+    <div class="modal" id="delete-modal-preview{{$opt->id}}">
       <div class="modal__content">
         <form action="{{ route('dashboard.eum.option.delete', $opt->id) }}" method="post">
           @csrf 
