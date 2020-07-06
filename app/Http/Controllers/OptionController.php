@@ -118,9 +118,6 @@ class OptionController extends Controller
                     'alert-type' => 'success'
                 );
 
-                if($request->save_record){
-                    return redirect()->back()->with('success', 'Option Updated successfully!')->with($notification);
-                }
                 return redirect()->route('dashboard.uem.surveytype.question.show', $option->question->id)->with('success', 'Option Updated successfully!')->with($notification);
             }else {
  
