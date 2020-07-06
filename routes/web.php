@@ -236,6 +236,8 @@ Route::group(['prefix' => 'account'], function() {
                     Route::get('/', 'OptionController@index')->name('dashboard.eum.option.index');
                     Route::get('/{slug}/create', 'OptionController@create')->name('dashboard.eum.option.create');
                     Route::post('/{slug}/create', 'OptionController@store')->name('dashboard.eum.option.store');
+                    Route::get('/{slug}/edit', 'OptionController@edit')->name('dashboard.eum.option.edit');
+                    Route::put('/{slug}/edit', 'OptionController@update')->name('dashboard.eum.option.update');
                     Route::delete('/{id}/delete', 'OptionController@delete')->name('dashboard.eum.option.delete');
                 });
             });
