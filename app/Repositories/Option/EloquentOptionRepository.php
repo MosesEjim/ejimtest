@@ -47,6 +47,10 @@ class EloquentOptionRepository implements OptionContract {
       // Update a Option
     public function update($request, $slug) {
         $option = $this->findBySlug($slug);
+        $option->option = $request->option;
+        $option->type = $request->option_type;
+        $option->save();
+        return $option;
     }
 
       // Remove a Option

@@ -91,14 +91,58 @@ class OptionController extends Controller
         //
     }
     
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        $questionTypes = $this->questionTypeRepo->findAll();
+        $option = $this->repo->findBySlug($slug);
+        return view('option.edit')
+        ->with('option', $option)
+        ->with('questionTypes', $questionTypes);
     }
     
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
+        try{
+
+            $option = $this->repo->update($request, $slug);
+            if($option){
+                $notification = array(
+                    'message' => "Option Updated successfully!",
+                    'alert-type' => 'success'
+                );
+
+                return redirect()->route('dashboard.uem.surveytype.question.show', $option->question->id)->with('success', 'Option Updated successfully!')->with($notification);
+            }else {
+ 
+                $notificationErr = array(
+                'message' => "Could not Update Option. Try again!",
+                'alert-type' => 'error'
+                );
+                return back()
+                 ->withInput()
+                 ->with('error', 'Could not Update Option. Try again!')->with($notificationErr);
+            }
+            
+         
+        }catch(QueryException $e){
+ 
+            $errorCode = $e->errorInfo[1];
+            if($errorCode == 1062){
+                $notification = array(
+                    'message' => "OPS... A Option already exists!",
+                    'alert-type' => 'error'
+                );
+                return back()->withInput()->with('error', 'OPS... A Option already exists!')->with($notification);
+            }
+
+        }
     }
     
     public function delete($id)
