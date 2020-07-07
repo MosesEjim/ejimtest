@@ -241,6 +241,11 @@ Route::group(['prefix' => 'account'], function() {
                     Route::delete('/{id}/delete', 'OptionController@delete')->name('dashboard.eum.option.delete');
                 });
             });
+
+            Route::group(['prefix'=>'answer'], function(){
+                Route::get('/', 'AnswerController@index')->name('dashboard.eum.answer.index');
+                Route::get('/{id}', 'AnswerController@show')->name('dashboard.eum.answer.show');
+            });
         });
     });
 });

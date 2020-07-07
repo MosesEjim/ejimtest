@@ -49,8 +49,8 @@
                   <table class="table table-report sm:mt-2">
                       <thead>
                           <tr>
-                              <th class="whitespace-no-wrap">REFERENCE ID</th>
-                              <th class="whitespace-no-wrap">SUB CATEGORY</th>
+                              <th class="">QUESTION</th>
+                              <th class="">ANSWER</th>
                               <th class="text-center whitespace-no-wrap">ACTIONS</th>
                           </tr>
                       </thead>
@@ -58,9 +58,11 @@
                       @foreach($responses as $response)
                           <tr class="intro-x">
                               <td>
-                                  <a href="" class="font-medium whitespace-no-wrap">{{ $response->reference_id}} </a>                                  
+                                  <a href="" class="font-medium">{{ $response->question->question_text}} </a>                                  
                               </td>
-  
+                              <td>
+                                  <a href="" class="font-medium ">{{ $response->answer}} </a>                                  
+                              </td>
                               
                               <td class="table-report__action">
                                   <div class="flex justify-center items-center">
