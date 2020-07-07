@@ -50,7 +50,6 @@
                       <thead>
                           <tr>
                               <th class="whitespace-no-wrap">REFERENCE ID</th>
-                              <th class="whitespace-no-wrap">SUB CATEGORY</th>
                               <th class="text-center whitespace-no-wrap">ACTIONS</th>
                           </tr>
                       </thead>

@@ -51,7 +51,7 @@
                           <tr>
                               <th class="">QUESTION</th>
                               <th class="">ANSWER</th>
-                              <th class="text-center whitespace-no-wrap">ACTIONS</th>
+                              
                           </tr>
                       </thead>
                       <tbody>
@@ -64,11 +64,7 @@
                                   <a href="" class="font-medium ">{{ $response->answer}} </a>                                  
                               </td>
                               
-                              <td class="table-report__action">
-                                  <div class="flex justify-center items-center">
-                                  <a class="flex items-center mr-3" href="{{ route('dashboard.eum.answer.show', $response->reference_id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> View Response </a>
-                                  </div>
-                              </td>
+                            
                           </tr>
                         @endforeach
                       </tbody>
