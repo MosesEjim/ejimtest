@@ -9,9 +9,9 @@ class EloquentAnswerRepository implements AnswerContract {
 
       // return all Answer
     public function findAll() {
-        $answers = Answer::all();
-        $dataList  = collect($answers)->unique('reference_id');
-        return $dataList;
+      $answers = Answer::all();
+      $dataList  = collect($answers)->unique('reference_id');
+      return $dataList;
     }
 
     public function getAll() {
@@ -21,6 +21,11 @@ class EloquentAnswerRepository implements AnswerContract {
       // return a Answer by ID
     public function findById($id) {
         return Answer::where('id', $id)->first();
+    }
+     
+    // return a Answer by ID
+    public function findByQuestionId($id) {
+      return Answer::where('question_id', $id)->get();
     }
 
       // return a Answer by slug
