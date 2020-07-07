@@ -120,7 +120,7 @@
                       <thead>
                           <tr>
                               <th class="border-b-2 whitespace-no-wrap">ANSWER</th>
-                              <th class="border-b-2 whitespace-no-wrap">REFERENCE IS</th>
+                              <th class="border-b-2 whitespace-no-wrap">REFERENCE ID</th>
                               <th class="border-b-2 text-right whitespace-no-wrap">ACTION</th>
                           </tr>
                       </thead>
@@ -134,9 +134,7 @@
                                   <div class="font-medium whitespace-no-wrap">{{ $answer->reference_id }}</div>
                               </td>
                               <td class="text-right border-b w-32">
-                                <a class="flex items-center text-theme-6" data-toggle="modal" data-target="#delete-modal-preview{{$answer->id}}" href="javascript:;"> 
-                                  <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete 
-                                </a>
+                                  <div class="font-medium whitespace-no-wrap">{{ $answer->created_at }}</div>
                               </td>
                           </tr>
                           @endforeach
