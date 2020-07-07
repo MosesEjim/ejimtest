@@ -96,6 +96,79 @@
           </div>
           <!-- END: Vertical Form -->
       </div>
+      <div class="intro-y col-span-12 lg:col-span-12">
+        
+          <!-- BEGIN: Vertical Form -->
+          <div class="intro-y box">
+              <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200" style="margin-bottom: 20px;">
+                  <table class="table table-report sm:mt-2">
+                      <thead>
+                          <tr>                              
+                              <th class="whitespace-no-wrap">RESPONSES</th>                              
+                          </tr>
+                      </thead>
+                  </table>
+              </div>
+              <div class="overflow-x-auto">
+
+              @if(session('error'))
+                  <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-gray-200 text-gray-600"> 
+                    <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                      <span><strong>Error!</strong> {{ session('error') }}!</span>
+                    <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                  </div>
+                  @endif
+
+                  @if(session('success'))
+                  <div class="rounded-md flex items-center px-5 py-4 mb-2 bg-theme-9 text-white"> 
+                    <i data-feather="alert-triangle" class="w-6 h-6 mr-2"></i> 
+                    <strong>Success!</strong> {{ session('success') }}
+                    <i data-feather="x" class="w-4 h-4 ml-auto"></i> 
+                  </div>
+                @endif
+
+                @if($errors->any())
+                  <div class="rounded-md px-5 py-4 mb-2 bg-theme-6 text-white">
+                    <div class="flex items-center">
+                        <div class="font-medium text-lg">Error!</div>
+                        <div class="text-xs bg-white px-1 rounded-md text-gray-800 ml-auto">New</div>
+                    </div>
+                    <div class="mt-3">
+                      <ul>
+                        @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  </div>
+                @endif 
+
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th class="border-b-2 whitespace-no-wrap">OPTIONS</th>
+                              <th class="border-b-2 text-right whitespace-no-wrap">ACTION</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      @foreach($question->options as $option)
+                          <tr>
+                              <td class="border-b">
+                                  <div class="font-medium whitespace-no-wrap">{{ $option->option }}</div>
+                              </td>
+                              <td class="text-right border-b w-32">
+                                <a class="flex items-center text-theme-6" data-toggle="modal" data-target="#delete-modal-preview{{$option->id}}" href="javascript:;"> 
+                                  <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete 
+                                </a>
+                              </td>
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <!-- END: Vertical Form -->
+      </div>
   </div>
   @foreach($question->options as $opt)
     <div class="modal" id="delete-modal-preview{{$opt->id}}">
