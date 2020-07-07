@@ -49,16 +49,31 @@
                   <table class="table table-report sm:mt-2">
                       <thead>
                           <tr>
-                              <th class="whitespace-no-wrap">REFERENCE ID</th>
+                              <th class="whitespace-no-wrap">SURVEY TYPE</th>
                               <th class="text-center whitespace-no-wrap">ACTIONS</th>
                           </tr>
                       </thead>
                       <tbody>
                       @foreach($responses as $response)
                           <tr class="intro-x">
-                              <td>
-                                  <a href="" class="font-medium whitespace-no-wrap">{{ $response->reference_id}} </a>                                  
-                              </td>
+                          @php $found = false; @endphp
+
+                          @foreach($surveys as $s)
+                            @if($s->id === $response->survey_type_id )
+                              @php $found = true; @endphp
+                              
+                              @if($found)
+                                  <td>
+                                      <a href="" class="font-medium whitespace-no-wrap">{{ $s->name}} </a>                                  
+                                  </td>
+                              @endif
+                              
+                              @php break @endphp
+                            @endif
+                          @endforeach
+
+                         
+                              
   
                               
                               <td class="table-report__action">

@@ -21,7 +21,9 @@ class AnswerController extends Controller
         }
 
         $responses = $this->repo->findAll();
-        return view('answer.index')->with('responses', $responses);
+        $surveys = $this->surveyTypeRepo->fetchdAll();
+        // dd($surveys);
+        return view('answer.index')->with('responses', $responses)->with('surveys', $surveys);
     }
     
     
