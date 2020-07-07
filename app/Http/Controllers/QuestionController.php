@@ -5,6 +5,7 @@ use App\Repositories\Question\QuestionContract;
 use App\Repositories\QuestionType\QuestionTypeContract;
 use App\Repositories\SurveyType\SurveyTypeContract;
 use Illuminate\Database\QueryException;
+use App\Repositories\Answer\AnswerContract;
 use Sentinel;
 use App\Program;
 use App\Question;
@@ -15,15 +16,18 @@ class QuestionController extends Controller
     protected $repo;
     protected $questionTypeRepo;
     protected $surveyTypeRepo;
+    protected $answerRepo;
 
     public function __construct(
         QuestionTypeContract $questionTypeContract, 
         QuestionContract $questionContract, 
-        SurveyTypeContract $surveyTypeContract
+        SurveyTypeContract $surveyTypeContract,
+        AnswerContract $answerContract
         ) {
         $this->repo = $questionContract;
         $this->questionTypeRepo = $questionTypeContract;
         $this->surveyTypeRepo = $surveyTypeContract;
+        $this->answerRepo = $answerContract;
     }
     
     public function all()
@@ -108,7 +112,9 @@ class QuestionController extends Controller
         }
         // dd($id);
         $question = $this->repo->findById($id);
-        return view('question.show')->with('question', $question);
+        $answers = $this->answerRepo->findByQuestionId($question->id);
+        // dd($answers);
+        return view('question.show')->with('question', $question)->with('answers', $answers);
     }
     
     public function edit($q_id)

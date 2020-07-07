@@ -101,6 +101,46 @@
           </div>
           <!-- END: Vertical Form -->
       </div>
+      <div class="intro-y col-span-12 lg:col-span-12">
+        
+          <!-- BEGIN: Vertical Form -->
+          <div class="intro-y box">
+              <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200" style="margin-bottom: 20px;">
+                  <table class="table table-report sm:mt-2">
+                      <thead>
+                          <tr>                              
+                              <th class="whitespace-no-wrap">RESPONSES</th>                              
+                          </tr>
+                      </thead>
+                  </table>
+              </div>
+              <div class="overflow-x-auto">
+
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th class="border-b-2 whitespace-no-wrap">ANSWER</th>
+                              <!-- <th class="border-b-2 whitespace-no-wrap">REFERENCE ID</th> -->
+                              <th class="border-b-2 text-right whitespace-no-wrap">SUBMITTED AT</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      @foreach($answers as $answer)
+                          <tr>
+                              <td class="border-b">
+                                  <div class="font-medium">{{ $answer->answer }}</div>
+                              </td>
+                              <td class="text-right border-b w-32">
+                                  <div class="font-medium whitespace-no-wrap">{{ $answer->created_at }}</div>
+                              </td>
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <!-- END: Vertical Form -->
+      </div>
   </div>
   @foreach($question->options as $opt)
     <div class="modal" id="delete-modal-preview{{$opt->id}}">
