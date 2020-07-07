@@ -17,6 +17,10 @@ class EloquentSurveyTypeRepository implements SurveyTypeContract {
     }
 
       // return all SurveyType
+    public function fetchdAll() {
+        return SurveyType::latest()->get();
+    }
+      // return all SurveyType
     public function findAll() {
         return SurveyType::latest()->paginate(15)->onEachSide(2);
     }

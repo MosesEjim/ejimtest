@@ -39,7 +39,7 @@
 
                 <li>
                     <a href="javascript:;" class="menu">
-                        <div class="menu__icon"> <i data-feather="box"></i> </div>
+                        <div class="menu__icon"> <i data-feather="codesandbox"></i> </div>
                         <div class="menu__title"> Categories 
                           <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                         </div>
@@ -67,7 +67,7 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="menu">
-                        <div class="menu__icon"> <i data-feather="box"></i> </div>
+                        <div class="menu__icon"> <i data-feather="gift"></i> </div>
                         <div class="menu__title"> Products
                           <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                         </div>
@@ -95,7 +95,7 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="menu">
-                        <div class="menu__icon"> <i data-feather="box"></i> </div>
+                        <div class="menu__icon"> <i data-feather="shopping-bag"></i> </div>
                         <div class="menu__title"> Stocks
                           <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                         </div>
@@ -117,7 +117,7 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="menu">
-                        <div class="menu__icon"> <i data-feather="box"></i> </div>
+                        <div class="menu__icon"> <i data-feather="command"></i> </div>
                         <div class="menu__title"> Partners
                           <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                         </div>
@@ -139,7 +139,7 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="menu">
-                        <div class="menu__icon"> <i data-feather="box"></i> </div>
+                        <div class="menu__icon"> <i data-feather="truck"></i> </div>
                         <div class="menu__title"> Vendors
                           <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                         </div>
@@ -161,7 +161,7 @@
                 </li>
                 <li>
                     <a href="javascript:;" class="menu">
-                        <div class="menu__icon"> <i data-feather="box"></i> </div>
+                        <div class="menu__icon"> <i data-feather="align-justify"></i> </div>
                         <div class="menu__title"> Transactions
                           <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                         </div>
@@ -191,7 +191,7 @@
                     <ul class="">
                             <li>
                                 <a href="javascript:;" class="menu">
-                                    <div class="menu__icon"> <i data-feather="box"></i> </div>
+                                    <div class="menu__icon"> <i data-feather="book"></i> </div>
                                     <div class="menu__title"> Programs
                                     <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                                     </div>
@@ -213,7 +213,7 @@
                             </li>
                             <li>
                                 <a href="javascript:;" class="menu">
-                                    <div class="menu__icon"> <i data-feather="box"></i> </div>
+                                    <div class="menu__icon"> <i data-feather="activity"></i> </div>
                                     <div class="menu__title"> Sub Programs
                                     <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                                     </div>
@@ -235,7 +235,7 @@
                             </li>
                             <li>
                                 <a href="javascript:;" class="menu">
-                                    <div class="menu__icon"> <i data-feather="box"></i> </div>
+                                    <div class="menu__icon"> <i data-feather="clipboard"></i> </div>
                                     <div class="menu__title"> Survey Type
                                     <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                                     </div>
@@ -257,7 +257,7 @@
                             </li>
                             <li>
                                 <a href="javascript:;" class="menu">
-                                    <div class="menu__icon"> <i data-feather="box"></i> </div>
+                                    <div class="menu__icon"> <i data-feather="help-circle"></i> </div>
                                     <div class="menu__title"> Survey Questions
                                     <i data-feather="chevron-down" class="menu__sub-icon"></i> 
                                     </div>

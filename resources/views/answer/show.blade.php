@@ -49,38 +49,22 @@
                   <table class="table table-report sm:mt-2">
                       <thead>
                           <tr>
-                              <th class="whitespace-no-wrap">SURVEY TYPE</th>
-                              <th class="text-center whitespace-no-wrap">ACTIONS</th>
+                              <th class="">QUESTION</th>
+                              <th class="">ANSWER</th>
+                              
                           </tr>
                       </thead>
                       <tbody>
                       @foreach($responses as $response)
                           <tr class="intro-x">
-                          @php $found = false; @endphp
-
-                          @foreach($surveys as $s)
-                            @if($s->id === $response->survey_type_id )
-                              @php $found = true; @endphp
-                              
-                              @if($found)
-                                  <td>
-                                      <a href="" class="font-medium whitespace-no-wrap">{{ $s->name}} </a>                                  
-                                  </td>
-                              @endif
-                              
-                              @php break @endphp
-                            @endif
-                          @endforeach
-
-                         
-                              
-  
-                              
-                              <td class="table-report__action">
-                                  <div class="flex justify-center items-center">
-                                  <a class="flex items-center mr-3" href="{{ route('dashboard.eum.answer.show', $response->reference_id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> View Response </a>
-                                  </div>
+                              <td>
+                                  <a href="" class="font-medium">{{ $response->question->question_text}} </a>                                  
                               </td>
+                              <td>
+                                  <a href="" class="font-medium ">{{ $response->answer}} </a>                                  
+                              </td>
+                              
+                            
                           </tr>
                         @endforeach
                       </tbody>

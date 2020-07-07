@@ -13,4 +13,8 @@ class SurveyType extends Model
     public function forms() {
         return $this->hasMany('App\Form');
     }
+
+    public function answers(){
+        return $this->hasManyThrough('App\Subcategory','App\Answer');
+    }
 }

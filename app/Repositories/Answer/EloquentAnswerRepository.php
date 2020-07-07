@@ -4,7 +4,7 @@ use App\Repositories\Answer\AnswerContract;
 use App\Answer;
 class EloquentAnswerRepository implements AnswerContract {
     public function create($request) {
-        // 
+        
     }
 
       // return all Answer
@@ -15,7 +15,11 @@ class EloquentAnswerRepository implements AnswerContract {
     }
 
     public function getAll() {
-        return Answer::latest()->paginate(3);
+        return Answer::latest()->paginate(20);
+    }
+
+    public function findByRefId($id){
+      return Answer::where('reference_id', $id)->get();
     }
 
       // return a Answer by ID
