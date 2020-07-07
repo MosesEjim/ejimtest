@@ -131,7 +131,7 @@
                                   <div class="font-medium whitespace-no-wrap">{{ $answer->answer }}</div>
                               </td>
                               <td class="border-b">
-                                  <div class="font-medium whitespace-no-wrap">{{ $answer->refereence_id }}</div>
+                                  <div class="font-medium whitespace-no-wrap">{{ $answer->reference_id }}</div>
                               </td>
                               <td class="text-right border-b w-32">
                                 <a class="flex items-center text-theme-6" data-toggle="modal" data-target="#delete-modal-preview{{$answer->id}}" href="javascript:;"> 
