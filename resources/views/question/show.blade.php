@@ -121,7 +121,7 @@
                           <tr>
                               <th class="border-b-2 whitespace-no-wrap">ANSWER</th>
                               <th class="border-b-2 whitespace-no-wrap">REFERENCE ID</th>
-                              <th class="border-b-2 text-right whitespace-no-wrap">ACTION</th>
+                              <th class="border-b-2 text-right whitespace-no-wrap">SUBMITTED AT</th>
                           </tr>
                       </thead>
                       <tbody>
