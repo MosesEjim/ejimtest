@@ -120,7 +120,7 @@
                       <thead>
                           <tr>
                               <th class="border-b-2 whitespace-no-wrap">ANSWER</th>
-                              <th class="border-b-2 whitespace-no-wrap">REFERENCE ID</th>
+                              <!-- <th class="border-b-2 whitespace-no-wrap">REFERENCE ID</th> -->
                               <th class="border-b-2 text-right whitespace-no-wrap">SUBMITTED AT</th>
                           </tr>
                       </thead>
@@ -128,10 +128,7 @@
                       @foreach($answers as $answer)
                           <tr>
                               <td class="border-b">
-                                  <div class="font-medium whitespace-no-wrap">{{ $answer->answer }}</div>
-                              </td>
-                              <td class="border-b">
-                                  <div class="font-medium whitespace-no-wrap">{{ $answer->reference_id }}</div>
+                                  <div class="font-medium">{{ $answer->answer }}</div>
                               </td>
                               <td class="text-right border-b w-32">
                                   <div class="font-medium whitespace-no-wrap">{{ $answer->created_at }}</div>
