@@ -29,6 +29,12 @@
                         <div class="side-menu__title"> Create a User </div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('dashboard.user.getAllDataCollectors')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="user-plus"></i> </div>
+                        <div class="side-menu__title"> Data Colletors </div>
+                    </a>
+                </li>
             </ul>
         </li>
         <li>

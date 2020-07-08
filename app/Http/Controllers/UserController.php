@@ -42,6 +42,7 @@ class UserController extends Controller
             return redirect()->route('auth.login.get');
         }
         $users = $this->repo->findAll();
+        $dataCollectors = $this->repo->getAllDataCollectors();
         $states = $this->stateRepo->findAll();
         $questions = $this->questionRepo->findAll();
         $programs = $this->programRepo->findAll();
@@ -51,6 +52,7 @@ class UserController extends Controller
             ->with('questions', $questions)
             ->with('programs', $programs)
             ->with('answers', $answers)
+            ->with('dataCollectors', $dataCollectors)
             ->with('states', $states);
     }
     public function index()
@@ -60,6 +62,18 @@ class UserController extends Controller
         }
         
         $users = $this->repo->getAll();
+        return view('user.index')->with('users', $users);
+    }
+    
+    
+    public function dataCollectors()
+    {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        
+        $users = $this->repo->getAllDataCollectors();
+        // dd($users);
         return view('user.index')->with('users', $users);
     }
     
