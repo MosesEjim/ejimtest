@@ -240,6 +240,12 @@
                     </a>
                 </ul>
             </li>
+            <li>
+                <a href="{{route('dashboard.eum.answer.index')}}" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="help-circle"></i> </div>
+                    <div class="side-menu__title"> Responses </div>
+                </a>
+            </li>
         </ul>      
     </li>
     <li class="side-nav__devider my-6"></li>
