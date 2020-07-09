@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\SpatieBackupEventsBackupZipWasCreated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Spatie\Backup\Events\BackupZipWasCreated;
 
 class MailSuccessfulDatabaseBackup
 {
@@ -24,7 +25,7 @@ class MailSuccessfulDatabaseBackup
      * @param  SpatieBackupEventsBackupZipWasCreated  $event
      * @return void
      */
-    public function handle(SpatieBackupEventsBackupZipWasCreated $event)
+    public function handle(BackupZipWasCreated $event)
     {
         $this->mailBackupFile($event->pathToZip);
     }
