@@ -20,6 +20,7 @@
         "laravel/tinker": "^2.0",
         "rollbar/rollbar-laravel": "^6.0",
         "spatie/db-dumper": "^2.16",
+        "spatie/laravel-backup": "^6.11",
         "tymon/jwt-auth": "1.0.*"
     },
     "require-dev": {
