@@ -252,13 +252,10 @@ Route::group(['prefix' => 'account'], function() {
     });
 });
 
-Route::get('/mysql-dump', function() {
-    Spatie\DbDumper\Databases\MySql::create()
-    ->setDbName(env('DB_DATABASE'))
-    ->setUserName(env('DB_USERNAME'))
-    ->setPassword(env('DB_PASSWORD'))
-    ->dumpToFile('bk.sql');
+Route::get('/backup', function () {
 
-    return 1;
-    
+    \Illuminate\Support\Facades\Artisan::call('backup:run');
+
+    return 'Successful backup!';
+
 });
