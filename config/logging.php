@@ -102,7 +102,7 @@ return [
         'rollbar' => [
             'driver' => 'monolog',
             'handler' => \Rollbar\Laravel\MonologHandler::class,
-            'access_token' => env('ROLLBAR_TOKEN'),
+            'access_token' => env('ROLLBAR_TOKEN', 'db9bfb6e6c3049d982bff5f4cffb4b1c'),
             'level' => 'debug',
         ],
     ],
