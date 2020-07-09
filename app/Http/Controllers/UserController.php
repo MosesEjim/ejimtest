@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterUserMailer;
 use Illuminate\Database\QueryException;
 use Sentinel;
+use App\Answer;
 
 class UserController extends Controller
 {
@@ -47,6 +48,8 @@ class UserController extends Controller
         $questions = $this->questionRepo->findAll();
         $programs = $this->programRepo->findAll();
         $answers = $this->answerRepo->findAll();
+        // $answers = Answer::count();
+        
         return view('dashboard.index')
             ->with('users', $users)
             ->with('questions', $questions)

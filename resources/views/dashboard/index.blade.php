@@ -51,7 +51,7 @@
                                         <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer"> </div>
                                     </div>
                                 </div>
-                                <div class="text-3xl font-bold leading-8 mt-6">{{ count($answers) }}</div>
+                                <div class="text-3xl font-bold leading-8 mt-6">{{ $answers }}</div>
                                 <div class="text-base text-gray-600 mt-1">Responses</div>
                             </div>
                         </div>
