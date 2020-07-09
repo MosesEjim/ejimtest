@@ -203,7 +203,8 @@ return [
  		App\Providers\RoleServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-        Creativeorange\Gravatar\GravatarServiceProvider::class
+        Creativeorange\Gravatar\GravatarServiceProvider::class,
+        Rollbar\Laravel\RollbarServiceProvider::class,
     ],
 
     /*
