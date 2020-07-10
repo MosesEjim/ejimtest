@@ -6,6 +6,7 @@ use App\Events\SpatieBackupEventsBackupZipWasCreated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Spatie\Backup\Events\BackupZipWasCreated;
+use Illuminate\Support\Facades\Mail;
 
 class MailSuccessfulDatabaseBackup
 {
