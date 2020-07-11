@@ -271,6 +271,24 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="{{route('dashboard.eum.answer.index')}}" class="menu">
+                                    <div class="menu__icon"> <i data-feather="help-circle"></i> </div>
+                                    <div class="menu__title"> Responses
+                                    <i data-feather="chevron-down" class="menu__sub-icon"></i> 
+                                    </div>
+                                </a>
+                                
+                            </li>
+                            <li>
+                                <a href="{{route('dashboard.eum.chart.index')}}" class="menu">
+                                    <div class="menu__icon"> <i data-feather="bar-chart-2"></i> </div>
+                                    <div class="menu__title"> Charts
+                                    <i data-feather="chevron-down" class="menu__sub-icon"></i> 
+                                    </div>
+                                </a>
+                                
+                            </li>
                     </ul>
                 </li>
                 

@@ -246,6 +246,12 @@
                     <div class="side-menu__title"> Responses </div>
                 </a>
             </li>
+            <li>
+                <a href="{{route('dashboard.eum.chart.index')}}" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="bar-chart-2"></i> </div>
+                    <div class="side-menu__title"> Charts </div>
+                </a>
+            </li>
         </ul>      
     </li>
     <li class="side-nav__devider my-6"></li>
