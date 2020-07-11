@@ -1,5 +1,4 @@
 @extends('layout.app')
-
 @section('title', 'Responses')
 @section('answer_active', 'side-menu--active')
 @section('content')
@@ -49,6 +48,8 @@
                   <table class="table table-report sm:mt-2">
                       <thead>
                           <tr>
+                              <th class="whitespace-no-wrap">PROGRAM</th>
+                              <th class="whitespace-no-wrap">SUB PROGRAM</th>
                               <th class="whitespace-no-wrap">SURVEY TYPE</th>
                               <th class="text-center whitespace-no-wrap">ACTIONS</th>
                           </tr>
@@ -63,6 +64,12 @@
                                   @php $found = true; @endphp
                                   
                                   @if($found)
+                                      <td>
+                                          <a href="" class="font-medium whitespace-no-wrap">{{ $s->subCategory->program->name}} </a>                                  
+                                      </td>
+                                      <td>
+                                          <a href="" class="font-medium whitespace-no-wrap">{{ $s->subCategory->name}} </a>                                  
+                                      </td>
                                       <td>
                                           <a href="" class="font-medium whitespace-no-wrap">{{ $s->name}} </a>                                  
                                       </td>

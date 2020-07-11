@@ -13,8 +13,11 @@ class ChartController extends Controller
     
     public function index()
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+
         $dataList = $this->repo->findAll();
-        // dd($chartList);
         return view('chart.index')->with('dataList', $dataList);
     }
     
@@ -30,6 +33,9 @@ class ChartController extends Controller
     
     public function show($id)
     {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
         $questionToResponses = $this->repo->mapQuestionToResponse($id);
         return view('chart.show')->with('questionToResponses', $questionToResponses);
     }
