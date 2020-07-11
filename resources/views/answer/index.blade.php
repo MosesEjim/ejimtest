@@ -56,26 +56,21 @@
                       <tbody>
                       @foreach($responses as $response)
                           <tr class="intro-x">
-                          @php $found = false; @endphp
+                              @php $found = false; @endphp
 
-                          @foreach($surveys as $s)
-                            @if($s->id === $response->survey_type_id )
-                              @php $found = true; @endphp
-                              
-                              @if($found)
-                                  <td>
-                                      <a href="" class="font-medium whitespace-no-wrap">{{ $s->name}} </a>                                  
-                                  </td>
-                              @endif
-                              
-                              @php break @endphp
-                            @endif
-                          @endforeach
-
-                         
-                              
-  
-                              
+                              @foreach($surveys as $s)
+                                @if($s->id == $response->survey_type_id )
+                                  @php $found = true; @endphp
+                                  
+                                  @if($found)
+                                      <td>
+                                          <a href="" class="font-medium whitespace-no-wrap">{{ $s->name}} </a>                                  
+                                      </td>
+                                  @endif
+                                  
+                                  @php break @endphp
+                                @endif
+                              @endforeach
                               <td class="table-report__action">
                                   <div class="flex justify-center items-center">
                                   <a class="flex items-center mr-3" href="{{ route('dashboard.eum.answer.show', $response->reference_id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> View Response </a>
@@ -87,7 +82,7 @@
                   </table>
               </div>
               <div class="intro-y flex flex-wrap sm:flex-row sm:flex-no-wrap items-center mt-3">
-                
+              {{ $responses->links('vendor.pagination.tailwind') }}
               </div>
           </div>
           <!-- END: Weekly Top Seller -->

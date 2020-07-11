@@ -9,9 +9,16 @@ class EloquentAnswerRepository implements AnswerContract {
 
       // return all Answer
     public function findAll() {
-      $answers = Answer::all();
-      $dataList  = collect($answers)->unique('reference_id');
-      return $dataList;
+      $answers = Answer::distinct()->count('reference_id');
+      // return collect($answers)->unique('reference_id');
+      return $answers;
+    }
+      // return all Answer
+    public function findAllByRef() {
+      $answers = Answer::latest()->paginate(20);
+      // dd($answers);
+      // return collect($answers)->unique('reference_id');
+      return $answers;
     }
 
     public function getAll() {

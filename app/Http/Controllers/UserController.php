@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterUserMailer;
 use Illuminate\Database\QueryException;
 use Sentinel;
+use App\Answer;
 
 class UserController extends Controller
 {
@@ -42,15 +43,19 @@ class UserController extends Controller
             return redirect()->route('auth.login.get');
         }
         $users = $this->repo->findAll();
+        $dataCollectors = $this->repo->getAllDataCollectors();
         $states = $this->stateRepo->findAll();
         $questions = $this->questionRepo->findAll();
         $programs = $this->programRepo->findAll();
         $answers = $this->answerRepo->findAll();
+        // $answers = Answer::count();
+        
         return view('dashboard.index')
             ->with('users', $users)
             ->with('questions', $questions)
             ->with('programs', $programs)
             ->with('answers', $answers)
+            ->with('dataCollectors', $dataCollectors)
             ->with('states', $states);
     }
     public function index()
@@ -60,6 +65,18 @@ class UserController extends Controller
         }
         
         $users = $this->repo->getAll();
+        return view('user.index')->with('users', $users);
+    }
+    
+    
+    public function dataCollectors()
+    {
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        
+        $users = $this->repo->getAllDataCollectors();
+        // dd($users);
         return view('user.index')->with('users', $users);
     }
     

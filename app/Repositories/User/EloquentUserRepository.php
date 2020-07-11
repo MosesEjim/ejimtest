@@ -47,6 +47,11 @@ class EloquentUserRepository implements UserContract {
       return $user;
     }
 
+    public function getAllDataCollectors(){
+      $role = Sentinel::findRoleBySlug('user');
+      return $role->users()->with('roles')->paginate(15);
+    }
+
       // return all User
     public function findAll() {
         return User::all();

@@ -20,7 +20,7 @@ class AnswerController extends Controller
             return redirect()->route('auth.login.get');
         }
 
-        $responses = $this->repo->findAll();
+        $responses = $this->repo->findAllByRef();
         $surveys = $this->surveyTypeRepo->fetchdAll();
         // dd($surveys);
         return view('answer.index')->with('responses', $responses)->with('surveys', $surveys);

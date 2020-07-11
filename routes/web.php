@@ -49,6 +49,8 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/edit', 'UserController@edit')->name('dashboard.user.edit');
             Route::put('/edit/{slug}', 'UserController@update')->name('dashboard.user.update');
             Route::put('/delete/{slug}', 'UserController@delete')->name('dashboard.user.delete');
+
+            Route::get('/data-collectors', 'UserController@dataCollectors')->name('dashboard.user.getAllDataCollectors');
         });
         
         
@@ -255,3 +257,10 @@ Route::group(['prefix' => 'account'], function() {
     });
 });
 
+Route::get('/backup', function () {
+
+    \Illuminate\Support\Facades\Artisan::call('backup:run');
+
+    return 'Successful backup!';
+
+});
