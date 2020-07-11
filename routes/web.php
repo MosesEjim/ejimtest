@@ -246,6 +246,11 @@ Route::group(['prefix' => 'account'], function() {
                 Route::get('/', 'AnswerController@index')->name('dashboard.eum.answer.index');
                 Route::get('/{id}', 'AnswerController@show')->name('dashboard.eum.answer.show');
             });
+
+            Route::group(['prefix'=>'chart'], function(){
+                Route::get('/', 'ChartController@index')->name('dashboard.eum.chart.index');
+                Route::get('/{id}', 'ChartController@show')->name('dashboard.eum.chart.show');
+            });
         });
     });
 });
