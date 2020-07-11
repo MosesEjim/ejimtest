@@ -111,7 +111,7 @@
                     labels: Array.from(new Set(answers)),
                     datasets:[{
                         data: answerValue,
-                        label: question.substr(0,20)+"...",
+                        label: "",
                         backgroundColor: colors
                     }]
                 },
