@@ -48,6 +48,7 @@
                   <table class="table table-report sm:mt-2">
                       <thead>
                           <tr>
+                              <th class = "whitespace-no-wrap" >S/N</th>
                               <th class="whitespace-no-wrap">PROGRAM</th>
                               <th class="whitespace-no-wrap">SUB PROGRAM</th>
                               <th class="whitespace-no-wrap">SURVEY TYPE</th>
@@ -55,15 +56,19 @@
                           </tr>
                       </thead>
                       <tbody>
+                      @php $i =0; @endphp
                       @foreach($responses as $response)
                           <tr class="intro-x">
                               @php $found = false; @endphp
 
                               @foreach($surveys as $s)
                                 @if($s->id == $response->survey_type_id )
-                                  @php $found = true; @endphp
+                                  @php $found = true; $i++ @endphp
                                   
                                   @if($found)
+                                      <td>
+                                          <a href="" class="font-medium whitespace-no-wrap">{{ $i}} </a>                                  
+                                      </td>
                                       <td>
                                           <a href="" class="font-medium whitespace-no-wrap">{{ $s->subCategory->program->name}} </a>                                  
                                       </td>

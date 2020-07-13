@@ -16,7 +16,6 @@ class EloquentAnswerRepository implements AnswerContract {
       // return all Answer
     public function findAllByRef() {
       $answers = Answer::all();
-     
       $answers = collect($answers)->unique('reference_id');
       return $answers;
     }
