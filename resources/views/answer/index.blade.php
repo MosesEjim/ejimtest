@@ -89,7 +89,7 @@
                   </table>
               </div>
               <div class="intro-y flex flex-wrap sm:flex-row sm:flex-no-wrap items-center mt-3">
-              {{ $responses->links('vendor.pagination.tailwind') }}
+              
               </div>
           </div>
           <!-- END: Weekly Top Seller -->

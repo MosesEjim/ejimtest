@@ -15,9 +15,9 @@ class EloquentAnswerRepository implements AnswerContract {
     }
       // return all Answer
     public function findAllByRef() {
-      $answers = Answer::latest()->paginate(20);
-      // dd($answers);
-      // return collect($answers)->unique('reference_id');
+      $answers = Answer::all();
+     
+      $answers = collect($answers)->unique('reference_id');
       return $answers;
     }
 
@@ -53,5 +53,10 @@ class EloquentAnswerRepository implements AnswerContract {
     public function remove($slug) {
         $answer = $this->findBySlug($slug);
         return $answer->delete();
+    }
+
+    public function deleteDuplicate($id, $created_at){
+      $duplicates = Answer::where([['reference_id','=',$id], ['created_at', '!=', $created_at]]);
+      return $duplicates->delete();
     }
 }

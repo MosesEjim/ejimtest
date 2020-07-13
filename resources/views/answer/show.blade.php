@@ -51,7 +51,7 @@
                           <tr>
                               <th class="">QUESTION</th>
                               <th class="">ANSWER</th>
-                              
+                              <th class="text-center whitespace-no-wrap">ACTION</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -63,10 +63,14 @@
                               <td>
                                   <a href="" class="font-medium ">{{ $response->answer}} </a>                                  
                               </td>
-                              
-                            
+                              <td class="table-report__action">
+                                  <div class="flex justify-center items-center">
+                                  <a class="flex items-center mr-3" href="{{ route('dashboard.eum.answer.delete',['id' => $response->reference_id, 'created_at'=>$response->created_at]) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Delete Response </a>
+                                  </div>
+                              </td>
                           </tr>
                         @endforeach
+                        
                       </tbody>
                   </table>
               </div>

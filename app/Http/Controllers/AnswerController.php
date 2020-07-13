@@ -57,8 +57,10 @@ class AnswerController extends Controller
         //
     }
     
-    public function delete($id)
+    public function delete($id, $created_at)
     {
-        //
+        $this->repo->deleteDuplicate($id, $created_at);
+        return back();
+
     }
 }
