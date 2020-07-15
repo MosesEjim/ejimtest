@@ -82,6 +82,8 @@ Route::group(['prefix' => 'account'], function() {
             Route::get('/', 'StockController@index')->name('dashboard.stock.index');
             Route::get('/create', 'StockController@create')->name('dashboard.stock.create');
             Route::post('/create', 'StockController@store')->name('dashboard.stock.store');
+            Route::get('/createfromfile', 'StockController@createFromFile')->name('dashboard.stock.createfromfile');
+            Route::post('/createfromfile', 'StockController@storefile')->name('dashboard.stock.storefile');
             Route::get('/edit/{id}', 'StockController@edit')->name('dashboard.stock.edit');
             Route::put('/edit/{id}', 'StockController@update')->name('dashboard.stock.update');
         });

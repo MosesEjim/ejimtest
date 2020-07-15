@@ -31,6 +31,13 @@ class StockController extends Controller
         $products = Product::all();
         return view('stock.create')->with('products', $products);
     }
+
+    public function createFromFile(){
+        if(!Sentinel::check()){
+            return redirect()->route('auth.login.get');
+        }
+        return view('stock.createfromfile');
+    }
     
     public function store(Request $request)
     {
@@ -65,7 +72,9 @@ class StockController extends Controller
         }
         
     }
-    
+    public function storefile(){
+        
+    }
     public function show($id)
     {
         //

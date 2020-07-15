@@ -45,26 +45,17 @@
               @endif 
 
 
-              <form method="post" action="{{ route('dashboard.stock.store') }}">
-                  @csrf
-                  <div class="preview">
-                      <div>
-                          <label for="product_id"> Select Product</label>
-                          <select name="product_id" id="" class="input w-full border mt-2">
-                            @foreach($products as $product)
-                              <option value="{{$product->id}}">{{$product->product_name}}</option>
-                            @endforeach
-                          </select>
-                      </div>
-                      <div>
-                          <label for="quantity"> Qantity</label>
-                          <input type="text" id="quantity" name ="quantity" class="input w-full border mt-2" placeholder="Enter quantity">
-                      </div>
-            
-                      <button type="submit" class="button bg-theme-9 text-white mt-5 mr-5">Save Stock</button>
-                    
-                      <a class="button bg-theme-3 text-white mt-5 mr-5"  href = "{{route('dashboard.stock.createfromfile')}}">Upload Stock From File</a>
-                  </div>
+              <form method="post" action="{{ route('dashboard.stock.storefile') }}">
+                    @csrf
+                    <div class="preview">
+                        <div>
+                            <label for="file"> Select File</label>
+                            <input type="file" class='button bg-theme-9 text-white mt-5 mr-5' name='file'>
+                        </div>
+                        
+                        <button type="submit" class="button bg-theme-9 text-white mt-5 mr-5">Save Stock</button>
+                        
+                    </div>
                 </form>
               </div>
           </div>
