@@ -1,5 +1,4 @@
 @extends('layout.app')
-
 @section('title', 'Responses')
 @section('answer_active', 'side-menu--active')
 @section('content')
@@ -14,15 +13,12 @@
                       LISTING ALL RESPONSES
                   </h2>
                   <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
-                      <a href="{{ route('dashboard.eum.surveytype.create') }}" class="button box flex items-center text-gray-700" style="margin-right:10px"> 
-                        <i data-feather="folder-plus" class="hidden sm:block w-4 h-4 mr-2"></i> Create Survey Type 
-                      </a>
                       
-                      <button class="button box flex items-center text-gray-700"> 
-                        <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to Excel 
+                      <button class="button box flex items-center text-gray-700" id="excel"> 
+                        <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2" ></i> Export to Excel 
                       </button>
                       
-                      <button class="ml-3 button box flex items-center text-gray-700"> 
+                      <button class="ml-3 button box flex items-center text-gray-700" id="pdf"> 
                         <i data-feather="file-text" class="hidden sm:block w-4 h-4 mr-2"></i> Export to PDF 
                       </button>
                   </div>
@@ -46,7 +42,7 @@
                   @endif
 
 
-                  <table class="table table-report sm:mt-2">
+                  <table class="table table-report sm:mt-2" id='table'> 
                       <thead>
                           <tr>
                               <th class="">QUESTION</th>
@@ -74,11 +70,38 @@
                       </tbody>
                   </table>
               </div>
-              <div class="intro-y flex flex-wrap sm:flex-row sm:flex-no-wrap items-center mt-3">
-                
-              </div>
+             
           </div>
           <!-- END: Weekly Top Seller -->
       </div>
   </div>
+@endsection
+
+@section('scripts')
+<script type='text/javascript' src="{{URL::asset('assets/js/jquery.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/tableExport.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/jquery.base64.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/jspdf.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/sprintf.js')}}"></script>
+<script type='text/javascript' src="{{URL::asset('assets/js/base64.js')}}"></script>
+<script type='text/javascript'>
+    $(document).ready(function(e){
+        $('#excel').click(function(e){
+            $('#table').tableExport({
+                type: 'excel',
+                escape: 'false',
+                ignoreColumn: [2]
+
+            });
+        });
+
+        $('#pdf').click(function(e){
+            $('#table').tableExport({
+                type: 'pdf',
+                excape: 'false',
+                ignoreColumn: []
+            });
+        });
+    });
+</script>
 @endsection
